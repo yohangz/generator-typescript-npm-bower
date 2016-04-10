@@ -1,4 +1,4 @@
-import Wish,{IGiftHolder} from '../../src/main/Wish';
+import Wish,{IGiftHolder} from '../../templates/src/main/Wish';
 
 describe('Wish Test ', () => {
 

@@ -374,16 +374,11 @@ module.exports = yeoman.Base.extend({
       });
     }
 
-    // if (this.options.boilerplate) {
-    //   this.composeWith('node:boilerplate', {
-    //     options: {
-    //       name: this.props.name,
-    //       babel: this.props.babel
-    //     }
-    //   }, {
-    //     local: require.resolve('../boilerplate')
-    //   });
-    // }
+    if (this.options.boilerplate) {
+      this.composeWith('typescript-npm-bower:boilerplate', {}, {
+        local: require.resolve('../boilerplate')
+      });
+    }
 
     if (this.options.license && !this.pkg.license) {
       this.composeWith('typescript-npm-bower:license', {

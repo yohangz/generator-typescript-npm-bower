@@ -13,7 +13,8 @@ module.exports = generators.Base.extend({
     });
   },
 
-  initializing: function () {
+  writing: function() {
+
     this.fs.copy(
       this.templatePath('src/**/*.ts'),
       this.destinationPath(this.options.generateInto, 'src')
