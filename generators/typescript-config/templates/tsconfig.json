@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "emitError": false,
+    "target": "ES5",
+    "sourceMap": false,
+    "declaration": true,
+    "module": "commonjs",
+    "noExternalResolve": false,
+    "sortOutput": true
+  },
+  "filesGlob": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "files": [],
+  "exclude": [
+    "typings",
+    "node_modules"
+  ]
+}

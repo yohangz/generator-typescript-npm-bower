@@ -347,6 +347,10 @@ module.exports = yeoman.Base.extend({
       });
     }
 
+    this.composeWith('typescript-npm-bower:typescript-conf', {}, {
+      local: require.resolve('../typescript-config')
+    });
+
     this.composeWith('typescript-npm-bower:git', {
       options: {
         name: this.props.name,
