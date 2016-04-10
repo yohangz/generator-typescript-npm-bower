@@ -1,17 +1,17 @@
 {
   "name": "generator-typescript-npm-bower",
   "version": "0.0.1",
-  "description": "Yeoman NPM module Bower component generator",
+  "description": "Yeoman generator for Typescript Node module and Bower component",
   "homepage": "",
   "author": {
     "name": "Yohan Gomez",
-    "email": "yohan.gz@gmail.com",
+    "email": "yohan.gz@hotmail.com",
     "url": ""
   },
   "contributors": [
     {
       "name": "Yohan Gomez",
-      "email": "yohan.gz@gmail.com",
+      "email": "yohan.gz@hotmail.com",
       "url": ""
     },
     {
