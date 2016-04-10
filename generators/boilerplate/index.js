@@ -11,6 +11,20 @@ module.exports = generators.Base.extend({
       defaults: '',
       desc: 'Relocate the location of the generated files.'
     });
+
+    this.option('styles', {
+      type: Boolean,
+      required: false,
+      defaults: false,
+      desc: 'Include CSS'
+    });
+
+    this.option('scss', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: 'Use SCSS extension'
+    });
   },
 
   writing: function() {
@@ -25,9 +39,18 @@ module.exports = generators.Base.extend({
       this.destinationPath(this.options.generateInto, 'test')
     );
 
-    this.fs.copy(
-      this.templatePath('styles/**/*.scss'),
-      this.destinationPath(this.options.generateInto, 'styles')
-    );
+    if (this.options.styles) {
+      if (this.options.scss) {
+        this.fs.copy(
+          this.templatePath('styles/**/*.scss'),
+          this.destinationPath(this.options.generateInto, 'styles')
+        );
+      } else {
+        this.fs.copy(
+          this.templatePath('styles/**/*.css'),
+          this.destinationPath(this.options.generateInto, 'styles')
+        );
+      }
+    }
   }
 });
