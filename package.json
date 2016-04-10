@@ -4,21 +4,33 @@
   "description": "Yeoman NPM module Bower component generator",
   "homepage": "",
   "author": {
-    "name": "Yohan Gomez, Lahiru Sampath",
-    "email": "yohan.gz@gmail.com, lsampath999@gmail.com",
+    "name": "Yohan Gomez",
+    "email": "yohan.gz@gmail.com",
     "url": ""
   },
+  "contributors": [
+    {
+      "name": "Yohan Gomez",
+      "email": "yohan.gz@gmail.com",
+      "url": ""
+    },
+    {
+      "name": "Lahiru Sampath",
+      "email": "lsampath999@gmail.com",
+      "url": ""
+    }
+  ],
   "files": [
     "generators",
     "index.js"
   ],
   "main": "index.js",
   "keywords": [
+    "yeoman-generator"
     "NPM Module",
     "Bower Dependency",
     "NPM TypeScript",
-    "Bower Typescript ",
-    "yeoman generator"
+    "Bower Typescript "
   ],
   "dependencies": {
     "chalk": "^1.0.0",

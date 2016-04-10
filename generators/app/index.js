@@ -290,7 +290,7 @@ module.exports = yeoman.Base.extend({
           'global'
         ],
         keywords: pkg.keywords,
-        authors: this.props.authorName ? this.props.authorName.split(',') : '',
+        authors: [ this.props.authorName ],
         license: '',
         ignore: [
           'gulp',
