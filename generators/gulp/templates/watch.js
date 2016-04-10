@@ -15,7 +15,7 @@ var path = require('path'),
  * @param done - done callback function.
  */
 gulp.task('watch', function (done) {
-    runSequence('clean-js-tmp', ['jshint', 'tslint','scss-lint'], 'tmp-watch-scripts', ['watch-scripts','watch-build-scripts','watch-scss-scripts'], done);
+    runSequence('clean-js-tmp', ['jshint', 'tslint','scss-lint'], 'tmp-watch-scripts', ['watch-scripts','watch-build-scripts', <% if (scss) { -%>'watch-scss-scripts' <% } -%>], done);
 });
 
 /**
@@ -43,7 +43,7 @@ gulp.task('watch-build-scripts', function(){
     });
 });
 
-
+<% if (scss) { -%>
 /**
  * Gulp watch scss scripts.
  * Watch changes in build process helper files -> run scss lint.
@@ -55,7 +55,7 @@ gulp.task('watch-scss-scripts', function(){
         gulp.start('scss-lint');
     });
 });
-
+<% } -%>
 
 
 

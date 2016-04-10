@@ -369,7 +369,14 @@ module.exports = yeoman.Base.extend({
     });
 
     if (this.options.gulp) {
-      this.composeWith('typescript-npm-bower:gulp', {}, {
+      this.composeWith('typescript-npm-bower:gulp', {
+        options: {
+          name: _.kebabCase(this.props.name),
+          styles: this.props.styles,
+          scss: this.props.scss,
+          bower: this.props.bower
+        }
+      },  {
         local: require.resolve('../gulp')
       });
     }

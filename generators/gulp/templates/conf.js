@@ -9,7 +9,7 @@
 var gutil = require('gulp-util');
 
 /** Project Name goes here */
-var Project_Name ='ede-rendering-sdk';
+var Project_Name ='<%= projectName %>';
 
 /**
  *  The main paths of your project handle these with care
