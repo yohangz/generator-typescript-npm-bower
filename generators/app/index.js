@@ -329,8 +329,8 @@ module.exports = yeoman.Base.extend({
       });
     }
 
-    this.composeWith('typescript-npm-bower:editorconfig', {}, {
-      local: require.resolve('../editorconfig')
+    this.composeWith('typescript-npm-bower:editor-conf', {}, {
+      local: require.resolve('../editor-conf')
     });
 
     this.composeWith('typescript-npm-bower:lint', {}, {
@@ -348,7 +348,11 @@ module.exports = yeoman.Base.extend({
     }
 
     this.composeWith('typescript-npm-bower:typescript-conf', {}, {
-      local: require.resolve('../typescript-config')
+      local: require.resolve('../typescript-conf')
+    });
+
+    this.composeWith('typescript-npm-bower:karma-conf', {}, {
+      local: require.resolve('../karma-conf')
     });
 
     this.composeWith('typescript-npm-bower:git', {
