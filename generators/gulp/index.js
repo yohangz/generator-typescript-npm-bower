@@ -142,10 +142,15 @@ module.exports = generators.Base.extend({
         }
       );
 
-      this.fs.copy(
-        this.templatePath('copy.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'copy.js')
-      );
+      if (this.options.styles) {
+        this.fs.copyTpl(
+          this.templatePath('copy.js'),
+          this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'copy.js'),
+          {
+            bower: this.options.bower
+          }
+        );
+      }
 
       this.fs.copy(
         this.templatePath('inject.js'),

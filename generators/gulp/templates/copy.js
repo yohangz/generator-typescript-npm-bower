@@ -14,7 +14,9 @@ var gulp = require('gulp-help')(require('gulp')),
  */
 gulp.task('copy-css', function() {
     gulp.src(conf.paths.cssTmp + '/*.css')
+    <% if (bower) { -%>
         .pipe(gulp.dest(conf.paths.bower))
+    <% } -%>
         .pipe(gulp.dest(conf.paths.lib));
 });
 
