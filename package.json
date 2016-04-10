@@ -1,0 +1,53 @@
+{
+  "name": "generator-typescript-npm-bower",
+  "version": "0.0.1",
+  "description": "Yeoman NPM module Bower component generator",
+  "homepage": "",
+  "author": {
+    "name": "Yohan Gomez, Lahiru Sampath",
+    "email": "yohan.gz@gmail.com, lsampath999@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "generators",
+    "index.js"
+  ],
+  "main": "index.js",
+  "keywords": [
+    "NPM Module",
+    "Bower Dependency",
+    "NPM TypeScript",
+    "Bower Typescript ",
+    "yeoman generator"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "generator-license": "^3.1.1",
+    "git-remote-origin-url": "^1.1.1",
+    "github-username": "^2.1.0",
+    "inquirer-npm-name": "^1.0.0",
+    "lodash": "^4.9.0",
+    "parse-author": "^0.2.1",
+    "path": "^0.12.7",
+    "yeoman-generator": "^0.22.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "yeoman-test": "^1.0.0",
+    "yeoman-assert": "^2.0.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0"
+  },
+  "repository": "https://github.com/yohangz/generator-typescript-npm-bower.git",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT"
+}
