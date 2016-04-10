@@ -15,13 +15,8 @@ module.exports = generators.Base.extend({
 
   initializing: function () {
     this.fs.copy(
-      this.templatePath('jshintrc'),
-      this.destinationPath(this.options.generateInto, '.jshintrc')
-    );
-
-    this.fs.copy(
-      this.templatePath('tslint.json'),
-      this.destinationPath(this.options.generateInto, 'tslint.json')
+      this.templatePath('bowerrc'),
+      this.destinationPath(this.options.generateInto, '.bowerrc')
     );
   }
 });

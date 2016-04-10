@@ -1,0 +1,25 @@
+.idea/ 
+.tmp/
+ bower/
+ coverage/
+ docs/
+ example/
+ gulp/
+ node_modules/
+ src/
+ test/
+ typings/
+ .bowerrc 
+.editorconfig 
+.gitignore 
+.jshintrc 
+.npmrc 
+.version 
+bower.json 
+gulpfile.js
+ karma.conf.js
+ karma-coverage.conf.js 
+tsconfig.json 
+tsd.json 
+tslint.json 
+npm-debug.log

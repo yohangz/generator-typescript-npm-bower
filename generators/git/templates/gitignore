@@ -1,2 +1,15 @@
-node_modules
-coverage
+bower/
+coverage/
+docs/
+lib/
+node_modules/
+typings/
+.tmp/
+.idea/
+npm-debug.log
+src/**/*.js
+src/**/*.js.map
+src/**/*.ts.ktp.ts
+test/**/*.js
+test/**/*.js.map
+test/**/*.ts.ktp.ts

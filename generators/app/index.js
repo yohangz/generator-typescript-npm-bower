@@ -294,13 +294,15 @@ module.exports = yeoman.Base.extend({
       local: require.resolve('../lint')
     });
 
-    // this.composeWith('node:eslint', {
-    //   options: {
-    //     es2015: this.props.babel
-    //   }
-    // }, {
-    //   local: require.resolve('../eslint')
-    // });
+    this.composeWith('typescript-npm-bower:npm-conf', {}, {
+      local: require.resolve('../npm-conf')
+    });
+
+    if (this.options.bower && this.props.bower) {
+      this.composeWith('typescript-npm-bower:bower-conf', {}, {
+        local: require.resolve('../bower-conf')
+      });
+    }
 
     this.composeWith('typescript-npm-bower:git', {
       options: {
