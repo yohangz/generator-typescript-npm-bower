@@ -177,6 +177,22 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
+    confirmBowerAdd: function () {
+      var done = this.async();
+
+      var prompt = {
+        type: 'confirm',
+        name: 'bower',
+        message: 'Include bower component',
+        default: true
+      };
+
+      this.prompt(prompt, function (prop) {
+        this.props.bower = prop.bower;
+        done();
+      }.bind(this));
+    },
+
     confirmStyleAdd : function () {
       var done = this.async();
 
@@ -206,22 +222,6 @@ module.exports = yeoman.Base.extend({
 
       this.prompt(prompt, function (prop) {
         this.props.scss = prop.scss;
-        done();
-      }.bind(this));
-    },
-
-    confirmBowerAdd: function () {
-      var done = this.async();
-
-      var prompt = {
-        type: 'confirm',
-        name: 'bower',
-        message: 'Include bower component',
-        default: true
-      };
-
-      this.prompt(prompt, function (prop) {
-        this.props.bower = prop.bower;
         done();
       }.bind(this));
     },
@@ -277,6 +277,49 @@ module.exports = yeoman.Base.extend({
 
     // Let's extend package.json so we're not overwriting user previous fields
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
+
+    if (this.options.bower && this.props.bower) {
+      var bower = {
+        name: pkg.name,
+        version: '0.0.0',
+        description: this.props.description,
+        main: this.props.styles ? ['bower/' + this.props.name + '.js', 'bower/' + this.props.name + (this.props.scss ? '.scss' : '.css')] : 'bower/' + this.props.name + '.js',
+        dependencies: {},
+        devDependencies: {},
+        moduleType: [
+          'global'
+        ],
+        keywords: pkg.keywords,
+        authors: this.props.authorName ? this.props.authorName.split(',') : '',
+        license: '',
+        ignore: [
+          'gulp',
+          'lib',
+          'node_modules',
+          'src',
+          'docs',
+          'test',
+          'coverage',
+          'typings',
+          '.tmp',
+          '.idea',
+          '.editorconfig',
+          '.gitignore',
+          '.jshintrc',
+          '.npmignore',
+          '.npmrc',
+          'gulpfile.js',
+          'karma.conf.js',
+          'karma-coverage.conf.js',
+          'package.json',
+          'tsconfig.json',
+          'tslint.json',
+          'npm-debug.log'
+        ]
+      };
+
+      this.fs.writeJSON(this.destinationPath('bower.json'), bower);
+    }
   },
 
   default: function () {
@@ -338,7 +381,7 @@ module.exports = yeoman.Base.extend({
     // }
 
     if (this.options.license && !this.pkg.license) {
-      this.composeWith('license', {
+      this.composeWith('typescript-npm-bower:license', {
         options: {
           name: this.props.authorName,
           email: this.props.authorEmail,
