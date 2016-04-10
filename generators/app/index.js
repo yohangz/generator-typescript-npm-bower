@@ -347,8 +347,12 @@ module.exports = yeoman.Base.extend({
       });
     }
 
-    this.composeWith('typescript-npm-bower:typescript-conf', {}, {
-      local: require.resolve('../typescript-conf')
+    this.composeWith('typescript-npm-bower:typescript-conf', {
+        options: {
+          name: _.kebabCase(this.props.name)
+        }
+      }, {
+        local: require.resolve('../typescript-conf')
     });
 
     this.composeWith('typescript-npm-bower:karma-conf', {}, {

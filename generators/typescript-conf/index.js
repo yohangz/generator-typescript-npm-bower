@@ -11,12 +11,26 @@ module.exports = generators.Base.extend({
       defaults: '',
       desc: 'Relocate the location of the generated files.'
     });
+
+    this.option('name', {
+      type: String,
+      required: true,
+      desc: 'Project name'
+    });
   },
 
-  initializing: function () {
+  writing: function () {
     this.fs.copy(
       this.templatePath('tsconfig.json'),
       this.destinationPath(this.options.generateInto, 'tsconfig.json')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('typings.json'),
+      this.destinationPath(this.options.generateInto, 'typings.json'),
+      {
+        projectName: this.options.name
+      }
     );
   }
 });

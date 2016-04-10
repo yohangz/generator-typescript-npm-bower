@@ -26,7 +26,7 @@
   ],
   "main": "index.js",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
     "NPM Module",
     "Bower Dependency",
     "NPM TypeScript",
