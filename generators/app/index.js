@@ -79,6 +79,13 @@ module.exports = yeoman.Base.extend({
       defaults: true,
       desc: 'Use SCSS extension'
     });
+
+    this.option('bower', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: 'Include bower component'
+    });
   },
 
   initializing: function () {
@@ -170,7 +177,7 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
-    askForStyleAdd : function () {
+    confirmStyleAdd : function () {
       var done = this.async();
 
       var prompt = {
@@ -186,7 +193,7 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
-    askForScssAdd: function () {
+    confirmScssAdd: function () {
       var done = this.async();
 
       var prompt = {
@@ -199,6 +206,22 @@ module.exports = yeoman.Base.extend({
 
       this.prompt(prompt, function (prop) {
         this.props.scss = prop.scss;
+        done();
+      }.bind(this));
+    },
+
+    confirmBowerAdd: function () {
+      var done = this.async();
+
+      var prompt = {
+        type: 'confirm',
+        name: 'bower',
+        message: 'Include bower component',
+        default: true
+      };
+
+      this.prompt(prompt, function (prop) {
+        this.props.bower = prop.bower;
         done();
       }.bind(this));
     },
@@ -263,8 +286,12 @@ module.exports = yeoman.Base.extend({
       });
     }
 
-    this.composeWith('node:editorconfig', {}, {
+    this.composeWith('typescript-npm-bower:editorconfig', {}, {
       local: require.resolve('../editorconfig')
+    });
+
+    this.composeWith('typescript-npm-bower:lint', {}, {
+      local: require.resolve('../lint')
     });
 
     // this.composeWith('node:eslint', {
