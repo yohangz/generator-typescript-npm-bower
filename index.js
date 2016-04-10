@@ -5,6 +5,7 @@ module.exports = {
   bowerConfig: require.resolve('./generators/bower-conf'),
   editorConfig: require.resolve('./generators/editor-conf'),
   git: require.resolve('./generators/git'),
+  gulp: require.resolve('./generators/gulp'),
   karmaConfig: require.resolve('./generators/karma-conf'),
   lint: require.resolve('./generators/lint'),
   npmConfig: require.resolve('./generators/npm-conf'),

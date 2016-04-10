@@ -368,19 +368,12 @@ module.exports = yeoman.Base.extend({
       local: require.resolve('../git')
     });
 
-    // if (this.options.gulp) {
-    //   this.composeWith('node:gulp', {
-    //     options: {
-    //       coveralls: this.props.includeCoveralls,
-    //       babel: this.props.babel,
-    //       projectRoot: this.options.projectRoot,
-    //       cli: this.options.cli
-    //     }
-    //   }, {
-    //     local: require.resolve('../gulp')
-    //   });
-    // }
-    //
+    if (this.options.gulp) {
+      this.composeWith('typescript-npm-bower:gulp', {}, {
+        local: require.resolve('../gulp')
+      });
+    }
+
     // if (this.options.boilerplate) {
     //   this.composeWith('node:boilerplate', {
     //     options: {
