@@ -257,11 +257,11 @@ module.exports = yeoman.Base.extend({
   },
 
   default: function () {
-    // if (this.options.travis) {
-    //   this.composeWith('travis', {}, {
-    //     local: require.resolve('generator-travis/generators/app')
-    //   });
-    // }
+    if (this.options.travis) {
+      this.composeWith('travis', {}, {
+        local: require.resolve('generator-travis/generators/app')
+      });
+    }
 
     this.composeWith('node:editorconfig', {}, {
       local: require.resolve('../editorconfig')

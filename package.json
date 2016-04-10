@@ -23,6 +23,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "generator-license": "^3.1.1",
+    "generator-travis": "^1.2.4",
     "git-remote-origin-url": "^1.1.1",
     "github-username": "^2.1.0",
     "inquirer-npm-name": "^1.0.0",
