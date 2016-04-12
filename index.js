@@ -2,6 +2,7 @@
 
 module.exports = {
   app: require.resolve('./generators/app'),
+  boilerplate: require.resolve('./generators/boilerplate'),
   bowerConfig: require.resolve('./generators/bower-conf'),
   editorConfig: require.resolve('./generators/editor-conf'),
   git: require.resolve('./generators/git'),
