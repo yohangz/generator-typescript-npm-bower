@@ -17,24 +17,6 @@ Then generate your new project:
 yo typescript-npm-bower
 ```
 
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
-## License
-
-MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://github.com/lahiruz)
-
-[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat 
-[license-url]: https://github.com/yohangz/generator-typescript-npm-bower/blob/master/LICENSE
-[npm-image]: https://badge.fury.io/js/generator-npm-bower-module.svg
-[npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
-[travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
-[travis-image]: https://secure.travis-ci.org/asbjornenge/generator-microlib.png?branch=master
-
 ## Usage
 
 ```
@@ -113,7 +95,7 @@ Here's a list of our supported options:
 - `license` (Boolean, default true) include or not a `LICENSE` file.
 - `travis` (Boolean, default true) include or not a `.travis.yml` file.
 - `githubAccount` (String) Account name for GitHub repo location.
-- `readme` (String) content of the `README.md` file. Given this option, generator-typescript-npm-bower will still generate the title (with badges) and the license section.
+- `readme` (String) content of the `README.md` file. Given this option, generator-typescript-npm-bower will generate license section.
 
 ### Sub generators
 
@@ -132,3 +114,20 @@ Remember you can see the options of each sub generators by running `yo typescrip
 - `typescript-npm-bower:readme`
 - `typescript-npm-bower:typescript-conf`
 
+# Getting To Know Yeoman
+
+ * Yeoman has a heart of gold.
+ * Yeoman is a person with feelings and opinions, but is very easy to work with.
+ * Yeoman can be too opinionated at times but is easily convinced not to be.
+ * Feel free to [learn more about Yeoman](http://yeoman.io/).
+
+## License
+
+MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://github.com/lahiruz)
+
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat 
+[license-url]: https://github.com/yohangz/generator-typescript-npm-bower/blob/master/LICENSE
+[npm-image]: https://badge.fury.io/js/generator-npm-bower-module.svg
+[npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
+[travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
+[travis-image]: https://secure.travis-ci.org/asbjornenge/generator-microlib.png?branch=master
