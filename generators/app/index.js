@@ -404,21 +404,22 @@ module.exports = yeoman.Base.extend({
       });
     }
 
-    // if (!this.fs.exists(this.destinationPath('README.md'))) {
-    //   this.composeWith('node:readme', {
-    //     options: {
-    //       name: this.props.name,
-    //       description: this.props.description,
-    //       githubAccount: this.props.githubAccount,
-    //       authorName: this.props.authorName,
-    //       authorUrl: this.props.authorUrl,
-    //       coveralls: this.props.includeCoveralls,
-    //       content: this.options.readme
-    //     }
-    //   }, {
-    //     local: require.resolve('../readme')
-    //   });
-    // }
+    if (!this.fs.exists(this.destinationPath('README.md'))) {
+      this.composeWith('typescript-npm-bower:readme', {
+        options: {
+          name: this.props.name,
+          description: this.props.description,
+          githubAccount: this.props.githubAccount,
+          authorName: this.props.authorName,
+          styles: this.props.styles,
+          scss: this.props.scss,
+          bower: this.props.bower
+        }
+
+      }, {
+        local: require.resolve('../readme')
+      });
+    }
   },
 
   install: function () {
