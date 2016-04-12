@@ -1,5 +1,10 @@
-# generator-npm-bower-module [![MIT License][license-image]][https://github.com/yohangz/generator-typescript-npm-bower/LICENSE] [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Generate NPM module/ Bower Bower component. 
+# generator-npm-bower-module [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> Generate NPM module/ Bower Bower component.
+
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat 
+[license-url]: https://github.com/yohangz/generator-typescript-npm-bower/blob/master/LICENSE
+[npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
+[travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
 
 ## Installation
 
