@@ -5,9 +5,9 @@
 'use strict';
 
 var gulp = require('gulp-help')(require('gulp')),
-    runSequence = require('run-sequence'),
-    $ = require('gulp-load-plugins')(),
-    conf = require('./conf');
+  runSequence = require('run-sequence'),
+  $ = require('gulp-load-plugins')(),
+  conf = require('./conf');
 
 
 /**
@@ -15,13 +15,13 @@ var gulp = require('gulp-help')(require('gulp')),
  * Report errors.
  */
 gulp.task("typings-install",function(done){
-    gulp.src(conf.paths.typings)
-        .pipe($.typings())
-        .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT))
-        .on('end', function(){
-            done();
-        })
-        .resume();
+  gulp.src(conf.paths.typings)
+    .pipe($.typings())
+    .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT))
+    .on('end', function(){
+      done();
+    })
+    .resume();
 });
 
 /**
@@ -30,10 +30,5 @@ gulp.task("typings-install",function(done){
  * @param done - done callback function.
  */
 gulp.task('build', function (done) {
-    runSequence('typings-install','build-scripts','test',done);
+  runSequence('typings-install','build-scripts','test',done);
 });
-
-
-
-
-

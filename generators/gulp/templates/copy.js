@@ -12,11 +12,14 @@ var gulp = require('gulp-help')(require('gulp')),
  * Gulp copy css task.
  * Copy css files in .cssTmp to bower and npm directories.
  */
-gulp.task('copy-css', function() {
+gulp.task('copy-css', function(done) {
     gulp.src(conf.paths.cssTmp + '/*.css')
-    <% if (bower) { -%>
+<% if (bower) { -%>
         .pipe(gulp.dest(conf.paths.bower))
-    <% } -%>
-        .pipe(gulp.dest(conf.paths.lib));
+<% } -%>
+        .pipe(gulp.dest(conf.paths.lib))
+        .on('end', function(){
+          done();
+        });
 });
 

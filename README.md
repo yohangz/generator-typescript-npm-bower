@@ -1,4 +1,4 @@
-# generator-npm-bower-module [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-npm-bower-module [![MIT License][license-image]][https://github.com/yohangz/generator-typescript-npm-bower/LICENSE] [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generate NPM module/ Bower Bower component. 
 
 ## Installation

@@ -6,7 +6,7 @@
 'use strict';
 
 var gulp = require('gulp-help')(require('gulp')),
-    requireDir = require('require-dir');
+  requireDir = require('require-dir');
 
 
 /**
@@ -20,5 +20,5 @@ requireDir('./gulp');
  * main optimization build task
  */
 gulp.task('default', function () {
-    gulp.start('build');
+  gulp.start('build');
 });
