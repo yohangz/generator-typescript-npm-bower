@@ -1,4 +1,4 @@
-# generator-npm-bower-module [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-logo]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-npm-bower-module [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-logo]][travis-url]
 > Generate NPM module/ Bower Bower component.
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat 
