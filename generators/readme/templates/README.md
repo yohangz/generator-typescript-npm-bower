@@ -27,7 +27,9 @@ npm install <%= projectName %> --save
 │   ├── /conf.js                # Contains the variables used in other gulp files
 │   ├── /copy.js                # Copies .css build output to lib and bower folders.
 │   ├── /inject.js              # Injects minified bower component to index.html in example folder
-|   |<% if(styles && scss){ %>── /sass.js                # Builds all the .scss files with lint support<% } %>
+<% if(styles && scss){ %>
+|   |── /sass.js                # Builds all the .scss files with lint support
+<% } -%>
 │   ├── /tests.js               # Run tests and generate coverage reports
 │   ├── /tsconfig.js            # Updates tsconfig.json with project sources
 │   ├── /tsdocs.js              # Generates documentation for the project
@@ -37,23 +39,29 @@ npm install <%= projectName %> --save
 ├── /src/                       # The source code(.ts) of the application
 │   ├── /sub_srcs               # Contain any sub sources(files or folders)
 │   └── /index.ts               # Expose the acceseble properties by outside
-|<% if(styles){ %>── /styles/                    # Styling(.css or .scss) files for the project<% } %>
+<% if(styles && scss){ %>
+|── /styles/                    # Styling(.css or .scss) files for the project
+<% } -%>
 ├── /test/                      # Contain tests(.ts) for all the source files
 ├── /typings/                   # Typings files for specific node modules for the project
-|<% if(bower){ %>── .bowerrc                    # Configuration variables for execution in general(like command-line flags)<% } %>
+<% if(styles && scss){ %>
+|── .bowerrc                    # Configuration variables for execution in general(like command-line flags)
+<% } -%>
 ├── .editorconfig               # Define and maintain consistent coding styles between different editors and IDEs
 ├── .gitignore                  # Contains files to be ignored when pushing to git
 ├── .jshintrc                   # JShint rules for the project
 ├── .npmignore                  # Contains files to be ignored when pushing to npm
 ├── .npmrc                      # NPM config file
 ├── .version                    # Version
-|<% if(bower){ %>── bower.json                  # Configuring packages that can be used as a dependency of another package<% } %>
+<% if(styles && scss){ %>
+|── bower.json                  # Configuring packages that can be used as a dependency of another package
+<% } -%>
 ├── karma.conf.js               # Test runner in .ts format
 ├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
 ├── tsconfig.json               # Contains typescript compiler options
 ├── tslint.json                 # Lint rules for the project
 ├── typings.json                # Typings information to generate typings folder
-└── package.json                # The list of 3rd party libraries and utilities
+└── package.json                # Holds various metadata relevant to the project
 ```
 
 ## Technologies
@@ -85,6 +93,8 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
   watch             Watches ts source files and runs tslint, jshint <% if(styles && scss){ %>and scss-lint <% } -%>on change
 ```
+## Changelog
+Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)
 
 ## License
 
