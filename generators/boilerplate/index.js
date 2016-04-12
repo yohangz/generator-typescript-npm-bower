@@ -30,6 +30,11 @@ module.exports = generators.Base.extend({
   writing: function() {
 
     this.fs.copy(
+      this.templatePath('example/**/*'),
+      this.destinationPath(this.options.generateInto, 'example')
+    );
+
+    this.fs.copy(
       this.templatePath('src/**/*.ts'),
       this.destinationPath(this.options.generateInto, 'src')
     );

@@ -48,6 +48,9 @@ module.exports = generators.Base.extend({
       var pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {});
 
       extend(pkg, {
+        dependencies: {
+          'lodash': '4.8.2'
+        },
         devDependencies: {
           'browserify': '13.0.0',
           'browserify-istanbul': '2.0.0',
@@ -129,16 +132,23 @@ module.exports = generators.Base.extend({
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'build.js')
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('clean.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'clean.js')
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'clean.js'),
+        {
+          bower: this.options.bower,
+          styles: this.options.styles
+        }
       );
 
       this.fs.copyTpl(
         this.templatePath('conf.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'conf.js'),
         {
-          projectName: this.options.name
+          projectName: this.options.name,
+          bower: this.options.bower,
+          styles: this.options.styles,
+          scss: this.options.scss
         }
       );
 
@@ -152,9 +162,13 @@ module.exports = generators.Base.extend({
         );
       }
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('inject.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js')
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js'),
+        {
+          bower: this.options.bower,
+          styles: this.options.styles
+        }
       );
 
       if (this.options.styles && this.options.scss) {
@@ -164,9 +178,13 @@ module.exports = generators.Base.extend({
         );
       }
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('scripts.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scripts.js')
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scripts.js'),
+        {
+          bower: this.options.bower,
+          styles: this.options.styles
+        }
       );
 
       this.fs.copy(

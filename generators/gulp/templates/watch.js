@@ -15,7 +15,7 @@ var path = require('path'),
  * @param done - done callback function.
  */
 gulp.task('watch', function (done) {
-    runSequence('clean-js-tmp', ['jshint', 'tslint','scss-lint'], 'tmp-watch-scripts', ['watch-scripts','watch-build-scripts', <% if (scss) { -%>'watch-scss-scripts' <% } -%>], done);
+    runSequence('clean-js-tmp', ['jshint', 'tslint'<% if (scss) { -%>, 'scss-lint'<% } -%>], 'tmp-watch-scripts', ['watch-scripts', 'watch-build-scripts'<% if (scss) { -%>, 'watch-scss-scripts' <% } -%>], done);
 });
 
 /**

@@ -18,6 +18,7 @@ gulp.task('clean-lib', function () {
     ]);
 });
 
+<% if (bower) { -%>
 /**
  * Gulp clean bower directory task.
  */
@@ -26,9 +27,7 @@ gulp.task('clean-bower', function () {
         conf.paths.bower
     ]);
 });
-
-
-
+<% } -%>
 
 /**
  * Gulp clean coverage directory task.
@@ -62,6 +61,7 @@ gulp.task('clean-source-tmp', function () {
     ]);
 });
 
+<% if (styles) { -%>
 /**
  * Gulp task to clean css files which are created inside distribution directories.
  */
@@ -71,6 +71,7 @@ gulp.task('clean-css', function () {
         conf.paths.lib + '/**/*.css'
     ]);
 });
+<% } -%>
 
 /**
  * Gulp task to clean temporary .js files which are created inside .jsTmp folder.
@@ -83,17 +84,16 @@ gulp.task('clean-js-tmp', function () {
     ]);
 });
 
+<% if (styles) { -%>
 /**
  * Gulp task to clean temporary css files which are created inside .cssTmp folder.
  */
 gulp.task('clean-css-tmp', function () {
     return del([
         conf.paths.cssTmp
-
-
     ]);
 });
-
+<% } -%>
 
 /**
  * Gulp task to clean both lib and bower directories.
@@ -101,6 +101,6 @@ gulp.task('clean-css-tmp', function () {
  * @param done - done callback function.
  */
 gulp.task('clean-build', function(done){
-    runSequence(['clean-lib', 'clean-bower'],done);
+    runSequence(<% if (bower) { -%>['clean-lib', 'clean-bower']<% } else { -%>'clean-lib'<% } -%>,done);
 });
 
