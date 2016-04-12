@@ -20,20 +20,26 @@ npm install <%= projectName %> --save
 <% if(bower){ %>├── /bower/                     # The folder for compiled output for bower component consume<% } %>
 ├── /coverage/                  # Code coverage for source files of the project
 ├── /docs/                      # Documentation files for the project
+<% if(bower){ %>
 ├── /example/                   # The folder contains Html file and example.js file to test the bower component
+<% } -%>
 ├── /gulp/                      # The folder contains gulp tasks required to build the project
-│   ├── /build.js               # Builds the project from source to output (lib and bower) folder
+│   ├── /build.js               # Builds the project from source to output(lib<% if(bower){ %> and bower<% } %>) folder
 │   ├── /clean.js               # Contain clean tasks required for the prject
 │   ├── /conf.js                # Contains the variables used in other gulp files
+<% if(styles && scss){ %>
 │   ├── /copy.js                # Copies .css build output to lib and bower folders.
-│   ├── /inject.js              # Injects minified bower component to index.html in example folder
+<% } -%>
+<% if(bower || styles && scss){ %>
+│   ├── /inject.js              # Injects minified js <% if(styles && scss){ %>and css <% } %>files to index.html in example folder
+<% } -%>
 <% if(styles && scss){ %>
 |   |── /sass.js                # Builds all the .scss files with lint support
 <% } -%>
 │   ├── /tests.js               # Run tests and generate coverage reports
 │   ├── /tsconfig.js            # Updates tsconfig.json with project sources
 │   ├── /tsdocs.js              # Generates documentation for the project
-│   └── /watch.js               # Watches all the .ts,.js and .scss files for changes
+│   └── /watch.js               # Watches all the .ts,.js <% if(styles && scss){ %>and .scss <% } %>files for changes
 ├── /lib/                       # The folder for compiled output with typings for node module consume
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /src/                       # The source code(.ts) of the application
@@ -44,7 +50,7 @@ npm install <%= projectName %> --save
 <% } -%>
 ├── /test/                      # Contain tests(.ts) for all the source files
 ├── /typings/                   # Typings files for specific node modules for the project
-<% if(styles && scss){ %>
+<% if(bower){ %>
 |── .bowerrc                    # Configuration variables for execution in general(like command-line flags)
 <% } -%>
 ├── .editorconfig               # Define and maintain consistent coding styles between different editors and IDEs
@@ -53,7 +59,7 @@ npm install <%= projectName %> --save
 ├── .npmignore                  # Contains files to be ignored when pushing to npm
 ├── .npmrc                      # NPM config file
 ├── .version                    # Version
-<% if(styles && scss){ %>
+<% if(bower){ %>
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
 ├── karma.conf.js               # Test runner in .ts format
