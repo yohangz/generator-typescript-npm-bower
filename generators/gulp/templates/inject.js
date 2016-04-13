@@ -5,9 +5,9 @@
 'use strict';
 
 var path = require('path'),
-  gulp = require('gulp-help')(require('gulp')),
-  $ = require('gulp-load-plugins')(),
-  conf = require('./conf');
+    gulp = require('gulp-help')(require('gulp')),
+    $ = require('gulp-load-plugins')(),
+    conf = require('./conf');
 
 /**
  * Inject bower build output with a script tag to html.

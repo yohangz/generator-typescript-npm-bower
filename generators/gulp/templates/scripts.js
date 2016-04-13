@@ -5,16 +5,16 @@
 'use strict';
 
 var path = require('path'),
-  gulp = require('gulp-help')(require('gulp')),
-  conf = require('./conf'),
-  source = require('vinyl-source-stream'),
+    gulp = require('gulp-help')(require('gulp')),
+    conf = require('./conf'),
+    source = require('vinyl-source-stream'),
 <% if (bower) { -%>
-  tsify = require('tsify'),
-  browserify = require('browserify'),
+    tsify = require('tsify'),
+    browserify = require('browserify'),
 <% } -%>
-  runSequence = require('run-sequence'),
-  tsConf = require('./../tsconfig.json').compilerOptions,
-  $ = require('gulp-load-plugins')();
+    runSequence = require('run-sequence'),
+    tsConf = require('./../tsconfig.json').compilerOptions,
+    $ = require('gulp-load-plugins')();
 
 /* Initialize TS Project */
 var tsProject = $.typescript.createProject(conf.paths.tsconfig);
@@ -138,6 +138,18 @@ gulp.task('nsp', function (done) {
     package: path.resolve('package.json')
   }, done);
 });
+
+
+<% if (styles) { -%>
+/**
+ * Gulp build css task.
+ * Clean css temporary directory and css files in distribution directories -> run compile sccs and generate minified file -> copy css files.
+ * @param done - done callback function.
+ */
+gulp.task('build-css',function(done) {
+  runSequence(['clean-css-tmp','clean-css'],<% if (scss) { -%> 'compile-scss-min'<% } else { -%> 'min-css'<% } -%>, 'copy-css',done);
+});
+<% } -%>
 
 /**
  * Gulp build scripts task.

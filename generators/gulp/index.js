@@ -110,12 +110,16 @@ module.exports = generators.Base.extend({
       });
 
       if (this.options.styles) {
-        pkg.devDependencies['gulp-minify-css'] = '1.2.4';
+        pkg.devDependencies['gulp-cssmin'] = '0.1.7';
       }
 
       if (this.options.styles && this.options.scss) {
         pkg.devDependencies['gulp-sass'] = '2.2.0';
         pkg.devDependencies['gulp-scss-lint'] = '0.3.9';
+      }
+
+      if (this.options.styles && !this.options.scss) {
+        pkg.devDependencies['gulp-csslint'] = '0.3.0';
       }
 
       this.fs.writeJSON(this.destinationPath(this.options.generateInto, 'package.json'), pkg);
@@ -178,12 +182,20 @@ module.exports = generators.Base.extend({
         );
       }
 
+      if (this.options.styles && !this.options.scss) {
+        this.fs.copy(
+          this.templatePath('css.js'),
+          this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'css.js')
+        );
+      }
+
       this.fs.copyTpl(
         this.templatePath('scripts.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scripts.js'),
         {
           bower: this.options.bower,
-          styles: this.options.styles
+          styles: this.options.styles,
+          scss: this.options.scss
         }
       );
 
@@ -206,7 +218,8 @@ module.exports = generators.Base.extend({
         this.templatePath('watch.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'watch.js'),
         {
-          scss: this.options.styles && this.options.scss
+          styles: this.options.styles,
+          scss: this.options.scss
         }
       );
     }

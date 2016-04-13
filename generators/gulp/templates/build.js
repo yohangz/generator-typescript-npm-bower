@@ -5,9 +5,9 @@
 'use strict';
 
 var gulp = require('gulp-help')(require('gulp')),
-  runSequence = require('run-sequence'),
-  $ = require('gulp-load-plugins')(),
-  conf = require('./conf');
+    runSequence = require('run-sequence'),
+    $ = require('gulp-load-plugins')(),
+    conf = require('./conf');
 
 
 /**
