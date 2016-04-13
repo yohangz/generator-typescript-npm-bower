@@ -121,6 +121,9 @@ Remember you can see the options of each sub generators by running `yo typescrip
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+## Changelog
+Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)
+
 ## License
 
 MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://github.com/lahiruz)
