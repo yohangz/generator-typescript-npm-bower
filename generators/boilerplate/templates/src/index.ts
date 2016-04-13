@@ -7,9 +7,11 @@ export {
     Greeter
 };
 
+<% if (bower) { -%>
 /**
  * Export Greeter to public by binding them to the window property.
  */
 window['App'] = {
     'Greeter':Greeter
 };
+<% } -%>

@@ -389,7 +389,8 @@ module.exports = yeoman.Base.extend({
       this.composeWith('typescript-npm-bower:boilerplate', {
         options: {
           styles: this.props.styles,
-          scss: this.props.scss
+          scss: this.props.scss,
+          bower: this.props.bower
         }
       }, {
         local: require.resolve('../boilerplate')
