@@ -114,7 +114,7 @@ module.exports = yeoman.Base.extend({
   prompting: {
 
     ask:function() {
-      this.log(yosay('\'Allo \'allo! Out of the box I include node, Typescript, Jasmine, Karma, Gulp tasks and many other features to build your app.'));
+      this.log(yosay('\'Allo \'allo! Out of the box I include Node, Typescript, Jasmine, Karma, Gulp tasks and many other features to build your app.'));
     },
 
     askForModuleName: function () {
