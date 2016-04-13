@@ -25,6 +25,13 @@ module.exports = generators.Base.extend({
       defaults: true,
       desc: 'Use SCSS extension'
     });
+
+    this.option('bower', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: 'Include bower component'
+    });
   },
 
   writing: function() {
@@ -34,9 +41,12 @@ module.exports = generators.Base.extend({
       this.destinationPath(this.options.generateInto, 'example')
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('src/**/*.ts'),
-      this.destinationPath(this.options.generateInto, 'src')
+      this.destinationPath(this.options.generateInto, 'src'),
+      {
+        bower: this.options.bower
+      }
     );
 
     this.fs.copy(
