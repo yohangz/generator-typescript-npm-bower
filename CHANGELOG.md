@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.0] - 2016-04-12
+## [0.0.1] - 2016-04-12
 
 ### Added
 > Initial generator project structure.
