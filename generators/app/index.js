@@ -259,7 +259,7 @@ module.exports = yeoman.Base.extend({
 
     var pkg = extend({
       name: _.kebabCase(this.props.name),
-      version: '0.0.0',
+      version: '0.0.1',
       description: this.props.description,
       homepage: this.props.homepage,
       author: {
@@ -270,7 +270,7 @@ module.exports = yeoman.Base.extend({
       files: [
         'lib'
       ],
-      main: this.props.styles ? ['lib/' + this.props.name + '.js', 'lib/' + this.props.name + (this.props.scss? '.scss': '.css')]: 'lib/' + this.props.name + '.js',
+      main: this.props.styles ? ['lib/index.js', 'lib/' + this.props.name + (this.props.scss? '.scss': '.css')]: 'lib/index.js',
       keywords: []
     }, currentPkg);
 
@@ -285,7 +285,7 @@ module.exports = yeoman.Base.extend({
     if (this.options.bower && this.props.bower) {
       var bower = {
         name: pkg.name,
-        version: '0.0.0',
+        version: '0.0.1',
         description: this.props.description,
         main: this.props.styles ? ['bower/' + this.props.name + '.js', 'bower/' + this.props.name + (this.props.scss ? '.scss' : '.css')] : 'bower/' + this.props.name + '.js',
         dependencies: {},
