@@ -24,7 +24,13 @@ exports.paths = {
   jsTmp:'.jsTmp',
 <% if (styles) { -%>
   cssTmp:'.cssTmp',
-  styles:'styles/*.scss',
+  styles:{
+  <% if (scss) { -%>
+    scss:'styles/**/*.scss'
+  <% } else { -%>
+    css:'styles/**/*.css'
+  <% } -%>
+},
 <% } -%>
   gulp:'gulp/*.js',
   gulpFile:'gulpfile.js',
@@ -52,8 +58,11 @@ exports.files = {
   BOWER_JS: Project_Name + '.js',
   BOWER_MIN_JS: Project_Name + '.min.js',
 <% } -%>
-<% if (styles) { -%>
+<% if (styles && scss) { -%>
   BOWER_CSS: Project_Name + '.css',
+  BOWER_MIN_CSS: Project_Name + '.min.css',
+<% } -%>
+<% if (styles && !scss) { -%>
   BOWER_MIN_CSS: Project_Name + '.min.css',
 <% } -%>
   PROJECT_NAME: Project_Name,

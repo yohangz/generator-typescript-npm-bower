@@ -5,11 +5,11 @@
 'use strict';
 
 var path = require('path'),
-  gulp = require('gulp-help')(require('gulp')),
-  runSequence = require('run-sequence'),
-  conf = require('./conf'),
-  Server = require('karma').Server,
-  remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
+    gulp = require('gulp-help')(require('gulp')),
+    runSequence = require('run-sequence'),
+    conf = require('./conf'),
+    Server = require('karma').Server,
+    remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
 
 /**
  * Shows the available launchers.

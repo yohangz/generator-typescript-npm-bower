@@ -17,23 +17,28 @@ npm install <%= projectName %> --save
 
 ```
 .
-<% if(bower){ %>├── /bower/                     # The folder for compiled output for bower component consume<% } %>
+<% if(bower){ -%>
+├── /bower/                     # The folder for compiled output for bower component consume
+<% } -%>
 ├── /coverage/                  # Code coverage for source files of the project
 ├── /docs/                      # Documentation files for the project
-<% if(bower){ %>
+<% if(bower){ -%>
 ├── /example/                   # The folder contains Html file and example.js file to test the bower component
 <% } -%>
 ├── /gulp/                      # The folder contains gulp tasks required to build the project
 │   ├── /build.js               # Builds the project from source to output(lib<% if(bower){ %> and bower<% } %>) folder
 │   ├── /clean.js               # Contain clean tasks required for the prject
 │   ├── /conf.js                # Contains the variables used in other gulp files
-<% if(styles && scss){ %>
+<% if(styles && !scss){ -%>
+│   ├── /css.js                 # Minify .css files in styles folder with lint support.
+<% } -%>
+<% if(styles){ -%>
 │   ├── /copy.js                # Copies .css build output to lib and bower folders.
 <% } -%>
-<% if(bower || styles && scss){ %>
-│   ├── /inject.js              # Injects minified js <% if(styles && scss){ %>and css <% } %>files to index.html in example folder
+<% if(bower || styles){ -%>
+│   ├── /inject.js              # Injects minified js file <% if(styles){ %>and css file<% } %> to index.html in example folder
 <% } -%>
-<% if(styles && scss){ %>
+<% if(styles && scss){ -%>
 |   |── /sass.js                # Builds all the .scss files with lint support
 <% } -%>
 │   ├── /tests.js               # Run tests and generate coverage reports
@@ -45,12 +50,12 @@ npm install <%= projectName %> --save
 ├── /src/                       # The source code(.ts) of the application
 │   ├── /sub_srcs               # Contain any sub sources(files or folders)
 │   └── /index.ts               # Expose the acceseble properties by outside
-<% if(styles && scss){ %>
-|── /styles/                    # Styling(.css or .scss) files for the project
+<% if(styles){ -%>
+|── /styles/                    # Styling <% if(scss){ -%>.scss<% } else { -%>.css<% } -%> files for the project
 <% } -%>
 ├── /test/                      # Contain tests(.ts) for all the source files
 ├── /typings/                   # Typings files for specific node modules for the project
-<% if(bower){ %>
+<% if(bower){ -%>
 |── .bowerrc                    # Configuration variables for execution in general(like command-line flags)
 <% } -%>
 ├── .editorconfig               # Define and maintain consistent coding styles between different editors and IDEs
@@ -59,7 +64,7 @@ npm install <%= projectName %> --save
 ├── .npmignore                  # Contains files to be ignored when pushing to npm
 ├── .npmrc                      # NPM config file
 ├── .version                    # Version
-<% if(bower){ %>
+<% if(bower){ -%>
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
 ├── karma.conf.js               # Test runner in .ts format
@@ -80,10 +85,11 @@ Unit Test Runner           	| Karma
 Coverage Generator         	| Istanbul
 Documentation              	| Typedoc
 Build Tool                	| Gulp
-Code Quality Tools         	| JS Hint,<% if(styles && scss){ %> SCSS Lint,<% } -%> TS Lint
+Code Quality Tools         	| JS Hint,<% if(styles && scss){ -%> SCSS Lint,<% } else if(styles && !scss){ -%> CSS Lint,<% } -%> TS Lint
 Dependency Registries      	| <% if(bower){ %>Bower, <% } -%>NPM
-<% if(styles && scss){ %>CSS Extension           	  | SCSS<% } %>
-
+<% if(styles){ -%>
+Styling Tool            	  | <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
+<% } -%>
 
 ## How to use
 
@@ -97,7 +103,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   coverage          Generate coverage reports by running all the tests via karma
   typedoc           Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
-  watch             Watches ts source files and runs tslint, jshint <% if(styles && scss){ %>and scss-lint <% } -%>on change
+  watch             Watches ts source files and runs tslint, jshint <% if(styles && scss){ -%>and scss-lint <% } else if(styles && !scss){ -%>and csslint <% } -%>on change
 ```
 ## Changelog
 Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)

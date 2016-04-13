@@ -5,10 +5,10 @@
 'use strict';
 
 var path = require('path'),
-  gulp = require('gulp-help')(require('gulp')),
-  $ = require('gulp-load-plugins')(),
-  tsConf = require('./../tsconfig.json').compilerOptions,
-  conf = require('./conf');
+    gulp = require('gulp-help')(require('gulp')),
+    $ = require('gulp-load-plugins')(),
+    tsConf = require('./../tsconfig.json').compilerOptions,
+    conf = require('./conf');
 
 /**
  * Gulp typeDoc task.

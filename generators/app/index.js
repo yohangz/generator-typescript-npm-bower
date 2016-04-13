@@ -112,6 +112,11 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: {
+
+    ask:function() {
+      this.log(yosay('\'Allo \'allo! Out of the box I include node, Typescript, Jasmine, Karma, gulp tasks and many other features to build your app.'));
+    },
+
     askForModuleName: function () {
       if (this.pkg.name || this.options.name) {
         this.props.name = this.pkg.name || _.kebabCase(this.options.name);
@@ -122,7 +127,7 @@ module.exports = yeoman.Base.extend({
 
       askName({
         name: 'name',
-        message: 'Module Name',
+        message: 'What the name you preferred more for your module?',
         default: path.basename(process.cwd()),
         filter: _.kebabCase,
         validate: function (str) {
@@ -164,7 +169,7 @@ module.exports = yeoman.Base.extend({
         store: true
       }, {
         name: 'keywords',
-        message: 'Package keywords (comma to split)',
+        message: 'Keywords to search your package (comma to split)',
         when: !this.pkg.keywords,
         filter: function (words) {
           return words.split(/\s*,\s*/g);
@@ -183,7 +188,7 @@ module.exports = yeoman.Base.extend({
       var prompt = {
         type: 'confirm',
         name: 'bower',
-        message: 'Include bower component',
+        message: 'Do you like to use this as a bower component?',
         default: true
       };
 
@@ -199,7 +204,7 @@ module.exports = yeoman.Base.extend({
       var prompt = {
         type: 'confirm',
         name: 'styles',
-        message: 'Include CSS',
+        message: 'Do you need styling?',
         default: false
       };
 
@@ -209,13 +214,12 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
-    confirmScssAdd: function () {
-      var done = this.async();
-
+  confirmScssAdd: function () {
+  var done = this.async();
       var prompt = {
         type: 'confirm',
         name: 'scss',
-        message: 'Use SCSS extension',
+        message: 'Do you prefer more to use SCSS?',
         when: this.props.styles,
         default: true
       };
@@ -238,7 +242,7 @@ module.exports = yeoman.Base.extend({
           }
           this.prompt({
             name: 'githubAccount',
-            message: 'GitHub username or organization',
+            message: 'Provide your GitHub username or organization',
             default: username
           }, function (prompt) {
             this.props.githubAccount = prompt.githubAccount;
