@@ -271,7 +271,8 @@ module.exports = yeoman.Base.extend({
         'lib'
       ],
       main: this.props.styles ? ['lib/index.js', 'lib/' + this.props.name + '.css']: 'lib/index.js',
-      keywords: []
+      keywords: [],
+      typings: 'lib/index'
     }, currentPkg);
 
     // Combine the keywords

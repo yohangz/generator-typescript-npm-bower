@@ -46,11 +46,11 @@ Once the project is scaffolded, inside the project folder run:
 npm test
 ```
 
-You can also directly use mocha to run test on single files:
+You can use gulp to run test:
 
 ```
- npm -g install mocha
- mocha test/name.js
+ npm -g install gulp
+ gulp test
 ```
 
 ### Publishing your code
