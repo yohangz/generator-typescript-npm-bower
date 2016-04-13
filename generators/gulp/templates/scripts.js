@@ -158,5 +158,5 @@ gulp.task('build-css',function(done) {
  * @param done - done callback function.
  */
 gulp.task('build-scripts',function(done) {
-  runSequence('nsp','clean-build',['tslint', 'tsconfig-update'],<% if (bower) { -%> ['npm', 'build-bower']<% } else { -%> 'npm'<% } -%>, 'inject-js'<% if (styles) { -%>,'build-css','inject-css'<% } -%>, done);
+  runSequence('nsp','clean-build',['tslint', 'tsconfig-update'],<% if (bower) { -%> ['npm', 'build-bower'], 'inject-js'<% } else { -%> 'npm'<% } -%>,<% if (styles) { -%> 'build-css', 'inject-css',<% } -%> done);
 });
