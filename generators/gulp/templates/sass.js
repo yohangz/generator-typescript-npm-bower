@@ -6,7 +6,6 @@
 
 var path = require('path'),
     scsslint = require('gulp-scss-lint'),
-    minifyCss = require('gulp-minify-css'),
     gulp = require('gulp-help')(require('gulp')),
     conf = require('./conf'),
     $ = require('gulp-load-plugins')();
@@ -53,7 +52,7 @@ gulp.task('scss-lint', function() {
 gulp.task('compile-scss-min',['compile-scss'], function() {
   return gulp.src(path.join(conf.paths.cssTmp, conf.files.BOWER_CSS))
     .pipe($.rename(conf.files.BOWER_MIN_CSS))
-    .pipe(minifyCss())
+    .pipe($.cssmin())
     .pipe($.notify({
       "message": conf.files.BOWER_MIN_CSS + " file size ",
       "onLast": true
