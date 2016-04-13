@@ -61,7 +61,7 @@ module.exports = function (config) {
         preprocessors: {
             'typings/browser.d.ts': ['browserify'],
             'src/**/*.ts': ['browserify'],
-            'test/**/*Spec.ts': ['browserify']
+            'test/**/*.ts': ['browserify']
 
         },
 
