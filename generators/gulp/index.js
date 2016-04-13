@@ -106,7 +106,11 @@ module.exports = generators.Base.extend({
           'clean': 'gulp clean-build',
           'build': 'gulp build',
           'coverage': 'gulp coverage',
-          'doc': 'gulp typedoc'
+          'doc': 'gulp typedoc',
+          'preversion': 'npm run build',
+          'version': 'git add .',
+          'postversion': 'git push && git push --tags',
+          'prepublish': 'npm run build'
         }
       });
 

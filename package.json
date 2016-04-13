@@ -57,10 +57,16 @@
     "gulp-plumber": "^1.0.0",
     "gulp-nsp": "^2.1.0"
   },
-  "repository": "https://github.com/yohangz/generator-typescript-npm-bower.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yohangz/generator-typescript-npm-bower.git"
+  },
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+    "preversion": "npm test",
+    "version": "git add .",
+    "postversion": "git push && git push --tags"
   },
   "license": "MIT"
 }
