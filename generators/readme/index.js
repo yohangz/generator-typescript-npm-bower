@@ -66,9 +66,14 @@ module.exports = generators.Base.extend({
 
   writing: function () {
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('CHANGELOG.md'),
-      this.destinationPath(this.options.generateInto, 'CHANGELOG.md'));
+      this.destinationPath(this.options.generateInto, 'CHANGELOG.md'),
+      {
+        styles:this.options.styles,
+        scss:this.options.scss
+      }
+    );
 
     var pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {});
     this.fs.copyTpl(

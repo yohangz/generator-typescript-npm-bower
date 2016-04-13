@@ -19,6 +19,6 @@
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
 <% } -%>  
  
-## [Unreleased]
+## Unreleased
 ### Added
 - Test the node module independently with the support of mocha and chai.
