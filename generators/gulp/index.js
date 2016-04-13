@@ -56,6 +56,7 @@ module.exports = generators.Base.extend({
           'browserify-istanbul': '2.0.0',
           'del': '2.0.2',
           'gulp': '3.9.1',
+          'gulp-bump': '2.1.0',
           'gulp-concat': '2.6.0',
           'gulp-help': '1.6.0',
           'gulp-inject': '4.0.0',
@@ -107,9 +108,9 @@ module.exports = generators.Base.extend({
           'build': 'gulp build',
           'coverage': 'gulp coverage',
           'doc': 'gulp typedoc',
-          'preversion': 'npm run build',
-          'version': 'git add .',
-          'postversion': 'git push && git push --tags',
+          'prebump': 'npm run build && npm run bump',
+          'bump': 'git add .',
+          'postbump': 'git push && git push --tags',
           'prepublish': 'npm run build'
         }
       });
@@ -219,6 +220,14 @@ module.exports = generators.Base.extend({
       this.fs.copy(
         this.templatePath('tsdocs.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'tsdocs.js')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('version.js'),
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'version.js'),
+        {
+          bower: this.options.bower
+        }
       );
 
       this.fs.copyTpl(
