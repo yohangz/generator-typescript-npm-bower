@@ -11,8 +11,8 @@
 - Code Coverage with istanbul.
 - Build process with Gulp.
 - Lint support with
-  - [JS Hint](http://jshint.com/)
-  - [TS Lint](https://www.npmjs.com/package/tslint)
+  - [JSHint](http://jshint.com/)
+  - [TSLint](https://www.npmjs.com/package/tslint)
 <% if(styles && scss){ -%>
   - [SCSS Lint](https://www.npmjs.com/package/gulp-scss-lint)
 <% } else if(styles && !scss){ -%>
