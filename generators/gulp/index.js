@@ -58,6 +58,8 @@ module.exports = generators.Base.extend({
           'gulp': '3.9.1',
           'gulp-bump': '2.1.0',
           'gulp-concat': '2.6.0',
+          'gulp-filter': '4.0.0',
+          'gulp-git': '1.7.1',
           'gulp-help': '1.6.0',
           'gulp-inject': '4.0.0',
           'gulp-jasmine': '2.0.1',
@@ -69,6 +71,7 @@ module.exports = generators.Base.extend({
           'gulp-size': '2.1.0',
           'gulp-sourcemaps': '1.6.0',
           'gulp-streamify': '1.0.2',
+          'gulp-tag-version': '1.3.0',
           'gulp-tsc': '1.1.5',
           'gulp-tsconfig-files': '0.0.2',
           'gulp-tslint': '3.1',
@@ -108,7 +111,9 @@ module.exports = generators.Base.extend({
           'build': 'gulp build',
           'coverage': 'gulp coverage',
           'doc': 'gulp typedoc',
-          'bump': 'gulp bump',
+          'patch': 'gulp patch',
+          'feature': 'gulp feature',
+          'release': 'gulp release',
           'prepublish': 'npm run build'
         }
       });

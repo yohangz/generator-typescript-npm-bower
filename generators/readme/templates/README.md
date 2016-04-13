@@ -63,7 +63,6 @@ npm install <%= projectName %> --save
 ├── .jshintrc                   # JShint rules for the project
 ├── .npmignore                  # Contains files to be ignored when pushing to npm
 ├── .npmrc                      # NPM config file
-├── .version                    # Version
 <% if(bower){ -%>
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
@@ -104,7 +103,9 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   typedoc           Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
   watch             Watches ts source files and runs tslint, jshint <% if(styles && scss){ -%>and scss-lint <% } else if(styles && !scss){ -%>and csslint <% } -%>on change
-  bump              Update patch version of package.json<% if(bower){ -%> and bower.json<% } -%>
+  patch             Update patch version and create tag
+  feature           Update feature version and create tag
+  release           Update release version and create tag
 ```
 ## Changelog
 Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)
