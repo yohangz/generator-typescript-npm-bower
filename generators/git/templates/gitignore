@@ -1,7 +1,5 @@
-bower/
 coverage/
 docs/
-lib/
 node_modules/
 typings/
 .tmp/

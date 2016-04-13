@@ -111,9 +111,9 @@ module.exports = generators.Base.extend({
           'build': 'gulp build',
           'coverage': 'gulp coverage',
           'doc': 'gulp typedoc',
-          'patch': 'gulp patch',
-          'feature': 'gulp feature',
-          'release': 'gulp release',
+          'patch': 'gulp build && gulp patch',
+          'feature': 'gulp build && gulp feature',
+          'release': 'gulp build && gulp release',
           'prepublish': 'npm run build'
         }
       });
