@@ -63,6 +63,7 @@ module.exports = generators.Base.extend({
           'gulp-jshint': '2.0.0',
           'gulp-load-plugins': '1.0.0-rc.1',
           'gulp-notify': '2.2.0',
+          "gulp-nsp": "2.4.0",
           'gulp-rename': '1.2.2',
           'gulp-size': '2.1.0',
           'gulp-sourcemaps': '1.6.0',
@@ -166,14 +167,16 @@ module.exports = generators.Base.extend({
         );
       }
 
-      this.fs.copyTpl(
-        this.templatePath('inject.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js'),
-        {
-          bower: this.options.bower,
-          styles: this.options.styles
-        }
-      );
+      if (this.options.styles || this.options.bower) {
+        this.fs.copyTpl(
+          this.templatePath('inject.js'),
+          this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js'),
+          {
+            bower: this.options.bower,
+            styles: this.options.styles
+          }
+        );
+      }
 
       if (this.options.styles && this.options.scss) {
         this.fs.copy(
