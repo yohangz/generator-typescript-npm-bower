@@ -42,7 +42,7 @@ exports.paths = {
     browser:'typings/browser.d.ts'
   },
   sub_src:'/**/*.ts',
-  main:'/index.ts',
+  main:'/index.ts', 
   bundle:'/' + Project_Name + '.js',
   karmaConf: __dirname + '/../karma.conf.js',
   karmaCoverageConf: __dirname + '/../karma-coverage.conf.js',

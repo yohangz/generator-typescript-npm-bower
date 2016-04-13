@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.0] - 2016-04-13
+## [0.0.1] - <% Date.now() -%>
 
 ### Added
 > Initial project structure.
@@ -18,7 +18,3 @@
 <% } else if(styles && !scss){ -%>
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
 <% } -%>  
- 
-## Unreleased
-### Added
-- Test the node module independently with the support of mocha and chai.
