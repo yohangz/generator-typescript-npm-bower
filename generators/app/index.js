@@ -70,21 +70,21 @@ module.exports = yeoman.Base.extend({
       type: Boolean,
       required: false,
       defaults: false,
-      desc: 'Include CSS'
+      desc: 'Do you need to include styles?'
     });
 
     this.option('scss', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Use SCSS extension'
+      desc: 'Do you like to use SCSS extension?'
     });
 
     this.option('bower', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include bower component'
+      desc: 'Do you like to use this as a bower component?'
     });
   },
 
@@ -204,7 +204,7 @@ module.exports = yeoman.Base.extend({
       var prompt = {
         type: 'confirm',
         name: 'styles',
-        message: 'Do you need styling?',
+        message: 'Do you need to include styles?',
         default: false
       };
 
@@ -219,7 +219,7 @@ module.exports = yeoman.Base.extend({
       var prompt = {
         type: 'confirm',
         name: 'scss',
-        message: 'Do you prefer more to use SCSS?',
+        message: 'Do you like to use SCSS extension?',
         when: this.props.styles,
         default: true
       };
