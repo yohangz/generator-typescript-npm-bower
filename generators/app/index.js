@@ -270,7 +270,7 @@ module.exports = yeoman.Base.extend({
       files: [
         'lib'
       ],
-      main: this.props.styles ? ['lib/' + this.props.name + '.js', 'lib/' + this.props.name + (this.props.scss? '.scss': '.css')]: 'lib/' + this.props.name + '.js',
+      main: this.props.styles ? ['lib/index.js', 'lib/' + this.props.name + '.css']: 'lib/index.js',
       keywords: []
     }, currentPkg);
 
@@ -287,7 +287,7 @@ module.exports = yeoman.Base.extend({
         name: pkg.name,
         version: '0.0.0',
         description: this.props.description,
-        main: this.props.styles ? ['bower/' + this.props.name + '.js', 'bower/' + this.props.name + (this.props.scss ? '.scss' : '.css')] : 'bower/' + this.props.name + '.js',
+        main: this.props.styles ? ['bower/index.js', 'bower/' + this.props.name + '.css'] : 'bower/index.js',
         dependencies: {},
         devDependencies: {},
         moduleType: [
