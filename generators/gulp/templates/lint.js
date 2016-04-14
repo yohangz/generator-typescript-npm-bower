@@ -16,7 +16,7 @@ var path = require('path'),
  * Report errors on pipe process.
  */
 gulp.task('tslint', function () {
-    return gulp.src(tsFilesGlob)
+    return gulp.src(conf.tsFilesGlob)
         .pipe($.tslint())
         .pipe($.tslint.report(conf.reports.tslint_report_type, {
             emitError: false

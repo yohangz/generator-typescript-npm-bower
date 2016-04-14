@@ -105,6 +105,14 @@ exports.errors = {
 };
 
 /**
+ * Get the locations of the all .ts files via tsconfig.json
+ */
+exports.tsFilesGlob = (function (c) {
+  return c.filesGlob || c.files || '**/*.ts';
+}(require(__dirname + '/../tsconfig.json')));
+
+
+/**
  *  Common implementation for an error handler of a Gulp plugin
  */
 exports.errorHandler = function(title) {
