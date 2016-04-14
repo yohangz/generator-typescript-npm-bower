@@ -7,10 +7,10 @@
 
 ### Features
 - Automatic documentation generation.
-- Karma/Jasmine testing environment support.
+- Karma, Jasmine, Mocha and Chai testing environment support.
 - Code Coverage with istanbul.
 - Build process with Gulp.
-- Both NPM and Bower output.
+- Typescript Based node module and bower component output.
 - Lint support with
   - [JSHint](http://jshint.com/)
   - [TSLint](https://www.npmjs.com/package/tslint)

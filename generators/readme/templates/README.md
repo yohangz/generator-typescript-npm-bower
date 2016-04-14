@@ -132,7 +132,7 @@ npm publish
 ```
 
 # Changelog
-Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
+Recent changes can be viewed on the [CHANGELOG.md](CHANGELOG.md)
 
 ## License
 
