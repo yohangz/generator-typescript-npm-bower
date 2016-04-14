@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.0.1] - <% Date.now() -%>
+## [0.0.1] - <%= date %>
 
 ### Added
 > Initial project structure.

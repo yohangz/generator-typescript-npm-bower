@@ -1,5 +1,6 @@
 'use strict';
 var generators = require('yeoman-generator');
+var moment = require('moment');
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -70,6 +71,7 @@ module.exports = generators.Base.extend({
       this.templatePath('CHANGELOG.md'),
       this.destinationPath(this.options.generateInto, 'CHANGELOG.md'),
       {
+        date: moment().format("DD-MM-YYYY"),
         styles:this.options.styles,
         scss:this.options.scss
       }
