@@ -9,6 +9,7 @@
  src/
  test/
  typings/
+.gulp-scss-cache/
  .bowerrc 
 .editorconfig 
 .gitignore 

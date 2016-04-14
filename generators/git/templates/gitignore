@@ -4,6 +4,7 @@ node_modules/
 typings/
 .tmp/
 .idea/
+.gulp-scss-cache/
 npm-debug.log
 src/**/*.js
 src/**/*.js.map
