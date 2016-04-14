@@ -126,7 +126,7 @@ Remember you can see the options of each sub generators by running `yo typescrip
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## Changelog
-Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)
+Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
 
 ## License
 
