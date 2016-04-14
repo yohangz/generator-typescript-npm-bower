@@ -30,11 +30,12 @@ yo generator-typescript-npm-bower
 That'll generate a project with all the common tools setup. This includes:
 
 - Filled `package.json` file
-- [gulp](http://gulpjs.com/) task runner
+- [Gulp](http://gulpjs.com/) task runner
 - [Typescript](https://www.typescriptlang.org/) javascript transpiler
 - [Jasmine](http://jasmine.github.io/2.0/introduction.html), [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) unit testing
 - [Karma](https://karma-runner.github.io/0.13/index.html) test runner
 - [TSLint](https://www.npmjs.com/package/tslint), [JShint](http://jshint.com/), [CSS Lint](https://www.npmjs.com/package/gulp-csslint)  and [SCSS Lint](https://www.npmjs.com/package/sass-lint) linting and code style checking
+- [SCSS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) styling tool
 - [Istanbul](https://gotwarlost.github.io/istanbul/) code coverage
 - [Typedoc](http://typedoc.io/) documentation generator
 - [Travis CI](https://travis-ci.org/) continuous integration (optional)
