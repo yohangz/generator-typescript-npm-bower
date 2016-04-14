@@ -19,7 +19,7 @@ module.exports = {
   browser: 'Do you want a browser compatible module?',
   styles: 'Do you need to include styles?',
   scss: 'Do you like to use SCSS extension?',
-  bower: 'Do you like to use this as a bower component?',
+  bower: 'Do you want to include bower component?',
   generateInto: 'Relocate the location of the generated files.',
   testFramework: 'Which test framework would you like to use?'
 };
