@@ -91,7 +91,7 @@ Build Tool                	| Gulp
 Code Quality Tools         	| JS Hint,<% if(styles) { if(scss){ -%> SCSS Lint,<% } else { -%> CSS Lint,<% }} -%> TS Lint
 Dependency Registries      	| <% if(bower){ %>Bower, <% } -%>NPM
 <% if(styles){ -%>
-Styling Tool            	  | <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
+Styling Tool            	| <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
 <% } -%>
 
 ## How to use
