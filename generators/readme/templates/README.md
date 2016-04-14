@@ -38,8 +38,9 @@ npm install <%= projectName %> --save
 <% if(bower || styles){ -%>
 │   ├── /inject.js              # Injects minified js file <% if(styles){ %>and css file<% } %> to index.html in example folder
 <% } -%>
+│   ├── /lint.js                # Common lint support with jshint and tslint
 <% if(styles && scss){ -%>
-|   |── /sass.js                # Builds all the .scss files with lint support
+|   |── /scss.js                # Builds all the .scss files with scss lint support
 <% } -%>
 │   ├── /scripts.js             # Build scripts
 │   ├── /tests.js               # Run tests and generate coverage reports
@@ -85,7 +86,7 @@ npm install <%= projectName %> --save
 Usage          	            | Technology
 --------------------------	| --------------------------
 Javascript Framework        | Typescript
-Unit Testing Framework     	| Jasmine
+Unit Testing Framework     	| Jasmine, Mocha and Chai
 Unit Test Runner           	| Karma
 Coverage Generator         	| Istanbul
 Documentation              	| Typedoc
@@ -103,8 +104,10 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   typings-install   Install typings to the project
   build             Perform npm <% if(bower){ %>and bower <% } -%>build
   clean-build       Cleans lib directory<% if(bower){ %> and bower directory<% } %>
-  test              Runs the Jasmine test specs with PhantomJS
-  dev-test          Runs the Jasmine test specs with Chrome
+  test              Run spec tests
+<% if(browser){ -%>  
+  dev-test          Runs the test specs with Chrome
+<% } -%>
   coverage          Generate coverage reports by running all the tests via karma
   typedoc           Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
