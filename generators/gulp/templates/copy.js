@@ -1,4 +1,3 @@
-
 /**
  * Gulp copy task.
  */

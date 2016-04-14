@@ -1,5 +1,5 @@
 # Generator Typescript NPM Bower 
-[![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+[![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
 > Generate NPM module/ Bower Bower component.
 
 ## Installation

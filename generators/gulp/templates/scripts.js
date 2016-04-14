@@ -128,6 +128,7 @@ gulp.task('tmp-watch-scripts',['clean-js-tmp'], function() {
     .pipe(gulp.dest(conf.paths.jsTmp));
 });
 
+
 /**
  * Gulp nsp scripts task.
  * Run node Security check.

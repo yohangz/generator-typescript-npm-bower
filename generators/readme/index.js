@@ -80,8 +80,8 @@ module.exports = generators.Base.extend({
       this.destinationPath(this.options.generateInto, 'CHANGELOG.md'),
       {
         date: moment().format("DD-MM-YYYY"),
-        styles:this.options.styles,
-        scss:this.options.scss
+        styles: this.options.browser && this.options.styles,
+        scss: this.options.browser && this.options.browser && this.options.scss
       }
     );
 
@@ -98,9 +98,10 @@ module.exports = generators.Base.extend({
           url: this.options.authorUrl
         },
         license: pkg.license,
-        styles:this.options.styles,
-        scss:this.options.scss,
-        bower:this.options.bower
+        styles: this.options.browser && this.options.styles,
+        scss: this.options.browser && this.options.browser && this.options.scss,
+        bower: this.options.browser && this.options.bower,
+        browser: this.options.browser
       }
     );
   }

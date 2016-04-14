@@ -13,8 +13,8 @@
 - Lint support with
   - [JSHint](http://jshint.com/)
   - [TSLint](https://www.npmjs.com/package/tslint)
-<% if(styles && scss){ -%>
+<% if (styles) { if (scss) { -%>
   - [SCSS Lint](https://www.npmjs.com/package/gulp-scss-lint)
-<% } else if(styles && !scss){ -%>
+<% } else { -%>
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
-<% } -%>  
+<% }} -%>  

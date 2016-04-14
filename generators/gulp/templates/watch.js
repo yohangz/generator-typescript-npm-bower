@@ -15,7 +15,7 @@ var path = require('path'),
  * @param done - done callback function.
  */
 gulp.task('watch', function (done) {
-    runSequence('clean-js-tmp', ['jshint', 'tslint'<% if (styles && scss) { -%>, 'scss-lint'<% } else if (styles && !scss) { -%>, 'css-lint'<% } -%>], 'tmp-watch-scripts', ['watch-scripts', 'watch-build-scripts'<% if (styles && scss) { -%>, 'watch-scss-scripts'<% } else if (styles && !scss) { -%>, 'watch-css-scripts'<% } -%>], done);
+    runSequence('clean-js-tmp', ['jshint', 'tslint'<% if (styles) { if (scss) { -%>, 'scss-lint'<% } else { -%>, 'css-lint'<% }} -%>], 'tmp-watch-scripts', ['watch-scripts', 'watch-build-scripts'<% if (styles) { if (scss) { -%>, 'watch-scss-scripts'<% } else { -%>, 'watch-css-scripts'<% }} -%>], done);
 });
 
 /**
@@ -43,7 +43,7 @@ gulp.task('watch-build-scripts', function(){
     });
 });
 
-<% if (styles && scss) { -%>
+<% if (styles) { if (scss) { -%>
 /**
  * Gulp watch scss scripts.
  * Watch changes in build process helper files -> run scss lint.
@@ -55,9 +55,8 @@ gulp.task('watch-scss-scripts', function(){
         gulp.start('scss-lint');
     });
 });
-<% } -%>
+<% } else { -%>
 
-<% if (styles && !scss) { -%>
 /**
  * Gulp watch css scripts.
  * Watch changes in build process helper styles files -> run css lint.
@@ -69,7 +68,7 @@ gulp.task('watch-css-scripts', function(){
     gulp.start('css-lint');
   });
 });
-<% } -%>
+<% }} -%>
 
 
 

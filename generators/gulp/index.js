@@ -96,14 +96,7 @@ module.exports = generators.Base.extend({
           'gulp-util': '3.0.7',
           'jshint': '2.9.1',
           'jshint-stylish': '2.1.0',
-          'karma': '0.13.22',
-          'karma-browserify': '5.0.3',
-          'karma-chrome-launcher': '0.2.2',
-          'karma-coverage': '0.5.5',
-          'karma-phantomjs-launcher': '1.0.0',
-          'karma-remap-istanbul': '0.0.5',
           'path': '0.12.7',
-          'phantomjs-prebuilt': '2.1.7',
           'remap-istanbul': '0.5.1',
           'require-dir': '0.3.0',
           'run-sequence': '1.1.5',
@@ -128,32 +121,46 @@ module.exports = generators.Base.extend({
         }
       });
 
-      switch (this.options.testFramework) {
-        case 'jasmine':
-          pkg.devDependencies['jasmine'] = '2.3.1';
-          pkg.devDependencies['jasmine-ajax'] = '3.2.0';
-          pkg.devDependencies['jasmine-core'] = '2.4.1';
-          pkg.devDependencies['karma-jasmine'] = '0.3.7';
-          break;
-        case 'mocha':
-          pkg.devDependencies['chai'] = '3.5.0';
-          pkg.devDependencies['karma-mocha'] = '0.2.2';
-          pkg.devDependencies['mocha'] = '2.4.5';
-          break;
-      }
+      if (this.options.browser) {
+        pkg.devDependencies['karma'] = '0.13.22';
+        pkg.devDependencies['karma-browserify'] = '5.0.3';
+        pkg.devDependencies['karma-chrome-launcher'] = '0.2.2';
+        pkg.devDependencies['karma-coverage'] = '0.5.5';
+        pkg.devDependencies['karma-phantomjs-launcher'] = '1.0.0';
+        pkg.devDependencies['karma-remap-istanbul'] = '0.0.5';
+        pkg.devDependencies['kphantomjs-prebuilt'] = '2.1.7';
 
-      if (this.options.styles) {
-        pkg.devDependencies['gulp-concat'] = '2.6.0';
-        pkg.devDependencies['gulp-cssmin'] = '0.1.7';
-      }
+        switch (this.options.testFramework) {
+          case 'jasmine':
+            pkg.devDependencies['jasmine'] = '2.3.1';
+            pkg.devDependencies['jasmine-ajax'] = '3.2.0';
+            pkg.devDependencies['jasmine-core'] = '2.4.1';
+            pkg.devDependencies['karma-jasmine'] = '0.3.7';
+            break;
+          case 'mocha':
+            pkg.devDependencies['chai'] = '3.5.0';
+            pkg.devDependencies['karma-mocha'] = '0.2.2';
+            pkg.devDependencies['mocha'] = '2.4.5';
+            break;
+        }
 
-      if (this.options.styles && this.options.scss) {
-        pkg.devDependencies['gulp-sass'] = '2.2.0';
-        pkg.devDependencies['gulp-scss-lint'] = '0.3.9';
-      }
+        if (this.options.styles) {
+          pkg.devDependencies['gulp-concat'] = '2.6.0';
+          pkg.devDependencies['gulp-cssmin'] = '0.1.7';
+        }
 
-      if (this.options.styles && !this.options.scss) {
-        pkg.devDependencies['gulp-csslint'] = '0.3.0';
+        if (this.options.styles && this.options.scss) {
+          pkg.devDependencies['gulp-sass'] = '2.2.0';
+          pkg.devDependencies['gulp-scss-lint'] = '0.3.9';
+        }
+
+        if (this.options.styles && !this.options.scss) {
+          pkg.devDependencies['gulp-csslint'] = '0.3.0';
+        }
+      } else {
+        pkg.devDependencies['chai'] = '3.5.0';
+        pkg.devDependencies['karma-mocha'] = '0.2.2';
+        pkg.devDependencies['mocha'] = '2.4.5';
       }
 
       this.fs.writeJSON(this.destinationPath(this.options.generateInto, 'package.json'), pkg);
@@ -174,8 +181,8 @@ module.exports = generators.Base.extend({
         this.templatePath('clean.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'clean.js'),
         {
-          bower: this.options.bower,
-          styles: this.options.styles
+          bower: this.options.browser && this.options.bower,
+          styles: this.options.browser && this.options.styles
         }
       );
 
@@ -184,9 +191,9 @@ module.exports = generators.Base.extend({
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'conf.js'),
         {
           projectName: this.options.name,
-          bower: this.options.bower,
-          styles: this.options.styles,
-          scss: this.options.scss
+          bower: this.options.browser && this.options.bower,
+          styles: this.options.browser && this.options.styles,
+          scss: this.options.browser && this.options.styles && this.options.scss
         }
       );
 
@@ -195,30 +202,30 @@ module.exports = generators.Base.extend({
           this.templatePath('copy.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'copy.js'),
           {
-            bower: this.options.bower
+            bower: this.options.browser && this.options.bower
           }
         );
       }
 
-      if (this.options.styles || this.options.bower) {
+      if (this.options.browser && (this.options.styles || this.options.bower)) {
         this.fs.copyTpl(
           this.templatePath('inject.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js'),
           {
-            bower: this.options.bower,
-            styles: this.options.styles
+            bower: this.options.browser && this.options.bower,
+            styles: this.options.browser && this.options.styles && this.options.styles
           }
         );
       }
 
-      if (this.options.styles && this.options.scss) {
+      if (this.options.browser && this.options.styles && this.options.scss) {
         this.fs.copy(
           this.templatePath('sass.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'sass.js')
         );
       }
 
-      if (this.options.styles && !this.options.scss) {
+      if (this.options.browser && this.options.styles && !this.options.scss) {
         this.fs.copy(
           this.templatePath('css.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'css.js')
@@ -229,9 +236,9 @@ module.exports = generators.Base.extend({
         this.templatePath('scripts.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scripts.js'),
         {
-          bower: this.options.bower,
-          styles: this.options.styles,
-          scss: this.options.scss
+          bower: this.options.browser && this.options.bower,
+          styles: this.options.browser && this.options.styles,
+          scss: this.options.browser && this.options.styles && this.options.scss
         }
       );
 
@@ -254,7 +261,7 @@ module.exports = generators.Base.extend({
         this.templatePath('version.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'version.js'),
         {
-          bower: this.options.bower
+          bower: this.options.browser && this.options.bower
         }
       );
 
@@ -262,8 +269,8 @@ module.exports = generators.Base.extend({
         this.templatePath('watch.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'watch.js'),
         {
-          styles: this.options.styles,
-          scss: this.options.scss
+          styles: this.options.browser && this.options.styles,
+          scss: this.options.browser && this.options.scss
         }
       );
     }
