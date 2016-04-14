@@ -62,8 +62,10 @@ npm install <%= projectName %> --save
 |── .bowerrc                    # Configuration variables for execution in general(like command-line flags)
 <% } -%>
 ├── .editorconfig               # Define and maintain consistent coding styles between different editors and IDEs
+├── .gitattributes              # Defining attributes per path
 ├── .gitignore                  # Contains files to be ignored when pushing to git
 ├── .jshintrc                   # JShint rules for the project
+├── .travis.yml                 # Travis CI configuration file
 ├── .npmignore                  # Contains files to be ignored when pushing to npm
 ├── .npmrc                      # NPM config file
 <% if(bower){ -%>
@@ -74,6 +76,7 @@ npm install <%= projectName %> --save
 ├── karma.conf.js               # Test runner in .ts format
 ├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
 <% } -%>
+├── LICENSE                     # Contains License Agreement file
 ├── tsconfig.json               # Contains typescript compiler options
 ├── tslint.json                 # Lint rules for the project
 ├── typings.json                # Typings information to generate typings folder
