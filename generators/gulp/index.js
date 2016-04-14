@@ -227,9 +227,12 @@ module.exports = generators.Base.extend({
         );
       }
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('lint.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'lint.js')
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'lint.js'),
+        {
+          browser: this.options.browser
+        }
       );
 
       if (this.options.browser && this.options.styles && this.options.scss) {
@@ -287,7 +290,8 @@ module.exports = generators.Base.extend({
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'watch.js'),
         {
           styles: this.options.browser && this.options.styles,
-          scss: this.options.browser && this.options.scss
+          scss: this.options.browser && this.options.scss,
+          browser: this.options.browser
         }
       );
     }
