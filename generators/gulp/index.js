@@ -227,6 +227,11 @@ module.exports = generators.Base.extend({
         );
       }
 
+      this.fs.copy(
+        this.templatePath('lint.js'),
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'lint.js')
+      );
+
       if (this.options.browser && this.options.styles && this.options.scss) {
         this.fs.copy(
           this.templatePath('scss.js'),
