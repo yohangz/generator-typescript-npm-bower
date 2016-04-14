@@ -9,7 +9,7 @@
 - Automatic documentation generation.
 <% if (browser && (testFramework === 'mocha')) { -%>
 - Karma, Mocha and Chai
-<% } else if (browser && ((testFramework === 'jasmine') || bower)) { -%>
+<% } else if (browser && (testFramework === 'jasmine')) { -%>
 - Karma and Jasmine
 <% } else if(!browser) { -%> 
 - Mocha and Chai
