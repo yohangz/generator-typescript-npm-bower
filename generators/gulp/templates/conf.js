@@ -108,6 +108,8 @@ exports.errors = {
  * Get the locations of the all .ts files via tsconfig.json
  */
 exports.tsFilesGlob = (function (c) {
+  "use strict";
+
   return c.filesGlob || c.files || '**/*.ts';
 }(require(__dirname + '/../tsconfig.json')));
 

@@ -7,8 +7,8 @@
 var path = require('path'),
     gulp = require('gulp-help')(require('gulp')),
     conf = require('./conf'),
-    source = require('vinyl-source-stream'),
 <% if (bower) { -%>
+    source = require('vinyl-source-stream'),
     tsify = require('tsify'),
     browserify = require('browserify'),
 <% } -%>
