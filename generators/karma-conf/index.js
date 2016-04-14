@@ -15,7 +15,7 @@ module.exports = generators.Base.extend({
 
     this.option('testFramework', {
       type: String,
-      required: false,
+      required: true,
       defaults: 'jasmine',
       desc: message.testFramework
     });

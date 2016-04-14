@@ -21,14 +21,14 @@ module.exports = generators.Base.extend({
 
     this.option('browser', {
       type: Boolean,
-      required: false,
+      required: true,
       defaults: true,
       desc: message.browser
     });
 
     this.option('testFramework', {
       type: String,
-      required: false,
+      required: true,
       defaults: 'jasmine',
       desc: message.testFramework
     });
