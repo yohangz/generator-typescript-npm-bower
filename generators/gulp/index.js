@@ -67,8 +67,6 @@ module.exports = generators.Base.extend({
           'lodash': '4.8.2'
         },
         devDependencies: {
-          'browserify': '13.0.0',
-          'browserify-istanbul': '2.0.0',
           'del': '2.0.2',
           'gulp': '3.9.1',
           'gulp-bump': '2.1.0',
@@ -122,13 +120,15 @@ module.exports = generators.Base.extend({
       });
 
       if (this.options.browser) {
+        pkg.devDependencies['browserify'] = '13.0.0';
+        pkg.devDependencies['browserify-istanbul'] = '2.0.0';
         pkg.devDependencies['karma'] = '0.13.22';
         pkg.devDependencies['karma-browserify'] = '5.0.3';
         pkg.devDependencies['karma-chrome-launcher'] = '0.2.2';
         pkg.devDependencies['karma-coverage'] = '0.5.5';
         pkg.devDependencies['karma-phantomjs-launcher'] = '1.0.0';
         pkg.devDependencies['karma-remap-istanbul'] = '0.0.5';
-        pkg.devDependencies['kphantomjs-prebuilt'] = '2.1.7';
+        pkg.devDependencies['phantomjs-prebuilt'] = '2.1.7';
 
         switch (this.options.testFramework) {
           case 'jasmine':
