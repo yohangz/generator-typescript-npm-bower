@@ -1,5 +1,14 @@
 # Change Log
 
+## [Unreleased]
+
+### Added
+
+- [SASS](http://sass-lang.com/) support.
+- [LESS](http://lesscss.org/usage/) support.
+- [QUnit](https://qunitjs.com/) support.
+- Complete unit test coverage.
+
 ## [0.0.1] - <%= date %>
 
 ### Added
@@ -25,5 +34,4 @@
 <% } else { -%>
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
 <% }} -%>  
-
 
