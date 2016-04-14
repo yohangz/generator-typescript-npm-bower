@@ -1,6 +1,8 @@
 # Generator Typescript NPM Bower 
 [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
-> Generate NPM module/ Bower Bower component.
+> Yeoman generator for creating awesome TypeScript based Node module (Browser/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SCSS Lint, CSS Lint, SCSS) - lets you quickly set up a project following best practices.
+
+![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
 ## Installation
 
@@ -44,7 +46,7 @@ You can use gulp to run test:
 
 ```
 npm -g install gulp
-gulp test
+npm test
 ```
 
 ### Publishing your code
