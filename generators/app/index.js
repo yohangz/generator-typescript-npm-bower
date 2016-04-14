@@ -491,7 +491,8 @@ module.exports = yeoman.Base.extend({
           browser: this.props.browser,
           styles: this.props.styles,
           scss: this.props.scss,
-          bower: this.props.bower
+          bower: this.props.bower,
+          testFramework: this.props.testFramework
         }
 
       }, {

@@ -71,6 +71,13 @@ module.exports = generators.Base.extend({
       defaults: true,
       desc: message.bower
     });
+
+    this.option('testFramework', {
+      type: String,
+      required: false,
+      defaults: 'jasmine',
+      desc: message.testFramework
+    });
   },
 
   writing: function () {
@@ -81,7 +88,9 @@ module.exports = generators.Base.extend({
       {
         date: moment().format("DD-MM-YYYY"),
         styles: this.options.browser && this.options.styles,
-        scss: this.options.browser && this.options.browser && this.options.scss
+        scss: this.options.browser && this.options.browser && this.options.scss,
+        browser: this.options.browser,
+        bower: this.options.browser && this.options.bower
       }
     );
 
@@ -92,6 +101,7 @@ module.exports = generators.Base.extend({
       {
         projectName: this.options.name,
         description: this.options.description,
+        testFramework: this.options.testFramework,
         githubAccount: this.options.githubAccount,
         author: {
           name: this.options.authorName,
