@@ -20,7 +20,7 @@
 - Karma, Mocha and Chai
 <% } else if (browser && (testFramework === 'jasmine')) { -%>
 - Karma and Jasmine
-<% } else if(!browser) { -%> 
+<% } else { -%> 
 - Mocha and Chai
 <% } -%> testing environment support.
 - Code Coverage with istanbul.

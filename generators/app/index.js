@@ -318,7 +318,7 @@ module.exports = yeoman.Base.extend({
 
     var pkg = extend({
       name: _.kebabCase(this.props.name),
-      version: '0.0.1',
+      version: '0.0.0',
       description: this.props.description,
       homepage: this.props.homepage,
       author: {
@@ -345,7 +345,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.browser && this.options.bower && this.props.bower) {
       var bower = {
         name: pkg.name,
-        version: '0.0.1',
+        version: '0.0.0',
         description: this.props.description,
         main: this.props.styles ? ['bower/' + this.props.name + '.js', 'bower/' + this.props.name + '.css'] : 'bower/' + this.props.name + '.js',
         dependencies: {},
