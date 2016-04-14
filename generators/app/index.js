@@ -1,6 +1,5 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
 var extend = _.merge;
@@ -8,6 +7,8 @@ var parseAuthor = require('parse-author');
 var path = require('path');
 var githubUsername = require('github-username');
 var askName = require('inquirer-npm-name');
+var chalk = require('chalk');
+var message = require('../message');
 
 module.exports = yeoman.Base.extend({
   constructor: function () {
@@ -17,74 +18,88 @@ module.exports = yeoman.Base.extend({
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include travis config'
+      desc: message.travis
     });
 
     this.option('boilerplate', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include boilerplate files'
+      desc: message.boilerplate
     });
 
     this.option('gulp', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include or not a gulpfile.js'
+      desc: message.gulp
     });
 
     this.option('license', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include a license'
+      desc: message.license
     });
 
     this.option('name', {
       type: String,
       required: false,
-      desc: 'Project name'
+      desc: message.name
     });
 
     this.option('githubAccount', {
       type: String,
       required: false,
-      desc: 'GitHub username or organization'
+      desc: message.githubAccount
     });
 
     this.option('projectRoot', {
       type: String,
       required: false,
       defaults: 'lib',
-      desc: 'Relative path to the project code root'
+      desc: message.projectRoot
     });
 
     this.option('readme', {
       type: String,
       required: false,
-      desc: 'Content to insert in the README.md file'
+      desc: message.readme
+    });
+
+    this.option('browser', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.browser
     });
 
     this.option('styles', {
       type: Boolean,
       required: false,
       defaults: false,
-      desc: 'Do you need to include styles?'
+      desc: message.styles
     });
 
     this.option('scss', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Do you like to use SCSS extension?'
+      desc: message.scss
     });
 
     this.option('bower', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Do you like to use this as a bower component?'
+      desc: message.browser
+    });
+
+    this.option('testFramework', {
+      type: String,
+      required: false,
+      defaults: 'jasmine',
+      desc: message.testFramework
     });
   },
 
@@ -112,9 +127,9 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: {
-
-    ask:function() {
-      this.log(yosay('\'Allo \'allo! Out of the box I include Node, Typescript, Jasmine, Karma, Gulp tasks and many other features to build your app.'));
+    showWelcome: function() {
+      this.log(yosay(message.welcome));
+      this.log(chalk.magenta(message.generator));
     },
 
     askForModuleName: function () {
@@ -127,7 +142,7 @@ module.exports = yeoman.Base.extend({
 
       askName({
         name: 'name',
-        message: 'What the name you preferred more for your module?',
+        message: message.name,
         default: path.basename(process.cwd()),
         filter: _.kebabCase,
         validate: function (str) {
@@ -144,32 +159,32 @@ module.exports = yeoman.Base.extend({
 
       var prompts = [{
         name: 'description',
-        message: 'Description',
+        message: message.description,
         when: !this.props.description
       }, {
         name: 'homepage',
-        message: 'Project homepage url',
+        message: message.homepage,
         when: !this.props.homepage
       }, {
         name: 'authorName',
-        message: 'Author\'s Name',
+        message: message.authorName,
         when: !this.props.authorName,
         default: this.user.git.name(),
         store: true
       }, {
         name: 'authorEmail',
-        message: 'Author\'s Email',
+        message: message.authorEmail,
         when: !this.props.authorEmail,
         default: this.user.git.email(),
         store: true
       }, {
         name: 'authorUrl',
-        message: 'Author\'s Homepage',
+        message: message.authorUrl,
         when: !this.props.authorUrl,
         store: true
       }, {
         name: 'keywords',
-        message: 'Keywords to search your package (comma to split)',
+        message: message.keywords,
         when: !this.pkg.keywords,
         filter: function (words) {
           return words.split(/\s*,\s*/g);
@@ -182,14 +197,31 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
+    confirmBrowserSupport: function () {
+      var done = this.async();
+
+      var prompt = {
+        type: 'confirm',
+        name: 'browser',
+        message: message.browser,
+        default: true
+      };
+
+      this.prompt(prompt, function (prop) {
+        this.props.browser = prop.browser;
+        done();
+      }.bind(this));
+    },
+
     confirmBowerAdd: function () {
       var done = this.async();
 
       var prompt = {
         type: 'confirm',
         name: 'bower',
-        message: 'Do you like to use this as a bower component?',
-        default: true
+        message: message.bower,
+        default: true,
+        when: this.props.browser
       };
 
       this.prompt(prompt, function (prop) {
@@ -204,8 +236,9 @@ module.exports = yeoman.Base.extend({
       var prompt = {
         type: 'confirm',
         name: 'styles',
-        message: 'Do you need to include styles?',
-        default: false
+        message: message.styles,
+        default: false,
+        when: this.props.browser
       };
 
       this.prompt(prompt, function (prop) {
@@ -214,18 +247,44 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
-  confirmScssAdd: function () {
-  var done = this.async();
+    confirmScssAdd: function () {
+      var done = this.async();
       var prompt = {
         type: 'confirm',
         name: 'scss',
-        message: 'Do you like to use SCSS extension?',
-        when: this.props.styles,
+        message: message.scss,
+        when: this.props.browser && this.props.styles,
         default: true
       };
 
       this.prompt(prompt, function (prop) {
         this.props.scss = prop.scss;
+        done();
+      }.bind(this));
+    },
+
+    selectTestFramework: function () {
+      var done = this.async();
+      var prompt = {
+        type: 'list',
+        name: 'testFramework',
+        message: message.testFramework,
+        when: this.props.browser,
+        choices: [
+          {
+            name: "Jasmine",
+            value: "jasmine"
+          },
+          {
+            name: "Mocha",
+            value: "mocha"
+          }
+        ],
+        default: 0
+      };
+
+      this.prompt(prompt, function (prop) {
+        this.props.testFramework = prop.testFramework;
         done();
       }.bind(this));
     },
@@ -242,7 +301,7 @@ module.exports = yeoman.Base.extend({
           }
           this.prompt({
             name: 'githubAccount',
-            message: 'Provide your GitHub username or organization',
+            message: message.githubAccount,
             default: username
           }, function (prompt) {
             this.props.githubAccount = prompt.githubAccount;
@@ -283,7 +342,7 @@ module.exports = yeoman.Base.extend({
     // Let's extend package.json so we're not overwriting user previous fields
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
-    if (this.options.bower && this.props.bower) {
+    if (this.props.browser && this.options.bower && this.props.bower) {
       var bower = {
         name: pkg.name,
         version: '0.0.1',
@@ -346,7 +405,7 @@ module.exports = yeoman.Base.extend({
       local: require.resolve('../npm-conf')
     });
 
-    if (this.options.bower && this.props.bower) {
+    if (this.props.browser && this.options.bower && this.props.bower) {
       this.composeWith('typescript-npm-bower:bower-conf', {}, {
         local: require.resolve('../bower-conf')
       });
@@ -360,9 +419,15 @@ module.exports = yeoman.Base.extend({
         local: require.resolve('../typescript-conf')
     });
 
-    this.composeWith('typescript-npm-bower:karma-conf', {}, {
-      local: require.resolve('../karma-conf')
-    });
+    if (this.props.browser) {
+      this.composeWith('typescript-npm-bower:karma-conf', {
+        options: {
+          testFramework: this.props.testFramework
+        }
+      }, {
+        local: require.resolve('../karma-conf')
+      });
+    }
 
     this.composeWith('typescript-npm-bower:git', {
       options: {
@@ -377,9 +442,11 @@ module.exports = yeoman.Base.extend({
       this.composeWith('typescript-npm-bower:gulp', {
         options: {
           name: _.kebabCase(this.props.name),
+          browser: this.props.browser,
           styles: this.props.styles,
           scss: this.props.scss,
-          bower: this.props.bower
+          bower: this.props.bower,
+          testFramework: this.props.testFramework
         }
       },  {
         local: require.resolve('../gulp')
@@ -389,9 +456,11 @@ module.exports = yeoman.Base.extend({
     if (this.options.boilerplate) {
       this.composeWith('typescript-npm-bower:boilerplate', {
         options: {
+          browser: this.props.browser,
           styles: this.props.styles,
           scss: this.props.scss,
-          bower: this.props.bower
+          bower: this.props.bower,
+          testFramework: this.props.testFramework
         }
       }, {
         local: require.resolve('../boilerplate')
@@ -417,6 +486,7 @@ module.exports = yeoman.Base.extend({
           description: this.props.description,
           githubAccount: this.props.githubAccount,
           authorName: this.props.authorName,
+          browser: this.props.browser,
           styles: this.props.styles,
           scss: this.props.scss,
           bower: this.props.bower

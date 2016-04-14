@@ -3,6 +3,7 @@ var generators = require('yeoman-generator');
 var path = require('path');
 var _ = require('lodash');
 var extend = _.merge;
+var message = require('../message');
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -12,34 +13,48 @@ module.exports = generators.Base.extend({
       type: String,
       required: false,
       defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      desc: message.generateInto
     });
 
     this.option('name', {
       type: String,
       required: true,
-      desc: 'Project name'
+      desc: message.name
+    });
+
+    this.option('browser', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.browser
     });
 
     this.option('styles', {
       type: Boolean,
       required: false,
       defaults: false,
-      desc: 'Include CSS'
+      desc: message.styles
     });
 
     this.option('scss', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Use SCSS extension'
+      desc: message.scss
     });
 
     this.option('bower', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include bower component'
+      desc: message.browser
+    });
+
+    this.option('testFramework', {
+      type: String,
+      required: false,
+      defaults: 'jasmine',
+      desc: message.testFramework
     });
   },
 
@@ -62,7 +77,6 @@ module.exports = generators.Base.extend({
           'gulp-git': '1.7.1',
           'gulp-help': '1.6.0',
           'gulp-inject': '4.0.0',
-          'gulp-jasmine': '2.0.1',
           'gulp-jshint': '2.0.0',
           'gulp-load-plugins': '1.0.0-rc.1',
           'gulp-notify': '2.2.0',
@@ -80,16 +94,12 @@ module.exports = generators.Base.extend({
           'gulp-typings': '1.3.4',
           'gulp-uglify': '1.2.0',
           'gulp-util': '3.0.7',
-          'jasmine': '2.3.1',
-          'jasmine-ajax': '3.2.0',
-          'jasmine-core': '2.4.1',
           'jshint': '2.9.1',
           'jshint-stylish': '2.1.0',
           'karma': '0.13.22',
           'karma-browserify': '5.0.3',
           'karma-chrome-launcher': '0.2.2',
           'karma-coverage': '0.5.5',
-          'karma-jasmine': '0.3.7',
           'karma-phantomjs-launcher': '1.0.0',
           'karma-remap-istanbul': '0.0.5',
           'path': '0.12.7',
@@ -118,7 +128,22 @@ module.exports = generators.Base.extend({
         }
       });
 
+      switch (this.options.testFramework) {
+        case 'jasmine':
+          pkg.devDependencies['jasmine'] = '2.3.1';
+          pkg.devDependencies['jasmine-ajax'] = '3.2.0';
+          pkg.devDependencies['jasmine-core'] = '2.4.1';
+          pkg.devDependencies['karma-jasmine'] = '0.3.7';
+          break;
+        case 'mocha':
+          pkg.devDependencies['chai'] = '3.5.0';
+          pkg.devDependencies['karma-mocha'] = '0.2.2';
+          pkg.devDependencies['mocha'] = '2.4.5';
+          break;
+      }
+
       if (this.options.styles) {
+        pkg.devDependencies['gulp-concat'] = '2.6.0';
         pkg.devDependencies['gulp-cssmin'] = '0.1.7';
       }
 

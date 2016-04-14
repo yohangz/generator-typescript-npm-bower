@@ -1,5 +1,8 @@
 import Wish,{IGiftHolder} from '../../src/main/Wish';
 
+<% if (browser) { -%>
+<% switch (testFramework) {
+  case 'jasmine': -%>
 describe('Wish Test ', () => {
 
     let consoleSpy: any;
@@ -16,3 +19,9 @@ describe('Wish Test ', () => {
         expect(consoleSpy).toHaveBeenCalledWith('hello');
     });
  });
+<% break;
+  case 'mocha':-%>
+<% break;
+} -%>
+<% } else { -%>
+<% } -%>

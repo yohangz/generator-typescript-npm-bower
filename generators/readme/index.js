@@ -1,6 +1,7 @@
 'use strict';
 var generators = require('yeoman-generator');
 var moment = require('moment');
+var message = require('../message');
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -10,58 +11,65 @@ module.exports = generators.Base.extend({
       type: String,
       required: false,
       defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      desc: message.generateInto
     });
 
     this.option('name', {
       type: String,
       required: true,
-      desc: 'Project name'
+      desc: message.name
     });
 
     this.option('description', {
       type: String,
       required: true,
-      desc: 'Project description'
+      desc: message.description
     });
 
     this.option('githubAccount', {
       type: String,
       required: true,
-      desc: 'User github account'
+      desc: message.githubAccount
     });
 
     this.option('authorName', {
       type: String,
       required: true,
-      desc: 'Author name'
+      desc: message.authorName
     });
 
     this.option('authorUrl', {
       type: String,
       required: true,
-      desc: 'Author url'
+      desc: message.authorUrl
+    });
+
+    this.option('browser', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.browser
     });
 
     this.option('styles', {
       type: Boolean,
       required: false,
       defaults: false,
-      desc: 'Include CSS'
+      desc: message.styles
     });
 
     this.option('scss', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Use SCSS extension'
+      desc: message.scss
     });
 
     this.option('bower', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include bower component'
+      desc: message.bower
     });
   },
 

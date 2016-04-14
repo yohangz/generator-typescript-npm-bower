@@ -3,7 +3,7 @@
 module.exports = function(config) {
 
   config.set({
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['<%= testFramework %>', 'browserify'],
     files: [
       'src/**/*.js',
       'test/**/*.js',

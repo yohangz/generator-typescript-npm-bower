@@ -1,5 +1,6 @@
 'use strict';
 var generators = require('yeoman-generator');
+var message = require('../message');
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -9,13 +10,13 @@ module.exports = generators.Base.extend({
       type: String,
       required: false,
       defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      desc: message.generateInto
     });
 
     this.option('name', {
       type: String,
       required: true,
-      desc: 'Project name'
+      desc: message.name
     });
   },
 

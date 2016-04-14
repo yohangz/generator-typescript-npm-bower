@@ -1,5 +1,6 @@
 'use strict';
 var generators = require('yeoman-generator');
+var message = require('../message');
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -9,34 +10,48 @@ module.exports = generators.Base.extend({
       type: String,
       required: false,
       defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      desc: message.generateInto
+    });
+
+    this.option('browser', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.browser
     });
 
     this.option('styles', {
       type: Boolean,
       required: false,
       defaults: false,
-      desc: 'Include CSS'
+      desc: message.styles
     });
 
     this.option('scss', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Use SCSS extension'
+      desc: message.scss
     });
 
     this.option('bower', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: 'Include bower component'
+      desc: message.bower
+    });
+
+    this.option('testFramework', {
+      type: String,
+      required: false,
+      defaults: 'jasmine',
+      desc: message.testFramework
     });
   },
 
   writing: function() {
 
-    if (this.options.bower) {
+    if (this.options.browser && this.options.bower) {
       this.fs.copy(
         this.templatePath('example/**/*'),
         this.destinationPath(this.options.generateInto, 'example')
@@ -47,16 +62,20 @@ module.exports = generators.Base.extend({
       this.templatePath('src/**/*.ts'),
       this.destinationPath(this.options.generateInto, 'src'),
       {
-        bower: this.options.bower
+        bower: this.options.browser && this.options.bower
       }
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('test/**/*.ts'),
-      this.destinationPath(this.options.generateInto, 'test')
+      this.destinationPath(this.options.generateInto, 'test'),
+      {
+        browser: this.options.browser,
+        testFramework: this.options.testFramework
+      }
     );
 
-    if (this.options.styles) {
+    if (this.options.browser && this.options.styles) {
       if (this.options.scss) {
         this.fs.copy(
           this.templatePath('styles/**/*.scss'),
