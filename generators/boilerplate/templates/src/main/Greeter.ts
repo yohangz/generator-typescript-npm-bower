@@ -17,7 +17,7 @@ export default class Greeter {
      * Check input is a string and Prints the input.
      * @param title  string.
      */
-    greet(title : string) {
+    greet(title : string): string {
 
         let myObj : IGiftHolder;
 
@@ -32,6 +32,6 @@ export default class Greeter {
             };
         }
 
-        this.wish.printGiftTitle(myObj);
+        return this.wish.printGiftTitle(myObj);
     }
 }

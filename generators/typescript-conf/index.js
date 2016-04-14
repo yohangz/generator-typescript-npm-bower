@@ -18,6 +18,20 @@ module.exports = generators.Base.extend({
       required: true,
       desc: message.name
     });
+
+    this.option('browser', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.browser
+    });
+
+    this.option('testFramework', {
+      type: String,
+      required: false,
+      defaults: 'jasmine',
+      desc: message.testFramework
+    });
   },
 
   writing: function () {
@@ -30,7 +44,9 @@ module.exports = generators.Base.extend({
       this.templatePath('typings.json'),
       this.destinationPath(this.options.generateInto, 'typings.json'),
       {
-        projectName: this.options.name
+        projectName: this.options.name,
+        browser: this.options.browser,
+        testFramework: this.options.testFramework
       }
     );
   }

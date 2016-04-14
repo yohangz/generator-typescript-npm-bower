@@ -15,8 +15,8 @@ export default class Wish {
      * Prints the title of the passed IGiftHolder object.
      * @param giftObj  IGiftHolder object.
      */
-    printGiftTitle(giftObj: IGiftHolder) : void {
-        console.log(giftObj.title);
+    printGiftTitle(giftObj: IGiftHolder) : string {
+      return giftObj.title;
     }
 }
 

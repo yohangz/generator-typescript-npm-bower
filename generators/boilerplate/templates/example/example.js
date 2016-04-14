@@ -1,6 +1,6 @@
 var greeter = new App.Greeter();
 
-greeter.greet("Well done , You have successfully loaded everything");
+console.log(greeter.greet("Well done , You have successfully loaded everything"));
 
 
 

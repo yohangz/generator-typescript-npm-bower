@@ -25,8 +25,8 @@ exports.paths = {
 <% if (styles) { -%>
   cssTmp:'.cssTmp',
   styles: {
-<% if (scss) { -%> 
-    scss:'styles/**/*.scss',
+<% if (scss) { -%>
+    scss:'styles/**/*.scss'
 <% } else { -%>
     css:'styles/**/*.css'
 <% } -%>

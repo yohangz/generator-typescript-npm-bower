@@ -2,8 +2,13 @@
   "name": "<%= projectName %>",
   "version": false,
   "ambientDependencies": {
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
+<% if ((browser && (testFramework === 'mocha')) || !browser) { -%>
+    "chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#91989d35b892f1526c35fb1e55219ba05bc5065e",
+    "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#d6dd320291705694ba8e1a79497a908e9f5e6617",
+<% } else { -%>
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
+<% } -%>
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
     "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#672366c6c501561fd208021447b030df50c36590"
   }
 }
