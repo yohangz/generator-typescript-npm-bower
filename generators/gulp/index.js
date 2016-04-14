@@ -161,6 +161,9 @@ module.exports = generators.Base.extend({
         pkg.devDependencies['chai'] = '3.5.0';
         pkg.devDependencies['karma-mocha'] = '0.2.2';
         pkg.devDependencies['mocha'] = '2.4.5';
+        pkg.devDependencies['gulp-istanbul'] = '0.10.3';
+        pkg.devDependencies['gulp-mocha'] = '2.2.0';
+        pkg.devDependencies['gulp-plumber'] = '1.0.0';
       }
 
       this.fs.writeJSON(this.destinationPath(this.options.generateInto, 'package.json'), pkg);
@@ -242,9 +245,12 @@ module.exports = generators.Base.extend({
         }
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('tests.js'),
-        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'tests.js')
+        this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'tests.js'),
+        {
+          browser: this.options.browser
+        }
       );
 
       this.fs.copy(
