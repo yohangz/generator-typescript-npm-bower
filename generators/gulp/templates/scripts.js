@@ -17,10 +17,10 @@ var path = require('path'),
     $ = require('gulp-load-plugins')();
 
 /* Initialize TS Project */
-var tsProject = $.typescript.createProject(conf.paths.tsconfig);
+var tsProject = $.typescript.createProject(conf.paths.tsconfig_json);
 
 /* Concat all source, test and typings TS files  */
-var tsFiles = [].concat(conf.paths.src + conf.paths.sub_src, conf.paths.test + conf.paths.sub_src, conf.paths.dts.browser);
+var tsFiles = [].concat(conf.paths.src + '/' + conf.path_pattern.ts, conf.paths.test + '/' + conf.path_pattern.ts, conf.paths.typings.browser);
 
 <% if (bower) { -%>
 /**
@@ -58,7 +58,7 @@ gulp.task('bower', ['clean-bower'], function () {
     basedir: './',
     debug: true
   })
-    .add([].concat(conf.paths.src + conf.paths.main, conf.paths.dts.browser))
+    .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.browser))
     .plugin(tsify);
 
   return bundler.bundle()
@@ -81,7 +81,7 @@ gulp.task('bower', ['clean-bower'], function () {
  * Report errors.
  */
 gulp.task('npm',['clean-lib'], function () {
-  return gulp.src([].concat(conf.paths.src + conf.paths.sub_src, conf.paths.dts.browser))
+  return gulp.src([].concat(conf.paths.src + '/' + conf.path_pattern.ts, conf.paths.typings.browser))
     .pipe($.tsc(tsConf))
     .pipe(gulp.dest(conf.paths.lib))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));

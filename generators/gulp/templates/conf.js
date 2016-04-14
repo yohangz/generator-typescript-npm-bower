@@ -26,28 +26,47 @@ exports.paths = {
   cssTmp:'.cssTmp',
   styles: {
 <% if (scss) { -%>
-    scss:'styles/**/*.scss'
-<% } else { -%>
-    css:'styles/**/*.css'
+  scss:'styles/**/*.scss'
+  <% } else { -%>
+  css:'styles/**/*.css'
+  <% } -%>
+},
 <% } -%>
-  },
-<% } -%>
-  gulp:'gulp/*.js',
+  gulp:'gulp',
   gulpFile:'gulpfile.js',
   coverage: 'coverage',
   reportDir:'report',
   docs:'docs',
   example:'example',
-  dts:{
+  typings:{
     browser:'typings/browser.d.ts'
   },
-  sub_src:'/**/*.ts',
   main:'/index.ts', /** If you change this you need to update the package.json as well */
-  bundle:'/' + Project_Name + '.js',
+<% if (bower) { -%>
+  bundle: Project_Name + '.js',
+<% } -%>
+<% if (browser) { -%>
   karmaConf: __dirname + '/../karma.conf.js',
   karmaCoverageConf: __dirname + '/../karma-coverage.conf.js',
-  typings: __dirname + '/../typings.json',
-  tsconfig: __dirname + '/../tsconfig.json'
+<% } -%>
+  typings_json: __dirname + '/../typings.json',
+  tsconfig_json: __dirname + '/../tsconfig.json'
+};
+
+/**
+ *  The main file patterns goes here
+ */
+exports.path_pattern = {
+  ts:'**/*.ts',
+  js:'**/*.js',
+<% if (styles) { -%>
+<% if (scss) { -%>
+  scss:'**/*/.scss',
+<% } -%>
+  css:'**/*.css',
+<% } -%>
+  map:'**/*.map',
+  ktp_ts:'**/*.ktp.ts'
 };
 
 /**
@@ -59,7 +78,9 @@ exports.files = {
   BOWER_MIN_JS: Project_Name + '.min.js',
 <% } -%>
 <% if (styles) { -%>
+<% if (scss) { -%>
   BOWER_CSS: Project_Name + '.css',
+<% } -%>
   BOWER_MIN_CSS: Project_Name + '.min.css',
 <% } -%>
   PROJECT_NAME: Project_Name,

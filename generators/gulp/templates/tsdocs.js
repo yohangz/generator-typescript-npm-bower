@@ -17,7 +17,7 @@ var path = require('path'),
  */
 gulp.task('typedoc',['clean-doc'], function () {
   return gulp
-    .src(conf.paths.src + conf.paths.sub_src)
+    .src(path.join(conf.paths.src, conf.path_pattern.ts))
     .pipe($.typedoc({
       module: tsConf.module,
       target: tsConf.target,

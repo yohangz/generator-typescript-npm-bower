@@ -4,7 +4,8 @@
 
 'use strict';
 
-var gulp = require('gulp-help')(require('gulp')),
+var path = require('path'),
+    gulp = require('gulp-help')(require('gulp')),
     del = require('del'),
     runSequence = require('run-sequence'),
     conf = require('./conf');
@@ -52,12 +53,12 @@ gulp.task('clean-doc', function () {
  */
 gulp.task('clean-source-tmp', function () {
     return del([
-            conf.paths.src + '/**/*.js',
-            conf.paths.src + '/**/*.js.map',
-            conf.paths.src + '/**/*.ts.ktp.ts',
-            conf.paths.test + '/**/*.js',
-            conf.paths.test + '/**/*.js.map',
-            conf.paths.test + '/**/*.ts.ktp.ts'
+      path.join(conf.paths.src, conf.path_pattern.js),
+      path.join(conf.paths.src, conf.path_pattern.map),
+      path.join(conf.paths.src, conf.path_pattern.ktp_ts),
+      path.join(conf.paths.test, conf.path_pattern.js),
+      path.join(conf.paths.test, conf.path_pattern.map),
+      path.join(conf.paths.test, conf.path_pattern.ktp_ts)
     ]);
 });
 
@@ -67,8 +68,8 @@ gulp.task('clean-source-tmp', function () {
  */
 gulp.task('clean-css', function () {
     return del([
-        conf.paths.bower + '/**/*.css',
-        conf.paths.lib + '/**/*.css'
+      path.join(conf.paths.bower, conf.path_pattern.css),
+      path.join(conf.paths.lib, conf.path_pattern.css)
     ]);
 });
 <% } -%>

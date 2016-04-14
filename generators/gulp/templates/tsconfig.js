@@ -16,8 +16,8 @@ var gulp = require('gulp-help')(require('gulp')),
  * Get the locations of the all .ts files via tsconfig.json
  */
 var tsFilesGlob = (function (c) {
-    return c.filesGlob || c.files || conf.paths.sub_src;
-}(require(conf.paths.tsconfig)));
+  return c.filesGlob || c.files || conf.path_pattern.ts;
+}(require(conf.paths.tsconfig_json)));
 
 
 /**
@@ -51,9 +51,10 @@ gulp.task('tslint', function () {
  * Use jshint stylish to show errors.
  */
 gulp.task('jshint', function () {
-    return gulp.src([conf.paths.gulp, conf.paths.gulpFile, conf.paths.karmaConf, conf.paths.karmaCoverageConf])
-        .pipe(jshint())
-        .pipe(jshint.reporter(stylish));
+  return gulp.src([conf.paths.gulp + conf.path_pattern.js, conf.paths.gulpFile, conf.paths.karmaConf, conf.paths.karmaCoverageConf])
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
 });
+
 
 

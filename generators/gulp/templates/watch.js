@@ -24,8 +24,8 @@ gulp.task('watch', function (done) {
  */
 gulp.task('watch-scripts', function(){
     gulp.watch([
-        path.join(conf.paths.test, conf.paths.sub_src),
-        path.join(conf.paths.src, conf.paths.sub_src)
+      path.join(conf.paths.test, conf.path_pattern.ts),
+      path.join(conf.paths.src, conf.path_pattern.ts)
     ], function() {
         runSequence('tslint','tmp-watch-scripts');
     });
@@ -36,11 +36,11 @@ gulp.task('watch-scripts', function(){
  * Watch changes in build process helper files -> run jshint.
  */
 gulp.task('watch-build-scripts', function(){
-    gulp.watch([
-        conf.paths.gulp, conf.paths.gulpFile, conf.paths.karmaConf, conf.paths.karmaCoverageConf
-    ], function() {
-        gulp.start('jshint');
-    });
+  gulp.watch([
+    conf.paths.gulp + '/' + conf.path_pattern.js, conf.paths.gulpFile, conf.paths.karmaConf, conf.paths.karmaCoverageConf
+  ], function() {
+    gulp.start('jshint');
+  });
 });
 
 <% if (styles) { if (scss) { -%>

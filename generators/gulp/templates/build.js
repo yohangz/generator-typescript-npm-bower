@@ -15,7 +15,7 @@ var gulp = require('gulp-help')(require('gulp')),
  * Report errors.
  */
 gulp.task("typings-install",function(done){
-  gulp.src(conf.paths.typings)
+  gulp.src(conf.paths.typings_json)
     .pipe($.typings())
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT))
     .on('end', function(){
