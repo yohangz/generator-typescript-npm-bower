@@ -74,13 +74,9 @@ module.exports = generators.Base.extend({
           'gulp-filter': '4.0.0',
           'gulp-git': '1.7.1',
           'gulp-help': '1.6.0',
-          'gulp-inject': '4.0.0',
           'gulp-jshint': '2.0.0',
           'gulp-load-plugins': '1.0.0-rc.1',
-          'gulp-notify': '2.2.0',
           "gulp-nsp": "2.4.0",
-          'gulp-rename': '1.2.2',
-          'gulp-size': '2.1.0',
           'gulp-sourcemaps': '1.6.0',
           'gulp-streamify': '1.0.2',
           'gulp-tag-version': '1.3.0',
@@ -148,6 +144,13 @@ module.exports = generators.Base.extend({
         if (this.options.styles) {
           pkg.devDependencies['gulp-concat'] = '2.6.0';
           pkg.devDependencies['gulp-cssmin'] = '0.1.7';
+        }
+
+        if (this.options.browser) {
+          pkg.devDependencies['gulp-inject'] = '4.0.0';
+          pkg.devDependencies['gulp-notify'] = '2.2.0';
+          pkg.devDependencies['gulp-size'] = '2.1.0';
+          pkg.devDependencies['gulp-rename'] = '1.2.2';
         }
 
         if (this.options.styles && this.options.scss) {
