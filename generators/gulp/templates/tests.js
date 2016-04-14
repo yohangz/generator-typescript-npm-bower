@@ -90,7 +90,7 @@ gulp.task('coverage', 'Run tests and generate coverage', function(done) {
 /**
  * Gulp pre coverage test with mocha and istanbul configuration.
  */
-gulp.task('pre-test', function() {
+gulp.task('pre-test', ['coverage-build'], function() {
   return gulp.src(path.join(conf.paths.src, '/**/*.js'))
     .pipe($.istanbul({
       includeUntested: true
