@@ -108,7 +108,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   release           Update release version and create tag
 ```
 ## Changelog
-Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)
+Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
 
 ## License
 

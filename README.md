@@ -40,12 +40,6 @@ That'll generate a project with all the common tools setup. This includes:
 
 ### Running tests
 
-Once the project is scaffolded, inside the project folder run:
-
-```
-npm test
-```
-
 You can use gulp to run test:
 
 ```
