@@ -106,7 +106,6 @@ module.exports = generators.Base.extend({
         scripts: {
           'typings': 'gulp typings-install',
           'test': 'gulp test',
-          'dev test': 'gulp dev-test',
           'watch': 'gulp watch',
           'clean': 'gulp clean-build',
           'build': 'gulp build',
@@ -129,6 +128,8 @@ module.exports = generators.Base.extend({
         pkg.devDependencies['karma-phantomjs-launcher'] = '1.0.0';
         pkg.devDependencies['karma-remap-istanbul'] = '0.0.5';
         pkg.devDependencies['phantomjs-prebuilt'] = '2.1.7';
+
+        pkg.scripts['dev test'] = 'gulp dev-test';
 
         switch (this.options.testFramework) {
           case 'jasmine':
