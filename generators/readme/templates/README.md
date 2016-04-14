@@ -68,6 +68,7 @@ npm install <%= projectName %> --save
 <% if(bower){ -%>
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
+├── CHANGELOG.md                # Detailed recent changes in the versions 
 <% if(browser){ -%>
 ├── karma.conf.js               # Test runner in .ts format
 ├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
@@ -75,7 +76,8 @@ npm install <%= projectName %> --save
 ├── tsconfig.json               # Contains typescript compiler options
 ├── tslint.json                 # Lint rules for the project
 ├── typings.json                # Typings information to generate typings folder
-└── package.json                # Holds various metadata relevant to the project
+├── package.json                # Holds various metadata relevant to the project
+└── README.md                   # Contains the details of the generated project
 ```
 
 ## Technologies
@@ -91,7 +93,7 @@ Build Tool                	| Gulp
 Code Quality Tools         	| JS Hint,<% if(styles) { if(scss){ -%> SCSS Lint,<% } else { -%> CSS Lint,<% }} -%> TS Lint
 Dependency Registries      	| <% if(bower){ %>Bower, <% } -%>NPM
 <% if(styles){ -%>
-Styling Tool            	| <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
+Styling Tool            	  | <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
 <% } -%>
 
 ## How to use
