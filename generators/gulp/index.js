@@ -154,8 +154,9 @@ module.exports = generators.Base.extend({
         }
 
         if (this.options.styles && this.options.scss) {
-          pkg.devDependencies['gulp-sass'] = '2.2.0';
+          pkg.devDependencies['gulp-scss'] = '2.2.0';
           pkg.devDependencies['gulp-scss-lint'] = '0.3.9';
+          pkg.devDependencies['gulp-scss-lint-stylish'] = '1.0.1';
         }
 
         if (this.options.styles && !this.options.scss) {
@@ -228,8 +229,8 @@ module.exports = generators.Base.extend({
 
       if (this.options.browser && this.options.styles && this.options.scss) {
         this.fs.copy(
-          this.templatePath('sass.js'),
-          this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'sass.js')
+          this.templatePath('scss.js'),
+          this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scss.js')
         );
       }
 
