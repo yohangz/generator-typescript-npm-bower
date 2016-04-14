@@ -24,35 +24,35 @@ module.exports = generators.Base.extend({
 
     this.option('browser', {
       type: Boolean,
-      required: false,
+      required: true,
       defaults: true,
       desc: message.browser
     });
 
     this.option('styles', {
       type: Boolean,
-      required: false,
+      required: true,
       defaults: false,
       desc: message.styles
     });
 
     this.option('scss', {
       type: Boolean,
-      required: false,
+      required: true,
       defaults: true,
       desc: message.scss
     });
 
     this.option('bower', {
       type: Boolean,
-      required: false,
+      required: true,
       defaults: true,
       desc: message.browser
     });
 
     this.option('testFramework', {
       type: String,
-      required: false,
+      required: true,
       defaults: 'jasmine',
       desc: message.testFramework
     });
