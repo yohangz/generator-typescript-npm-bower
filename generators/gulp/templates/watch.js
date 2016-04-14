@@ -37,7 +37,7 @@ gulp.task('watch-scripts', function(){
  */
 gulp.task('watch-build-scripts', function(){
   gulp.watch([
-    path.join(conf.paths.gulp, conf.path_pattern.js), conf.paths.gulpFile, conf.paths.karmaConf, conf.paths.karmaCoverageConf
+    path.join(conf.paths.gulp, conf.path_pattern.js), conf.paths.gulpFile<% if (browser) { -%>, conf.paths.karmaConf, conf.paths.karmaCoverageConf <% } -%>
   ], function() {
     gulp.start('jshint');
   });

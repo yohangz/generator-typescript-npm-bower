@@ -30,7 +30,7 @@ gulp.task('tslint', function () {
  * Use jshint stylish to show errors.
  */
 gulp.task('jshint', function () {
-  return gulp.src([path.join(conf.paths.gulp, conf.path_pattern.js), conf.paths.gulpFile, conf.paths.karmaConf, conf.paths.karmaCoverageConf])
+  return gulp.src([path.join(conf.paths.gulp, conf.path_pattern.js), conf.paths.gulpFile<% if (browser) { -%>, conf.paths.karmaConf, conf.paths.karmaCoverageConf <% } -%>])
     .pipe($.jshint())
     .pipe($.jshint.reporter(stylish));
 });
