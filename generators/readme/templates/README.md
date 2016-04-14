@@ -3,7 +3,7 @@
 
 ## Installation
 
-```sh
+```
 npm install <%= projectName %> --save
 ```
 
@@ -107,8 +107,28 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   feature           Update feature version and create tag
   release           Update release version and create tag
 ```
-## Changelog
-Recent changes can be viewed on Github on the [CHANGELOG.md](CHANGELOG.md)
+
+## Publishing your code
+
+*Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm.*
+
+Bumping version number and tagging the repository with it can be done as mentioned below.
+For more details read [http://semver.org/](http://semver.org/)
+ 
+Available options to update version 
+```  
+npm run patch     # makes v0.1.0 → v0.1.1
+npm run feature   # makes v0.1.1 → v0.2.0
+npm run release   # makes v0.2.1 → v1.0.0
+```
+Publishing updated version can be done via,
+```
+npm run <release | feature | patch>
+npm publish
+```
+
+# Changelog
+Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
 
 ## License
 

@@ -40,28 +40,30 @@ That'll generate a project with all the common tools setup. This includes:
 
 ### Running tests
 
-Once the project is scaffolded, inside the project folder run:
-
-```
-npm test
-```
-
 You can use gulp to run test:
 
 ```
- npm -g install gulp
- gulp test
+npm -g install gulp
+gulp test
 ```
 
 ### Publishing your code
 
-Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm. We recommend you using [npm version](https://docs.npmjs.com/cli/version) to tag release correctly.
+*Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm.*
 
+Bumping version number and tagging the repository with it can be done as mentioned below.
+For more details read [http://semver.org/](http://semver.org/)
+ 
+Available options to update version 
+```  
+npm run patch     # makes v0.1.0 → v0.1.1
+npm run feature   # makes v0.1.1 → v0.2.0
+npm run release   # makes v0.2.1 → v1.0.0
 ```
-$ npm version major
-$ git push --follow-tags
-# ATTENTION: There is no turning back here.
-$ npm publish
+Publishing updated version can be done via,
+```
+npm run <release | feature | patch>
+npm publish
 ```
 
 ## Extend this generator
