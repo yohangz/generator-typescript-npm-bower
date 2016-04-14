@@ -61,14 +61,6 @@ gulp.task('dev-test', function(done) {
 });
 
 /**
- * Gulp coverage build task.
- * clean tmp -> tmp scripts
- */
-gulp.task('coverage-build', function(done){
-  runSequence('clean-source-tmp','tmp-scripts',done);
-});
-
-/**
  * Gulp coverage test with karma coverage configuration.
  * Single Run with PhantomJs.
  * @param done - done callback function.
@@ -155,6 +147,14 @@ gulp.task('test', 'Run tests and generate coverage', function(done) {
   runSequence('clean-source-tmp', 'summary-test', 'clean-source-tmp', done);
 });
 <% } -%>
+
+/**
+ * Gulp coverage build task.
+ * clean tmp -> tmp scripts
+ */
+gulp.task('coverage-build', function(done){
+  runSequence('clean-source-tmp','tmp-scripts', done);
+});
 
 /**
  * Gulp remap istanbul task.
