@@ -41,7 +41,6 @@ function runTestsCI (karmaConf,singleRun, launcher, done) {
   });
 }
 
-
 /**
  * Gulp test task do CI test.
  * Single Run with PhantomJs.
@@ -78,7 +77,6 @@ gulp.task('coverage', 'Run tests and generate coverage', function(done) {
   runSequence('clean-source-tmp','clean-coverage','coverage-test','remap-istanbul','clean-source-tmp',done);
 });
 <% } else { -%>
-
 /**
  * Gulp pre coverage test with mocha and istanbul configuration.
  */
@@ -170,5 +168,4 @@ gulp.task('remap-istanbul', function () {
       }
     }))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
-
 });
