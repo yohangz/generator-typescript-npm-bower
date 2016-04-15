@@ -1,11 +1,12 @@
+.jsTmp/
+.cssTmp/
+.idea/
+.gulp-scss-cache/
+.sass-cache/
 coverage/
 docs/
 node_modules/
 typings/
-.tmp/
-.idea/
-.gulp-scss-cache/
-.sass-cache/
 npm-debug.log
 src/**/*.js
 src/**/*.js.map
