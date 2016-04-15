@@ -47,7 +47,7 @@ npm install <%= projectName %> --save
 │   ├── /tsconfig.js            # Updates tsconfig.json with project sources
 │   ├── /tsdocs.js              # Generates documentation for the project
 │   ├── /version.js             # Updated version
-│   └── /watch.js               # Watches all the .ts,.js <% if(styles){ if(scss){ %>.scss or .sass <% } else { -%>and .css <% }} -%>files for changes
+│   └── /watch.js               # Watches all the .ts, .js <% if(styles){ if(scss){ %>.scss or .sass <% } else { -%>and .css <% }} -%>files for changes
 ├── /lib/                       # The folder for compiled output with typings for node module consume
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /src/                       # The source code(.ts) of the application
