@@ -4,7 +4,6 @@
 
 ### Added
 
-- [SASS](http://sass-lang.com/) support.
 - [LESS](http://lesscss.org/usage/) support.
 - [QUnit](https://qunitjs.com/) support.
 - Complete unit test coverage.
@@ -30,7 +29,7 @@
   - [JSHint](http://jshint.com/)
   - [TSLint](https://www.npmjs.com/package/tslint)
 <% if (styles) { if (scss) { -%>
-  - [SCSS Lint](https://www.npmjs.com/package/gulp-scss-lint)
+  - [SASS Lint](https://www.npmjs.com/package/sass-lint)
 <% } else { -%>
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
 <% }} -%>  
