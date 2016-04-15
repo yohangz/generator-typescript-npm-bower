@@ -10,6 +10,7 @@
  test/
  typings/
 .gulp-scss-cache/
+.sass-cache/
  .bowerrc 
 .editorconfig 
 .gitignore 

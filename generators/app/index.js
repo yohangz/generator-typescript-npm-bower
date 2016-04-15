@@ -366,6 +366,7 @@ module.exports = yeoman.Base.extend({
           'coverage',
           'typings',
           '.gulp-scss-cache',
+          '.sass-cache',
           '.tmp',
           '.idea',
           '.editorconfig',
