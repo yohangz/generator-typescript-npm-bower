@@ -43,8 +43,6 @@ gulp.task('build-bower',['bower'], function () {
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
 
-<% } -%>
-<% if (bower) { -%>
 /**
  * Gulp bower task.
  * Clean bower directory.
