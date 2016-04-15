@@ -27,7 +27,6 @@ gulp.task('bundle-css', function () {
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
 
-
 /**
  * Gulp minify css task.
  * Rename the bundle with min.
@@ -47,7 +46,6 @@ gulp.task('min-css',['bundle-css'], function () {
     .pipe(gulp.dest(conf.paths.cssTmp))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
-
 
 /**
  * Gulp css lint task.
