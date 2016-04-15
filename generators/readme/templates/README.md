@@ -30,7 +30,7 @@ npm install <%= projectName %> --save
 │   ├── /clean.js               # Contain clean tasks required for the prject
 │   ├── /conf.js                # Contains the variables used in other gulp files
 <% if(styles && !scss){ -%>
-│   ├── /css.js                 # Minify .css files in styles folder with lint support.
+│   ├── /css.js                 # Concat and minify .css files in styles folder with css lint support.
 <% } -%>
 <% if(styles){ -%>
 │   ├── /copy.js                # Copies .css build output to lib and bower folders.
@@ -40,21 +40,21 @@ npm install <%= projectName %> --save
 <% } -%>
 │   ├── /lint.js                # Common lint support with jshint and tslint
 <% if(styles && scss){ -%>
-|   |── /scss.js                # Builds all the .scss files with scss lint support
+|   |── /scss.js                # Builds all the .scss or .sass files with sass lint support
 <% } -%>
 │   ├── /scripts.js             # Build scripts
 │   ├── /tests.js               # Run tests and generate coverage reports
 │   ├── /tsconfig.js            # Updates tsconfig.json with project sources
 │   ├── /tsdocs.js              # Generates documentation for the project
 │   ├── /version.js             # Updated version
-│   └── /watch.js               # Watches all the .ts,.js <% if(styles){ if(scss){ %>and .scss <% } else { -%>and .css <% }} -%>files for changes
+│   └── /watch.js               # Watches all the .ts, .js <% if(styles){ if(scss){ %>.scss or .sass <% } else { -%>and .css <% }} -%>files for changes
 ├── /lib/                       # The folder for compiled output with typings for node module consume
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /src/                       # The source code(.ts) of the application
 │   ├── /sub_srcs               # Contain any sub sources(files or folders)
 │   └── /index.ts               # Expose the acceseble properties by outside
 <% if(styles){ -%>
-|── /styles/                    # Styling <% if(scss){ -%>.scss<% } else { -%>.css<% } -%> files for the project
+|── /styles/                    # Styling <% if(scss){ -%>.scss or .sass<% } else { -%>.css<% } -%> files for the project
 <% } -%>
 ├── /test/                      # Contain tests(.ts) for all the source files
 ├── /typings/                   # Typings files for specific node modules for the project
@@ -95,10 +95,10 @@ Unit Test Runner           	| Karma
 Coverage Generator         	| Istanbul
 Documentation              	| Typedoc
 Build Tool                	| Gulp
-Code Quality Tools         	| JS Hint,<% if(styles) { if(scss){ -%> SCSS Lint,<% } else { -%> CSS Lint,<% }} -%> TS Lint
+Code Quality Tools         	| JS Hint,<% if(styles) { if(scss){ -%> SASS Lint,<% } else { -%> CSS Lint,<% }} -%> TS Lint
 Dependency Registries      	| <% if(bower){ %>Bower, <% } -%>NPM
 <% if(styles){ -%>
-Styling Tool            	  | <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
+Styling Tool            	  | <% if(scss){ -%>SASS<% } else { -%>CSS<% } -%>
 <% } -%>
 
 ## How to use
@@ -115,7 +115,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   coverage          Generate coverage reports by running all the tests via karma
   doc               Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
-  watch             Watches ts source files and runs tslint, jshint <% if(styles && scss){ -%>and scss-lint <% } else if(styles && !scss){ -%>and csslint <% } -%>on change
+  watch             Watches ts source files and runs tslint, jshint <% if(styles) { if(scss){ -%>and sass-lint <% } else { -%>and csslint <% }} -%>on change
   patch             Update patch version and create tag
   feature           Update feature version and create tag
   release           Update release version and create tag

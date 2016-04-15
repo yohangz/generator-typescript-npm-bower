@@ -1,6 +1,6 @@
 # Generator Typescript NPM Bower 
 [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
-> Yeoman generator for creating awesome TypeScript based Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SCSS Lint, CSS Lint, SCSS, Travis CI) - lets you quickly set up a project following best practices.
+> Yeoman generator for creating awesome TypeScript based Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
 
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
@@ -34,8 +34,8 @@ That'll generate a project with all the common tools setup. This includes:
 - [Typescript](https://www.typescriptlang.org/) javascript transpiler
 - [Jasmine](http://jasmine.github.io/2.0/introduction.html), [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) unit testing
 - [Karma](https://karma-runner.github.io/0.13/index.html) test runner
-- [TSLint](https://www.npmjs.com/package/tslint), [JShint](http://jshint.com/), [CSS Lint](https://www.npmjs.com/package/gulp-csslint)  and [SCSS Lint](https://www.npmjs.com/package/sass-lint) linting and code style checking
-- [SCSS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) styling tool
+- [TSLint](https://www.npmjs.com/package/tslint), [JShint](http://jshint.com/), [CSS Lint](https://www.npmjs.com/package/gulp-csslint) and [SASS Lint](https://www.npmjs.com/package/sass-lint) linting and code style checking
+- [SASS](http://sass-lang.com/) styling tool
 - [Istanbul](https://gotwarlost.github.io/istanbul/) code coverage
 - [Typedoc](http://typedoc.io/) documentation generator
 - [Travis CI](https://travis-ci.org/) continuous integration (optional)
@@ -95,7 +95,7 @@ Here's a list of our supported options:
 - `git` (Boolean, default true) include or not the git files (`.gitattributes`, `.gitignore`).
 - `gulp` (Boolean, default true) include or not a `gulpfile.js`.
 - `styles` (Boolean, default false) include CSS.
-- `scss` (Boolean, default true) include SCSS extension.
+- `scss` (Boolean, default true) include SASS extension.
 - `bower` (Boolean, default true)  include bower component files.
 - `license` (Boolean, default true) include or not a `LICENSE` file.
 - `travis` (Boolean, default true) include or not a `.travis.yml` file.
