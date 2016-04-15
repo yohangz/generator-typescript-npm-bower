@@ -80,8 +80,6 @@ gulp.task('clean-css', function () {
 gulp.task('clean-js-tmp', function () {
     return del([
         conf.paths.jsTmp
-
-
     ]);
 });
 <% if (styles) { -%>
