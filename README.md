@@ -128,8 +128,8 @@ Remember you can see the options of each sub generators by running `yo typescrip
 
 ## Issues
 
-SASS Lint is not fully supported in windows platform.
-- Please make sure to remove the `watch-scss-scripts` task form watch sequence if errors occur.
+- SASS Lint is not fully supported in windows platform. Please make sure to remove the `watch-scss-scripts` task form watch sequence if errors occur.
+- Documentation generation task will emit console errors for external module references but documentation will be generated properly.
 
 ## Changelog
 Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
