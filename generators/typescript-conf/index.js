@@ -16,6 +16,7 @@ module.exports = generators.Base.extend({
     this.option('name', {
       type: String,
       required: true,
+      defaults: 'test-project',
       desc: message.name
     });
 
@@ -28,7 +29,7 @@ module.exports = generators.Base.extend({
 
     this.option('testFramework', {
       type: String,
-      required: true,
+      required: false,
       defaults: 'jasmine',
       desc: message.testFramework
     });
