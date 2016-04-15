@@ -1,5 +1,15 @@
 .idea/ 
-.tmp/
+.jsTmp/
+.cssTmp/
+.gulp-scss-cache/
+.sass-cache/
+ .bowerrc 
+.editorconfig 
+.gitattributes
+.gitignore 
+.jshintrc 
+.npmrc 
+.travis.yml
  bower/
  coverage/
  docs/
@@ -9,14 +19,6 @@
  src/
  test/
  typings/
-.gulp-scss-cache/
-.sass-cache/
- .bowerrc 
-.editorconfig 
-.gitignore 
-.jshintrc 
-.npmrc 
-.version 
 bower.json 
 gulpfile.js
  karma.conf.js
@@ -25,3 +27,4 @@ tsconfig.json 
 tsd.json 
 tslint.json 
 npm-debug.log
+
