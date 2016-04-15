@@ -189,87 +189,42 @@ module.exports = yeoman.Base.extend({
         filter: function (words) {
           return words.split(/\s*,\s*/g);
         }
-      }];
-
-      this.prompt(prompts, function (props) {
-        this.props = extend(this.props, props);
-        done();
-      }.bind(this));
-    },
-
-    confirmBrowserSupport: function () {
-      var done = this.async();
-
-      var prompt = {
+      }, {
         type: 'confirm',
         name: 'browser',
         message: message.browser,
         default: true
-      };
-
-      this.prompt(prompt, function (prop) {
-        this.props.browser = prop.browser;
-        done();
-      }.bind(this));
-    },
-
-    confirmBowerAdd: function () {
-      var done = this.async();
-
-      var prompt = {
+      }, {
         type: 'confirm',
         name: 'bower',
         message: message.bower,
         default: true,
-        when: this.props.browser
-      };
-
-      this.prompt(prompt, function (prop) {
-        this.props.bower = prop.bower;
-        done();
-      }.bind(this));
-    },
-
-    confirmStyleAdd : function () {
-      var done = this.async();
-
-      var prompt = {
+        when: function (props) {
+          return props.browser;
+        }
+      }, {
         type: 'confirm',
         name: 'styles',
         message: message.styles,
         default: false,
-        when: this.props.browser
-      };
-
-      this.prompt(prompt, function (prop) {
-        this.props.styles = prop.styles;
-        done();
-      }.bind(this));
-    },
-
-    confirmScssAdd: function () {
-      var done = this.async();
-      var prompt = {
+        when: function (props) {
+          return props.browser;
+        }
+      }, {
         type: 'confirm',
         name: 'scss',
         message: message.scss,
-        when: this.props.browser && this.props.styles,
-        default: true
-      };
-
-      this.prompt(prompt, function (prop) {
-        this.props.scss = prop.scss;
-        done();
-      }.bind(this));
-    },
-
-    selectTestFramework: function () {
-      var done = this.async();
-      var prompt = {
+        default: true,
+        when: function (props) {
+          return props.browser && props.styles;
+        }
+      }, {
         type: 'list',
         name: 'testFramework',
         message: message.testFramework,
-        when: this.props.browser,
+        when: function (props) {
+          return props.browser;
+        },
         choices: [
           {
             name: "Jasmine",
@@ -281,10 +236,10 @@ module.exports = yeoman.Base.extend({
           }
         ],
         default: 0
-      };
+      }];
 
-      this.prompt(prompt, function (prop) {
-        this.props.testFramework = prop.testFramework;
+      this.prompt(prompts, function (props) {
+        this.props = extend(this.props, props);
         done();
       }.bind(this));
     },
