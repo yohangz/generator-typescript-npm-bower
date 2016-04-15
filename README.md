@@ -1,6 +1,6 @@
 # Generator Typescript NPM Bower 
 [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
-> Yeoman generator for creating awesome TypeScript based Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
+> Yeoman generator for creating TypeScript based Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
 
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
@@ -125,6 +125,11 @@ Remember you can see the options of each sub generators by running `yo typescrip
  * Yeoman is a person with feelings and opinions, but is very easy to work with.
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
+
+## Issues
+
+SASS Lint is not fully supported in windows platform.
+- Please make sure to remove the `watch-scss-scripts` task form watch sequence if errors occur.
 
 ## Changelog
 Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
