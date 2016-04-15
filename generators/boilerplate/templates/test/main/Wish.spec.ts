@@ -1,5 +1,4 @@
 import Wish,{IGiftHolder} from '../../src/main/Wish';
-
 <% if ((browser && (testFramework === 'mocha')) || !browser) { -%>
 import {expect} from 'chai';
 <% } -%>
