@@ -35,3 +35,5 @@
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
 <% }} -%>  
 
+---
+*To maintain a proper CHANGELOG.md read [Keep a CHANGELOG](http://keepachangelog.com/)*
