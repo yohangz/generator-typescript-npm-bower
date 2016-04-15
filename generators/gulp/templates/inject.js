@@ -24,8 +24,8 @@ gulp.task('inject-js', function () {
     .pipe(gulp.dest(conf.paths.example))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
-
 <% if (styles) { -%>
+
 /**
  * Inject minified css build output with a link tag to html.
  * Notify injected minified css file.

@@ -42,8 +42,8 @@ gulp.task('build-bower',['bower'], function () {
     .pipe($.size())
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
-<% } -%>
 
+<% } -%>
 <% if (bower) { -%>
 /**
  * Gulp bower task.
@@ -71,9 +71,8 @@ gulp.task('bower', ['clean-bower'], function () {
     .pipe($.size())
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
+
 <% } -%>
-
-
 /**
  * Gulp npm task.
  * Clean lib directory.
@@ -86,7 +85,6 @@ gulp.task('npm',['clean-lib'], function () {
     .pipe(gulp.dest(conf.paths.lib))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
-
 
 /**
  * Gulp temporary scripts generation task for coverage.
@@ -112,7 +110,6 @@ gulp.task('tmp-scripts', function() {
     .pipe(gulp.dest('.'));
 });
 
-
 /**
  * Gulp watch temporary scripts task for error checking.
  * Typescript compiler will generate all .js files and maps references for the source files.
@@ -128,7 +125,6 @@ gulp.task('tmp-watch-scripts',['clean-js-tmp'], function() {
     .pipe(gulp.dest(conf.paths.jsTmp));
 });
 
-
 /**
  * Gulp nsp scripts task.
  * Run node Security check.
@@ -139,9 +135,8 @@ gulp.task('nsp', function (done) {
     package: path.resolve('package.json')
   }, done);
 });
-
-
 <% if (styles) { -%>
+
 /**
  * Gulp build css task.
  * Clean css temporary directory and css files in distribution directories -> run compile sccs and generate minified file -> copy css files.
