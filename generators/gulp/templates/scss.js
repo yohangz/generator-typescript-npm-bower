@@ -21,9 +21,9 @@ gulp.task('compile-scss', function () {
   return gulp.src(conf.paths.styles.scss)
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
-    .pipe($.concat(conf.files.BOWER_CSS))
+    .pipe($.concat(conf.files.BUNDLE_CSS))
     .pipe($.notify({
-      "message": conf.files.BOWER_CSS + " file size ",
+      "message": conf.files.BUNDLE_CSS + " file size ",
       "onLast": true
     }))
     .pipe($.size())
@@ -52,11 +52,11 @@ gulp.task('sass-lint', function() {
  * Report errors.
  */
 gulp.task('compile-scss-min',['compile-scss'], function() {
-  return gulp.src(path.join(conf.paths.cssTmp, conf.files.BOWER_CSS))
-    .pipe($.rename(conf.files.BOWER_MIN_CSS))
+  return gulp.src(path.join(conf.paths.cssTmp, conf.files.BUNDLE_CSS))
+    .pipe($.rename(conf.files.BUNDLE_MIN_CSS))
     .pipe($.cssmin())
     .pipe($.notify({
-      "message": conf.files.BOWER_MIN_CSS + " file size ",
+      "message": conf.files.BUNDLE_MIN_CSS + " file size ",
       "onLast": true
     }))
     .pipe($.size())

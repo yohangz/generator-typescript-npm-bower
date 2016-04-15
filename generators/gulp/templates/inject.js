@@ -33,9 +33,9 @@ gulp.task('inject-js', function () {
  */
 gulp.task('inject-css', function () {
   gulp.src(path.join(conf.paths.example, conf.files.EXAMPLE_HTML))
-    .pipe($.inject(gulp.src(path.join(conf.paths.bower, conf.files.BOWER_MIN_CSS),{read: false}),{relative:true}))
+    .pipe($.inject(gulp.src(path.join(conf.paths.bower, conf.files.BUNDLE_MIN_CSS),{read: false}),{relative:true}))
     .pipe($.notify({
-      "message": conf.files.BOWER_MIN_JS + " injected to html",
+      "message": conf.files.BUNDLE_MIN_CSS + " injected to html",
       "onLast": true
     }))
     .pipe(gulp.dest(conf.paths.example))
