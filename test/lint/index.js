@@ -5,7 +5,7 @@ var helpers = require('yeoman-test');
 
 describe('generator-npm-bower-module:lint', function () {
     before(function (done) {
-        helpers.run(path.join(__dirname, '../generators/lint'))
+        helpers.run(path.join(__dirname, '../../generators/lint'))
             .on('end', done);
     });
 

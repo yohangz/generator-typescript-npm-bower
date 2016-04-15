@@ -5,7 +5,7 @@ var helpers = require('yeoman-test');
 
 describe('generator-npm-bower-module:typescript-conf', function () {
     before(function (done) {
-        helpers.run(path.join(__dirname, '../generators/typescript-conf'))
+        helpers.run(path.join(__dirname, '../../generators/typescript-conf'))
             .on('end', done);
     });
 
