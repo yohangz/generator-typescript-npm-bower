@@ -9,7 +9,6 @@ var gulp = require('gulp-help')(require('gulp')),
     $ = require('gulp-load-plugins')(),
     conf = require('./conf');
 
-
 /**
  * Gulp typings install task.
  * Report errors.
