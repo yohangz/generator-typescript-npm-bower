@@ -248,21 +248,23 @@ module.exports = yeoman.Base.extend({
       if (this.options.githubAccount) {
         this.props.githubAccount = this.options.githubAccount;
       } else {
-        var done = this.async();
+        if (this.props.authorEmail) {
+          var done = this.async();
 
-        githubUsername(this.props.authorEmail, function (err, username) {
-          if (err) {
-            username = username || '';
-          }
-          this.prompt({
-            name: 'githubAccount',
-            message: message.githubAccount,
-            default: username
-          }, function (prompt) {
-            this.props.githubAccount = prompt.githubAccount;
-            done();
+          githubUsername(this.props.authorEmail, function (err, username) {
+            if (err) {
+              username = username || '';
+            }
+            this.prompt({
+              name: 'githubAccount',
+              message: message.githubAccount,
+              default: username
+            }, function (prompt) {
+              this.props.githubAccount = prompt.githubAccount;
+              done();
+            }.bind(this));
           }.bind(this));
-        }.bind(this));
+        }
       }
     }
   },
