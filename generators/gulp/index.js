@@ -131,7 +131,6 @@ module.exports = generators.Base.extend({
         switch (this.options.testFramework) {
           case 'jasmine':
             pkg.devDependencies['jasmine'] = '2.3.1';
-            pkg.devDependencies['jasmine-ajax'] = '3.2.0';
             pkg.devDependencies['jasmine-core'] = '2.4.1';
             pkg.devDependencies['karma-jasmine'] = '0.3.7';
             break;
