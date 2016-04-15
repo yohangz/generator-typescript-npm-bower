@@ -140,7 +140,7 @@ MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://githu
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat 
 [license-url]: https://github.com/yohangz/generator-typescript-npm-bower/blob/master/LICENSE
-[npm-image]: https://badge.fury.io/js/generator-npm-bower-module.svg
+[npm-image]: https://badge.fury.io/js/generator-typescript-npm-bower.svg
 [npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
 [travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
 [travis-image]: https://travis-ci.org/yohangz/generator-typescript-npm-bower.svg?branch=master
