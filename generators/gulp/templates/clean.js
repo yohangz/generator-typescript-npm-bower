@@ -68,7 +68,9 @@ gulp.task('clean-source-tmp', function () {
  */
 gulp.task('clean-css', function () {
     return del([
+<% if (bower) { -%>
       path.join(conf.paths.bower, conf.path_pattern.css),
+<% } -%>
       path.join(conf.paths.lib, conf.path_pattern.css)
     ]);
 });
@@ -83,7 +85,7 @@ gulp.task('clean-js-tmp', function () {
     ]);
 });
 <% if (styles) { -%>
-  
+
 /**
  * Gulp task to clean temporary css files which are created inside .cssTmp folder.
  */

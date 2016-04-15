@@ -215,7 +215,7 @@ module.exports = generators.Base.extend({
         );
       }
 
-      if (this.options.browser && (this.options.styles || this.options.bower)) {
+      if (this.options.browser && this.options.bower) {
         this.fs.copyTpl(
           this.templatePath('inject.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js'),
