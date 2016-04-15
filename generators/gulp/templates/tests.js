@@ -10,9 +10,11 @@ var path = require('path'),
   conf = require('./conf'),
 <% if (browser) { -%>
   Server = require('karma').Server,
+<% } else {-%>
+  $ = require('gulp-load-plugins')(),
 <% } -%>
-  remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul'),
-  $ = require('gulp-load-plugins')();
+  remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
+
 
 <% if (browser) { -%>
 /**
