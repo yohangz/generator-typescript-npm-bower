@@ -143,4 +143,4 @@ MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://githu
 [npm-image]: https://badge.fury.io/js/generator-npm-bower-module.svg
 [npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
 [travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
-[travis-image]: https://secure.travis-ci.org/asbjornenge/generator-microlib.png?branch=master
+[travis-image]: https://travis-ci.org/yohangz/generator-typescript-npm-bower.svg?branch=master
