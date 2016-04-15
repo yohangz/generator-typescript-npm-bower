@@ -47,7 +47,7 @@ npm install <%= projectName %> --save
 │   ├── /tsconfig.js            # Updates tsconfig.json with project sources
 │   ├── /tsdocs.js              # Generates documentation for the project
 │   ├── /version.js             # Updated version
-│   └── /watch.js               # Watches all the .ts,.js <% if(styles && scss){ %>and .scss <% } %>files for changes
+│   └── /watch.js               # Watches all the .ts,.js <% if(styles){ if(scss){ %>and .scss <% } else { -%>and .css <% }} -%>files for changes
 ├── /lib/                       # The folder for compiled output with typings for node module consume
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /src/                       # The source code(.ts) of the application
@@ -65,13 +65,14 @@ npm install <%= projectName %> --save
 ├── .gitattributes              # Defining attributes per path
 ├── .gitignore                  # Contains files to be ignored when pushing to git
 ├── .jshintrc                   # JShint rules for the project
-├── .travis.yml                 # Travis CI configuration file
 ├── .npmignore                  # Contains files to be ignored when pushing to npm
 ├── .npmrc                      # NPM config file
+├── .travis.yml                 # Travis CI configuration file
 <% if(bower){ -%>
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
-├── CHANGELOG.md                # Detailed recent changes in the versions 
+├── CHANGELOG.md                # Detailed recent changes in the versions
+├── gulpfile.js                 # Link all splittered gulp tasks  
 <% if(browser){ -%>
 ├── karma.conf.js               # Test runner in .ts format
 ├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
