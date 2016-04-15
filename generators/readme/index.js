@@ -90,7 +90,8 @@ module.exports = generators.Base.extend({
         styles: this.options.browser && this.options.styles,
         scss: this.options.browser && this.options.browser && this.options.scss,
         browser: this.options.browser,
-        bower: this.options.browser && this.options.bower
+        bower: this.options.browser && this.options.bower,
+        testFramework: this.options.testFramework
       }
     );
 
