@@ -57,10 +57,7 @@
     "gulp-plumber": "^1.0.0",
     "gulp-nsp": "^2.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:yohangz/generator-typescript-npm-bower.git"
-  },
+  "repository": "yohangz/generator-typescript-npm-bower",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp",
