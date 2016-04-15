@@ -78,9 +78,7 @@ exports.files = {
   BOWER_MIN_JS: Project_Name + '.min.js',
 <% } -%>
 <% if (styles) { -%>
-<% if (scss) { -%>
   BOWER_CSS: Project_Name + '.css',
-<% } -%>
   BOWER_MIN_CSS: Project_Name + '.min.css',
 <% } -%>
   PROJECT_NAME: Project_Name,
