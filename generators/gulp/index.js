@@ -154,7 +154,7 @@ module.exports = generators.Base.extend({
         }
 
         if (this.options.styles && this.options.scss) {
-          pkg.devDependencies['gulp-scss'] = '2.2.0';
+          pkg.devDependencies['gulp-scss'] = '1.3.17';
           pkg.devDependencies['gulp-scss-lint'] = '0.3.9';
           pkg.devDependencies['gulp-scss-lint-stylish'] = '1.0.1';
         }
