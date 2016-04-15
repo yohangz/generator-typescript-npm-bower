@@ -18,8 +18,8 @@ gulp.task('clean-lib', function () {
         conf.paths.lib
     ]);
 });
-
 <% if (bower) { -%>
+
 /**
  * Gulp clean bower directory task.
  */
@@ -61,8 +61,8 @@ gulp.task('clean-source-tmp', function () {
       path.join(conf.paths.test, conf.path_pattern.ktp_ts)
     ]);
 });
-
 <% if (styles) { -%>
+
 /**
  * Gulp task to clean css files which are created inside distribution directories.
  */
@@ -84,8 +84,8 @@ gulp.task('clean-js-tmp', function () {
 
     ]);
 });
-
 <% if (styles) { -%>
+  
 /**
  * Gulp task to clean temporary css files which are created inside .cssTmp folder.
  */
