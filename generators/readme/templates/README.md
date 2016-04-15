@@ -35,7 +35,7 @@ npm install <%= projectName %> --save
 <% if(styles){ -%>
 │   ├── /copy.js                # Copies .css build output to lib and bower folders.
 <% } -%>
-<% if(bower || styles){ -%>
+<% if(bower){ -%>
 │   ├── /inject.js              # Injects minified js file <% if(styles){ %>and css file<% } %> to index.html in example folder
 <% } -%>
 │   ├── /lint.js                # Common lint support with jshint and tslint
