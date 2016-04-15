@@ -14,7 +14,7 @@
 - Lint support with
   - [JSHint](http://jshint.com/)
   - [TSLint](https://www.npmjs.com/package/tslint)
-  - [SCSS Lint](https://www.npmjs.com/package/gulp-scss-lint)
+  - [SASS Lint](https://www.npmjs.com/package/sass-lint)
   - [CSS Lint](https://www.npmjs.com/package/gulp-csslint) 
 
 
