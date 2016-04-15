@@ -77,11 +77,11 @@ npm install <%= projectName %> --save
 ├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
 <% } -%>
 ├── LICENSE                     # Contains License Agreement file
+├── package.json                # Holds various metadata relevant to the project
+├── README.md                   # Contains the details of the generated project
 ├── tsconfig.json               # Contains typescript compiler options
 ├── tslint.json                 # Lint rules for the project
-├── typings.json                # Typings information to generate typings folder
-├── package.json                # Holds various metadata relevant to the project
-└── README.md                   # Contains the details of the generated project
+└── typings.json                # Typings information to generate typings folder
 ```
 
 ## Technologies
@@ -89,7 +89,7 @@ npm install <%= projectName %> --save
 Usage          	            | Technology
 --------------------------	| --------------------------
 Javascript Framework        | Typescript
-Unit Testing Framework     	| <% if (browser && (testFramework === 'jasmine')) { -%>Jasmine<% } else { -%>Mocha and Chai<% } -%>
+Unit Testing Framework     	| <% if (browser && (testFramework === 'jasmine')) { -%>Jasmine<% } else { -%>Mocha and Chai<% } %>
 Unit Test Runner           	| Karma
 Coverage Generator         	| Istanbul
 Documentation              	| Typedoc
@@ -108,7 +108,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   build             Perform npm <% if(bower){ %>and bower <% } -%>build
   clean-build       Cleans lib directory<% if(bower){ %> and bower directory<% } %>
   test              Run spec tests
-<% if(browser){ -%>  
+  <% if(browser){ -%>  
   dev-test          Runs the test specs with Chrome
 <% } -%>
   coverage          Generate coverage reports by running all the tests via karma
