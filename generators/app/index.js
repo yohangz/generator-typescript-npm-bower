@@ -462,5 +462,17 @@ module.exports = yeoman.Base.extend({
 
   install: function () {
     this.npmInstall();
+  },
+
+  end: function () {
+    this.log(generateEndText());
   }
+
 });
+
+function generateEndText() {
+  return chalk.yellow(
+    '\n            --= You have successfully installed everything =--' +
+    '\n                          --= Thank You =--' +
+    '\n');
+}
