@@ -100,7 +100,7 @@ module.exports = generators.Base.extend({
           'watchify': '3.7.0'
         },
         scripts: {
-          'typings': 'gulp typings-install',
+          'typings-install': 'gulp typings-install',
           'test': 'gulp test',
           'watch': 'gulp watch',
           'clean': 'gulp clean-build',
@@ -125,7 +125,7 @@ module.exports = generators.Base.extend({
         pkg.devDependencies['karma-remap-istanbul'] = '0.0.5';
         pkg.devDependencies['phantomjs-prebuilt'] = '2.1.7';
 
-        pkg.scripts['dev test'] = 'gulp dev-test';
+        pkg.scripts['dev-test'] = 'gulp dev-test';
 
         switch (this.options.testFramework) {
           case 'jasmine':

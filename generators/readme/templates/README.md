@@ -103,16 +103,16 @@ Styling Tool            	  | <% if(scss){ -%>SCSS<% } else { -%>CSS<% } -%>
 ## How to use
 
 Here is the list of tasks available out of the box and run these via `npm run <task>`
-```sh
+```
   typings-install   Install typings to the project
   build             Perform npm <% if(bower){ %>and bower <% } -%>build
-  clean-build       Cleans lib directory<% if(bower){ %> and bower directory<% } %>
+  clean             Cleans lib directory<% if(bower){ %> and bower directory<% } %>
   test              Run spec tests
 <% if(browser){ -%>
   dev-test          Runs the test specs with Chrome
 <% } -%>
   coverage          Generate coverage reports by running all the tests via karma
-  typedoc           Generate API Documentation
+  doc               Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
   watch             Watches ts source files and runs tslint, jshint <% if(styles && scss){ -%>and scss-lint <% } else if(styles && !scss){ -%>and csslint <% } -%>on change
   patch             Update patch version and create tag
