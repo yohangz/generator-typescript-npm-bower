@@ -107,6 +107,7 @@ module.exports = generators.Base.extend({
           'build': 'gulp build',
           'coverage': 'gulp coverage',
           'doc': 'gulp typedoc',
+          'tsconfig-update':'gulp tsconfig-update',
           'patch': 'gulp build && gulp patch',
           'feature': 'gulp build && gulp feature',
           'release': 'gulp build && gulp release',
