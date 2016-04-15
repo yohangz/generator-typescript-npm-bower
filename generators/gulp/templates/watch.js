@@ -56,7 +56,6 @@ gulp.task('watch-scss-scripts', function(){
     });
 });
 <% } else { -%>
-
 /**
  * Gulp watch css scripts.
  * Watch changes in build process helper styles files -> run css lint.
