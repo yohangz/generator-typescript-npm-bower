@@ -6,7 +6,7 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-typescript-npm-bower using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-typescript-npm-bower using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/) v4 or higher).
 
 ```bash
 npm install -g yo
