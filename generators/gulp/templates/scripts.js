@@ -31,7 +31,7 @@ var tsFiles = [].concat(path.join(conf.paths.src, conf.path_pattern.ts), path.jo
  * Report errors.
  */
 gulp.task('build-bower',['bower'], function () {
-  return gulp.src(conf.paths.bower + conf.paths.bundle)
+  return gulp.src(path.join(conf.paths.bower, conf.paths.bundle))
     .pipe($.streamify($.uglify()))
     .pipe($.streamify($.rename(conf.files.BOWER_MIN_JS)))
     .pipe(gulp.dest(conf.paths.bower))

@@ -4,21 +4,41 @@
 
 'use strict';
 
-var gulp = require('gulp-help')(require('gulp')),
+var path = require('path'),
+    gulp = require('gulp-help')(require('gulp')),
     conf = require('./conf'),
     $ = require('gulp-load-plugins')();
 
 /**
- * Gulp minify css task.
- * Run cssmin.
- * Rename the bundle with min.
+ * Gulp bundle css task.
+ * Concat css files.
  * Notify created file size with the name.
  * Report errors.
  */
-gulp.task('min-css', function () {
+gulp.task('bundle-css', function () {
   return gulp.src(conf.paths.styles.css)
+    .pipe($.concat(conf.files.BOWER_CSS))
+    .pipe($.notify({
+      "message": conf.files.BOWER_CSS + " file size ",
+      "onLast": true
+    }))
+    .pipe($.size())
+    .pipe(gulp.dest(conf.paths.cssTmp))
+    .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
+});
+
+
+/**
+ * Gulp minify css task.
+ * Rename the bundle with min.
+ * Run cssmin.
+ * Notify created file size with the name.
+ * Report errors.
+ */
+gulp.task('min-css',['bundle-css'], function () {
+  return gulp.src(path.join(conf.paths.cssTmp, conf.files.BOWER_CSS))
+    .pipe($.rename(conf.files.BOWER_MIN_CSS))
     .pipe($.cssmin())
-    .pipe($.concat(conf.files.BOWER_MIN_CSS))
     .pipe($.notify({
       "message": conf.files.BOWER_MIN_CSS + " file size ",
       "onLast": true

@@ -108,7 +108,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   build             Perform npm <% if(bower){ %>and bower <% } -%>build
   clean-build       Cleans lib directory<% if(bower){ %> and bower directory<% } %>
   test              Run spec tests
-  <% if(browser){ -%>  
+<% if(browser){ -%>  
   dev-test          Runs the test specs with Chrome
 <% } -%>
   coverage          Generate coverage reports by running all the tests via karma
