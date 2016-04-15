@@ -97,6 +97,15 @@ gulp.task('clean-css-tmp', function () {
 <% } -%>
 
 /**
+ * Gulp task to clean both .jsTmp and .cssTmp directories.
+ * Run clean-js-tmp and  clean-css-tmp tasks in parallel.
+ * @param done - done callback function.
+ */
+gulp.task('clean-tmp', function(done){
+  runSequence(<% if (styles) { -%>['clean-js-tmp', 'clean-css-tmp']<% } else { -%>'clean-js-tmp'<% } -%>,done);
+});
+
+/**
  * Gulp task to clean both lib and bower directories.
  * Run clean-lib and  clean-bower tasks in parallel.
  * @param done - done callback function.
