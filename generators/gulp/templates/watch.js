@@ -15,7 +15,7 @@ var path = require('path'),
  * @param done - done callback function.
  */
 gulp.task('watch', function (done) {
-    runSequence('clean-js-tmp', ['jshint', 'tslint'<% if (styles) { if (scss) { -%>, 'scss-lint'<% } else { -%>, 'css-lint'<% }} -%>], 'tmp-watch-scripts', ['watch-scripts', 'watch-build-scripts'<% if (styles) { if (scss) { -%>, 'watch-scss-scripts'<% } else { -%>, 'watch-css-scripts'<% }} -%>], done);
+    runSequence('clean-js-tmp', ['jshint', 'tslint'<% if (styles) { if (scss) { -%>, 'sass-lint'<% } else { -%>, 'css-lint'<% }} -%>], 'tmp-watch-scripts', ['watch-scripts', 'watch-build-scripts'<% if (styles) { if (scss) { -%>, 'watch-scss-scripts'<% } else { -%>, 'watch-css-scripts'<% }} -%>], done);
 });
 
 /**
@@ -52,7 +52,7 @@ gulp.task('watch-scss-scripts', function(){
     gulp.watch([
         conf.paths.styles.scss
     ], function() {
-        gulp.start('scss-lint');
+        gulp.start('sass-lint');
     });
 });
 <% } else { -%>

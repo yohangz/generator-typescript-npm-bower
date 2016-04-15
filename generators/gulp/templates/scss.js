@@ -5,10 +5,9 @@
 'use strict';
 
 var path = require('path'),
-    scsslint = require('gulp-scss-lint'),
+    sassLint = require('gulp-sass-lint'),
     gulp = require('gulp-help')(require('gulp')),
     conf = require('./conf'),
-    scssLintStylish = require('gulp-scss-lint-stylish'),
     $ = require('gulp-load-plugins')();
 
 /**
@@ -21,7 +20,7 @@ var path = require('path'),
 gulp.task('compile-scss', function () {
   return gulp.src(conf.paths.styles.scss)
     .pipe($.sourcemaps.init())
-    .pipe($.scss())
+    .pipe($.sass().on('error', $.sass.logError))
     .pipe($.concat(conf.files.BOWER_CSS))
     .pipe($.notify({
       "message": conf.files.BOWER_CSS + " file size ",
@@ -37,9 +36,11 @@ gulp.task('compile-scss', function () {
  * Gulp scss lint task.
  * Run scsslint.
  */
-gulp.task('scss-lint', function() {
+gulp.task('sass-lint', function() {
   return gulp.src(conf.paths.styles.scss)
-    .pipe(scsslint({ customReport: scssLintStylish }))
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
 
