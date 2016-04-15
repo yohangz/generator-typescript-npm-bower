@@ -126,6 +126,11 @@ Remember you can see the options of each sub generators by running `yo typescrip
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+## Issues
+
+SASS Lint is not fully supported in windows platform.
+- Please make sure to remove the `watch-scss-scripts` task form watch sequence if errors occur.
+
 ## Changelog
 Recent changes can be viewed on Github on the [CHANGELOG.md](https://github.com/yohangz/generator-typescript-npm-bower/blob/master/CHANGELOG.md)
 
