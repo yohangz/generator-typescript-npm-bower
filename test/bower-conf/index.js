@@ -5,7 +5,7 @@ var helpers = require('yeoman-test');
 
 describe('generator-npm-bower-module:bower-conf', function () {
     before(function (done) {
-        helpers.run(path.join(__dirname, '../generators/bower-conf'))
+        helpers.run(path.join(__dirname, '../../generators/bower-conf'))
             .on('end', done);
     });
 
