@@ -64,9 +64,7 @@
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp",
-    "preversion": "npm test",
-    "version": "git add .",
-    "postversion": "git push && git push --tags"
+    "preversion": "npm test"
   },
   "license": "MIT"
 }
