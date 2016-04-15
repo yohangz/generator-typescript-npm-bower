@@ -14,14 +14,14 @@ describe('generator-npm-bower-module:editor-conf', function () {
     fs.readFile(path.join(__dirname, 'templates/editorconfig-template'), 'utf8', function (err, data) {
       if (err) {
         console.log(err);
-        done(err)
+        done(err);
       }
 
       assert.fileContent([
         ['.editorconfig', data]
       ]);
 
-      done()
+      done();
     });
   });
 });

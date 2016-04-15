@@ -14,14 +14,14 @@ describe('generator-npm-bower-module:bower-conf', function () {
     fs.readFile(path.join(__dirname, 'templates/bowerrc-template'), 'utf8', function (err, data) {
       if (err) {
         console.log(err);
-        done(err)
+        done(err);
       }
 
       assert.fileContent([
         ['.bowerrc', data]
       ]);
 
-      done()
+      done();
     });
   });
 });

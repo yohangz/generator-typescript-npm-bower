@@ -14,14 +14,14 @@ describe('generator-npm-bower-module:lint', function () {
     fs.readFile(path.join(__dirname, 'templates/jshintrc-template'), 'utf8', function (err, data) {
       if (err) {
         console.log(err);
-        done(err)
+        done(err);
       }
 
       assert.fileContent([
         ['.jshintrc', data]
       ]);
 
-      done()
+      done();
     });
   });
 
@@ -29,14 +29,14 @@ describe('generator-npm-bower-module:lint', function () {
     fs.readFile(path.join(__dirname, 'templates/tslint-template.json'), 'utf8', function (err, data) {
       if (err) {
         console.log(err);
-        done(err)
+        done(err);
       }
 
       assert.fileContent([
         ['tslint.json', data]
       ]);
 
-      done()
+      done();
     });
   });
 });
