@@ -30,10 +30,10 @@ npm install <%= projectName %> --save
 │   ├── /clean.js               # Contain clean tasks required for the prject
 │   ├── /conf.js                # Contains the variables used in other gulp files
 <% if(styles && !scss){ -%>
-│   ├── /css.js                 # Concat and minify .css files in styles folder with css lint support.
+│   ├── /css.js                 # Concat and minify .css files in styles folder with css lint support
 <% } -%>
 <% if(styles){ -%>
-│   ├── /copy.js                # Copies .css build output to lib and bower folders.
+│   ├── /copy.js                # Copies .css build output to lib and bower folders
 <% } -%>
 <% if(bower){ -%>
 │   ├── /inject.js              # Injects minified js file <% if(styles){ %>and css file<% } %> to index.html in example folder
