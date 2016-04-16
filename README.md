@@ -1,6 +1,6 @@
 # Generator Typescript NPM Bower 
 [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
-> Yeoman generator for creating TypeScript based Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
+> Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
 
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
@@ -19,6 +19,58 @@ Then generate your new project:
 yo typescript-npm-bower
 ```
 
+## Complete Directory Layout
+
+```
+.
+├── /bower/                     # The folder for compiled output for bower component consume
+├── /coverage/                  # Code coverage for source files of the project
+├── /docs/                      # Documentation files for the project
+├── /example/                   # The folder contains Html file and example.js file to test the bower component
+├── /gulp/                      # The folder contains gulp tasks required to build the project
+│   ├── /build.js               # Builds the project from source to output and bower folder
+│   ├── /clean.js               # Contain clean tasks required for the prject
+│   ├── /conf.js                # Contains the variables used in other gulp files
+│   ├── /css.js                 # Concat and minify .css files in styles folder with css lint support
+│   ├── /copy.js                # Copies .css build output to lib and bower folders
+│   ├── /inject.js              # Injects minified js file and css file to index.html in example folder
+│   ├── /lint.js                # Common lint support with jshint and tslint
+|   |── /scss.js                # Builds all the .scss or .sass files with sass lint support
+│   ├── /scripts.js             # Build scripts
+│   ├── /tests.js               # Run tests and generate coverage reports
+│   ├── /tsconfig.js            # Updates tsconfig.json with project sources
+│   ├── /tsdocs.js              # Generates documentation for the project
+│   ├── /version.js             # Updated version
+│   └── /watch.js               # Watches all the .ts, .js, .scss or .sass and .css files for changes
+├── /lib/                       # The folder for compiled output with typings for node module consume
+├── /node_modules/              # 3rd-party libraries and utilities
+├── /src/                       # The source code(.ts) of the application
+│   ├── /sub_srcs               # Contain any sub sources(files or folders)
+│   └── /index.ts               # Expose the acceseble properties by outside
+|── /styles/                    # Styling .scss or .sass and .css files for the project
+├── /test/                      # Contain tests(.ts) for all the source files
+├── /typings/                   # Typings files for specific node modules for the project
+|── .bowerrc                    # Configuration variables for execution in general(like command-line flags)
+├── .editorconfig               # Define and maintain consistent coding styles between different editors and IDEs
+├── .gitattributes              # Defining attributes per path
+├── .gitignore                  # Contains files to be ignored when pushing to git
+├── .jshintrc                   # JShint rules for the project
+├── .npmignore                  # Contains files to be ignored when pushing to npm
+├── .npmrc                      # NPM config file
+├── .travis.yml                 # Travis CI configuration file
+|── bower.json                  # Configuring packages that can be used as a dependency of another package
+├── CHANGELOG.md                # Detailed recent changes in the versions
+├── gulpfile.js                 # Link all splittered gulp tasks  
+├── karma.conf.js               # Test runner in .ts format
+├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
+├── LICENSE                     # Contains License Agreement file
+├── package.json                # Holds various metadata relevant to the project
+├── README.md                   # Contains the details of the generated project
+├── tsconfig.json               # Contains typescript compiler options
+├── tslint.json                 # Lint rules for the project
+└── typings.json                # Typings information to generate typings folder
+```
+
 ## Usage
 
 ```
@@ -35,10 +87,11 @@ That'll generate a project with all the common tools setup. This includes:
 - [Jasmine](http://jasmine.github.io/2.0/introduction.html), [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) unit testing
 - [Karma](https://karma-runner.github.io/0.13/index.html) test runner
 - [TSLint](https://www.npmjs.com/package/tslint), [JShint](http://jshint.com/), [CSS Lint](https://www.npmjs.com/package/gulp-csslint) and [SASS Lint](https://www.npmjs.com/package/sass-lint) linting and code style checking
-- [SASS](http://sass-lang.com/) styling tool
+- [SASS](http://sass-lang.com/) CSS extension
+- [Browserify](http://browserify.org/) bring browser compatibility
 - [Istanbul](https://gotwarlost.github.io/istanbul/) code coverage
 - [Typedoc](http://typedoc.io/) documentation generator
-- [Travis CI](https://travis-ci.org/) continuous integration (optional)
+- [Travis CI](https://travis-ci.org/) continuous integration
 - [License](https://spdx.org/licenses/)
 
 ### Running tests
