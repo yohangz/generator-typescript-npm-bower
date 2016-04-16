@@ -1,7 +1,7 @@
 {
   "name": "generator-typescript-npm-bower",
   "version": "0.1.2",
-  "description": "Yeoman generator for creating TypeScript based Node modules (Client/Server) and Bower components (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SCSS Lint, CSS Lint, SCSS, Travis CI) - lets you quickly set up a project following best practices.",
+  "description": "Yeoman generator for creating TypeScript Node modules (Client/Server) and Bower components (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SCSS Lint, CSS Lint, SCSS, Travis CI)",
   "homepage": "",
   "author": {
     "name": "Yohan Gomez",
