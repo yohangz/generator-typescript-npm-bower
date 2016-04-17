@@ -1,6 +1,24 @@
 # <%= projectName %> 
 > <%= description %>
 
+## Table of Contents
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+  - [Complete Directory Layout](#complete-directory-layout)
+- [Technologies](#technologies)
+- [How to use](#how-to-use)
+- [Publishing your code](#publishing-your-code)
+- [Changelog](#changelog)
+- [How to Contribute](#how-to-contribute)
+- [How to make pull_request](#how-to-make-pull_request)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 
 ```
@@ -142,8 +160,18 @@ npm run <release | feature | patch>
 npm publish
 ```
 
-# Changelog
+## Changelog
 Recent changes can be viewed on the [CHANGELOG.md](CHANGELOG.md)
+
+## How to Contribute
+Read to contribute [CONTRIBUTING.md](CONTRIBUTING.md)
+
+[Reffered via](https://github.com/joeybaker/generator-iojs)
+
+## How to make pull request
+Read to contribute [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
+
+[Reffered via](https://github.com/joeybaker/generator-iojs)
 
 ## License
 
