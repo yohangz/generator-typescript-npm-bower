@@ -80,7 +80,7 @@ gulp.task('coverage', 'Run tests and generate coverage', function(done) {
 });
 <% } else { -%>
 /**
- * Gulp pre coverage test with mocha and istanbul configuration.
+ * Gulp pre coverage test with<% if (testFramework === 'mocha') { -%> mocha<% } else if (testFramework === 'jasmine') { -%> jasmine<% } -%> and istanbul configuration.
  */
 gulp.task('pre-test', ['coverage-build'], function() {
   return gulp.src(path.join(conf.paths.src, conf.path_pattern.js))
@@ -118,7 +118,7 @@ var runTest = function(reporters, done) {
 };
 
 /**
- * Gulp coverage test with mocha and istanbul configuration.
+ * Gulp coverage test with<% if (testFramework === 'mocha') { -%> mocha<% } else if (testFramework === 'jasmine') { -%> jasmine<% } -%> and istanbul configuration.
  * @param done - done callback function.
  */
 gulp.task('coverage-test', ['pre-test'], function(done) {
@@ -126,7 +126,7 @@ gulp.task('coverage-test', ['pre-test'], function(done) {
 });
 
 /**
- * Gulp summary test with mocha and istanbul configuration.
+ * Gulp summary test with<% if (testFramework === 'mocha') { -%> mocha<% } else if (testFramework === 'jasmine') { -%> jasmine<% } -%> and istanbul configuration.
  * @param done - done callback function.
  */
 gulp.task('summary-test', ['pre-test'], function(done) {

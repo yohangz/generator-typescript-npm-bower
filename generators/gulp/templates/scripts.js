@@ -138,7 +138,7 @@ gulp.task('nsp', function (done) {
 
 /**
  * Gulp build css task.
- * Clean css temporary directory and css files in distribution directories -> run compile sccs and generate minified file -> copy css files.
+ * Clean css temporary directory and css files in distribution directories -> run<% if (scss) { -%> compile sccs and generate minified file<% } else { -%> compile and minify css<% } -%> -> copy css files.
  * @param done - done callback function.
  */
 gulp.task('build-css',function(done) {
@@ -148,8 +148,7 @@ gulp.task('build-css',function(done) {
 
 /**
  * Gulp build scripts task.
- * Clean build -> show tslint errors and update tsconfig.json in parallel -> run npm and bower in parallel -> minify js -> inject bower js build to html ->
- * build css -> inject minified css build to html
+ * Run nsp -> clean build -> show tslint errors and update tsconfig.json in parallel -> <% if (bower) { -%>run npm, build bower in parallel and run inject js<% } else { -%>run npm<% } -%> -> <% if (styles) { -%> run build css <% } -%><% if (styles && bower) { -%> -> run inject css<% } -%>.
  * @param done - done callback function.
  */
 gulp.task('build-scripts',function(done) {
