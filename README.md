@@ -1,6 +1,6 @@
 # Generator Typescript NPM Bower 
 [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
-> Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Hint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
+> Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Lint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
 
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
@@ -11,10 +11,10 @@
 
 
   - [Installation](#installation)
+  - [Features](#features)
   - [Scaffold Complete Directory Layout](#scaffold-complete-directory-layout)
   - [Usage](#usage)
-    - [Running Tests](#running-tests)
-    - [Publishing Your Code](#publishing-your-code)
+  - [Publishing Your Code](#publishing-your-code)
   - [Extend this Generator](#extend-this-generator)
     - [Options](#options)
     - [Sub Generators](#sub-generators)
@@ -27,11 +27,10 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-typescript-npm-bower using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/) v4 or higher).
+First, install [Yeoman](http://yeoman.io), [Gulp](http://gulpjs.com/) and generator-typescript-npm-bower using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/) v4 or higher).
 
 ```bash
-npm install -g yo
-npm install -g generator-typescript-npm-bower
+npm install -g yo gulp generator-typescript-npm-bower
 ```
 
 Then generate your new project:
@@ -39,6 +38,25 @@ Then generate your new project:
 ```bash
 yo typescript-npm-bower
 ```
+
+## Features
+
+![Logo](assets/npm.png)
+![Logo](assets/bower.png)
+![Logo](assets/typescript.png)
+![Logo](assets/sass.png)
+![Logo](assets/gulp.png)
+![Logo](assets/karma.png)
+![Logo](assets/jasmine.png)
+![Logo](assets/mocha.png)
+![Logo](assets/chai.png)
+![Logo](assets/istanbul.png)
+![Logo](assets/typedoc.png)
+![Logo](assets/travis.png)
+![Logo](assets/ts_lint.png)
+![Logo](assets/js_hint.png)
+![Logo](assets/css_lint.png)
+![Logo](assets/sass_lint.png)
 
 ## Scaffold Complete Directory Layout
 
@@ -115,16 +133,7 @@ That'll generate a project with all the common tools setup. This includes:
 - [Travis CI](https://travis-ci.org/) continuous integration
 - [License](https://spdx.org/licenses/)
 
-### Running Tests
-
-You can use gulp to run test:
-
-```
-npm -g install gulp
-npm test
-```
-
-### Publishing Your Code
+## Publishing Your Code
 
 *Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm.*
 
