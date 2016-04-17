@@ -114,7 +114,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
 <% if(browser){ -%>
   dev-test          Runs the test specs with Chrome
 <% } -%>
-  coverage          Generate coverage reports by running all the tests via karma
+  coverage          Generate coverage reports by running all the tests
   doc               Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
   watch             Watches ts source files and runs tslint, jshint <% if(styles) { if(scss){ -%>and sass-lint <% } else { -%>and csslint <% }} -%>on change
