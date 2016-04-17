@@ -90,6 +90,7 @@ npm install <%= projectName %> --save
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
 ├── CHANGELOG.md                # Detailed recent changes in the versions
+├── CONTRIBUTING.md             # Shows how to contribute to your module
 ├── gulpfile.js                 # Link all splittered gulp tasks  
 <% if(browser){ -%>
 ├── karma.conf.js               # Test runner in .ts format
@@ -97,6 +98,7 @@ npm install <%= projectName %> --save
 <% } -%>
 ├── LICENSE                     # Contains License Agreement file
 ├── package.json                # Holds various metadata relevant to the project
+├── PULL_REQUEST_TEMPLATE.md    # Shows how to make pull request to you project
 ├── README.md                   # Contains the details of the generated project
 ├── tsconfig.json               # Contains typescript compiler options
 ├── tslint.json                 # Lint rules for the project
