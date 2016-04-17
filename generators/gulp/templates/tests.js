@@ -94,6 +94,7 @@ var runTest = function(reporters, done) {
   var mochaError;
 
   gulp.src(path.join(conf.paths.test, conf.path_pattern.js))
+<% if (testFramework === 'mocha') { -%>
     .pipe($.plumber())
     .pipe($.mocha({
       reporter: 'spec'
@@ -101,6 +102,9 @@ var runTest = function(reporters, done) {
     .on('error', function (error) {
       mochaError = error;
     })
+<% } else if (testFramework === 'jasmine') { -%>
+    .pipe($.jasmine())
+<% } -%>
     .pipe($.istanbul.writeReports({
       dir: conf.paths.coverage,
       reporters: reporters,

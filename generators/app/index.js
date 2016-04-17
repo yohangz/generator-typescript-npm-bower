@@ -222,9 +222,6 @@ module.exports = yeoman.Base.extend({
         type: 'list',
         name: 'testFramework',
         message: message.testFramework,
-        when: function (props) {
-          return props.browser;
-        },
         choices: [
           {
             name: "Jasmine",
