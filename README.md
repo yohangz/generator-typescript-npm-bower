@@ -1,5 +1,5 @@
 # Generator Typescript NPM Bower 
-[![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
+[![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url] [![Downloads][download-image]][npm-url]
 > Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component 
 
 > lets quickly set up a project with the best practices of
