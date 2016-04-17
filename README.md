@@ -1,7 +1,12 @@
 # Generator Typescript NPM Bower 
 [![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
-> Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Lint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
+> Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component 
 
+> lets quickly set up a project with the best practices of
+> * automatic api documentation.
+> * unit test coverage. 
+> * variety of code quality steps. 
+     
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
 ## Table of Contents
