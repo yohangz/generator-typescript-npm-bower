@@ -10,7 +10,7 @@ var path = require('path'),
 
 /**
  * Gulp copy css task.
- * Copy css files in .cssTmp to bower and npm directories.
+ * Copy css files in .cssTmp to<% if (bower) { -%> bower directory and<% } -%> npm directory.
  */
 gulp.task('copy-css', function(done) {
     gulp.src(path.join(conf.paths.cssTmp, conf.path_pattern.css))
