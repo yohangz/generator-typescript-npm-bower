@@ -166,12 +166,12 @@ Recent changes can be viewed on the [CHANGELOG.md](CHANGELOG.md)
 ## How to Contribute
 Read to contribute [CONTRIBUTING.md](CONTRIBUTING.md)
 
-[Reffered via](https://github.com/joeybaker/generator-iojs)
+[Referred via](https://github.com/joeybaker/generator-iojs)
 
 ## How to make pull request
 Read to contribute [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
 
-[Reffered via](https://github.com/joeybaker/generator-iojs)
+[Referred via](https://github.com/joeybaker/generator-iojs)
 
 ## License
 
