@@ -53,9 +53,9 @@ gulp.task('build-bower',['bower'], function () {
  */
 gulp.task('bower', ['clean-bower'], function () {
   var bundler = browserify({
-    basedir: './',
-    debug: true
-  })
+      basedir: './',
+      debug: true
+    })
     .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.browser))
     .plugin(tsify);
 
@@ -96,6 +96,7 @@ gulp.task('tmp-scripts', function() {
     .pipe($.sourcemaps.init())
     .pipe($.typescript(tsProject))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
+
   return res.js
     .pipe($.sourcemaps.write('.', {
       // Return relative source map root directories per file.
