@@ -49,6 +49,7 @@ yo typescript-npm-bower
 ![Logo](assets/npm.png)
 ![Logo](assets/bower.png)
 ![Logo](assets/typescript.png)
+![Logo](assets/browserify.png)
 ![Logo](assets/sass.png)
 ![Logo](assets/gulp.png)
 ![Logo](assets/karma.png)
@@ -62,6 +63,7 @@ yo typescript-npm-bower
 ![Logo](assets/js_hint.png)
 ![Logo](assets/css_lint.png)
 ![Logo](assets/sass_lint.png)
+![Logo](assets/spdx.png)
 
 ## Scaffold Complete Directory Layout
 
@@ -232,3 +234,4 @@ MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://githu
 [npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
 [travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
 [travis-image]: https://travis-ci.org/yohangz/generator-typescript-npm-bower.svg?branch=master
+[download-image]: http://img.shields.io/npm/dm/generator-typescript-npm-bower.svg
