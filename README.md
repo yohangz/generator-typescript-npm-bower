@@ -1,5 +1,5 @@
 # Generator Typescript NPM Bower 
-[![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]
+[![MIT License][license-image]][license-url] [![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url] [![Downloads][download-image]][npm-url]
 > Yeoman generator for creating TypeScript Node module (Client/Server) and Bower component (NPM, Bower, TypeScript, Gulp, Jasmine, Mocha, Karma, Istanbul, Typedoc, JS Hint, TS Lint, SASS Lint, CSS Lint, SASS, Travis CI) - lets you quickly set up a project following best practices.
 
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
@@ -44,8 +44,9 @@ yo typescript-npm-bower
 ![Logo](assets/npm.png)
 ![Logo](assets/bower.png)
 ![Logo](assets/typescript.png)
-![Logo](assets/sass.png)
 ![Logo](assets/gulp.png)
+![Logo](assets/browserify.png)
+![Logo](assets/sass.png)
 ![Logo](assets/karma.png)
 ![Logo](assets/jasmine.png)
 ![Logo](assets/mocha.png)
@@ -57,6 +58,7 @@ yo typescript-npm-bower
 ![Logo](assets/js_hint.png)
 ![Logo](assets/css_lint.png)
 ![Logo](assets/sass_lint.png)
+![Logo](assets/spdx.png)
 
 ## Scaffold Complete Directory Layout
 
@@ -227,3 +229,4 @@ MIT © [Yohan Gomez](https://github.com/yohangz), [Lahiru Sampath](https://githu
 [npm-url]: https://www.npmjs.com/package/generator-typescript-npm-bower
 [travis-url]: https://travis-ci.org/yohangz/generator-typescript-npm-bower
 [travis-image]: https://travis-ci.org/yohangz/generator-typescript-npm-bower.svg?branch=master
+[download-image]: http://img.shields.io/npm/dm/generator-typescript-npm-bower.svg
