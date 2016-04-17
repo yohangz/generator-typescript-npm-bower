@@ -15,13 +15,14 @@
 
 ### Features
 - Automatic documentation generation.
-<% if (browser && (testFramework === 'mocha')) { -%>
-- Karma, Mocha and Chai
-<% } else if (browser && (testFramework === 'jasmine')) { -%>
-- Karma and Jasmine
-<% } else { -%> 
+<% if (browser) { -%>
+- Karma test runner.
+<% } -%>
+<% if (testFramework === 'mocha') { -%>
 - Mocha and Chai
-<% } -%> testing environment support.
+<% } else { -%>
+- Jasmine
+<% } -%> testing tool support.
 - Code Coverage with istanbul.
 - Build process with Gulp.
 - Typescript Based node module <% if (bower) { -%>and bower component <% } -%>output.

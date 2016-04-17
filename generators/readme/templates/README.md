@@ -90,8 +90,10 @@ npm install <%= projectName %> --save
 Usage          	            | Technology
 --------------------------	| --------------------------
 Javascript Framework        | Typescript
-Unit Testing Framework     	| <% if (browser && (testFramework === 'jasmine')) { -%>Jasmine<% } else { -%>Mocha and Chai<% } %>
+Unit Testing Framework     	| <% if (testFramework === 'jasmine') { -%>Jasmine<% } else { -%>Mocha and Chai<% } %>
+<% if (browser) { -%>
 Unit Test Runner           	| Karma
+<% } -%>
 Coverage Generator         	| Istanbul
 Documentation              	| Typedoc
 Build Tool                	| Gulp
