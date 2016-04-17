@@ -20,7 +20,7 @@
 <% } -%>
 <% if (testFramework === 'mocha') { -%>
 - Mocha and Chai
-<% } else { -%>
+<% } else if (testFramework === 'jasmine') { -%>
 - Jasmine
 <% } -%> testing tool support.
 - Code Coverage with istanbul.
