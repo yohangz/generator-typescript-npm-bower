@@ -4,6 +4,27 @@
 
 ![Yo dawg, I heard you like typescript](https://cdn.meme.am/instances/500x/57868268.jpg)
 
+## Table of Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+  - [Installation](#installation)
+  - [Scaffold Complete Directory Layout](#scaffold-complete-directory-layout)
+  - [Usage](#usage)
+    - [Running tests](#running-tests)
+    - [Publishing your code](#publishing-your-code)
+  - [Extend this generator](#extend-this-generator)
+    - [Options](#options)
+    - [Sub generators](#sub-generators)
+- [Getting To Know Yeoman](#getting-to-know-yeoman)
+  - [Issues](#issues)
+  - [Changelog](#changelog)
+  - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-typescript-npm-bower using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/) v4 or higher).
@@ -19,7 +40,7 @@ Then generate your new project:
 yo typescript-npm-bower
 ```
 
-## Complete Directory Layout
+## Scaffold Complete Directory Layout
 
 ```
 .
