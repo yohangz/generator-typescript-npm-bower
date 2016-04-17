@@ -25,7 +25,7 @@ We're open source! We love contributions! An ordered list of helpful things:
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Creating issues
+## Creating Issues
 GitHub issues can be treated like a massive, communal todo list. If you notice something wrong, toss an issue in and we'll get to it!
 
 **TL;DR Put issues into the right milestone if avaliable. Don't create new milestones or labels. Talk to the responsible person on a milestone before adding issues to a milestone that have a due date.**

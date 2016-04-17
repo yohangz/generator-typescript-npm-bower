@@ -1,4 +1,4 @@
-### Description of change
+### Description of Change
 
 _Please provide a description of the change here._
 

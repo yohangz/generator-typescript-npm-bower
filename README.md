@@ -13,12 +13,12 @@
   - [Installation](#installation)
   - [Scaffold Complete Directory Layout](#scaffold-complete-directory-layout)
   - [Usage](#usage)
-    - [Running tests](#running-tests)
-    - [Publishing your code](#publishing-your-code)
-  - [Extend this generator](#extend-this-generator)
+    - [Running Tests](#running-tests)
+    - [Publishing Your Code](#publishing-your-code)
+  - [Extend this Generator](#extend-this-generator)
     - [Options](#options)
-    - [Sub generators](#sub-generators)
-- [Getting To Know Yeoman](#getting-to-know-yeoman)
+    - [Sub Generators](#sub-generators)
+  - [Getting to Know Yeoman](#getting-to-know-yeoman)
   - [Issues](#issues)
   - [Changelog](#changelog)
   - [License](#license)
@@ -115,7 +115,7 @@ That'll generate a project with all the common tools setup. This includes:
 - [Travis CI](https://travis-ci.org/) continuous integration
 - [License](https://spdx.org/licenses/)
 
-### Running tests
+### Running Tests
 
 You can use gulp to run test:
 
@@ -124,7 +124,7 @@ npm -g install gulp
 npm test
 ```
 
-### Publishing your code
+### Publishing Your Code
 
 *Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm.*
 
@@ -143,7 +143,7 @@ npm run <release | feature | patch>
 npm publish
 ```
 
-## Extend this generator
+## Extend This Generator
 
 First of all, make sure you're comfortable with [Yeoman composability](http://yeoman.io/authoring/composability.html) feature. Then in your own generator:
 
@@ -176,7 +176,7 @@ Here's a list of our supported options:
 - `githubAccount` (String) Account name for GitHub repo location.
 - `readme` (String) content of the `README.md` file. Given this option, generator-typescript-npm-bower will generate license section.
 
-### Sub generators
+### Sub Generators
 
 If you don't need all the features provided by the main generator, you can still use a limited set of features by composing with our sub generators directly.
 
@@ -193,7 +193,7 @@ Remember you can see the options of each sub generators by running `yo typescrip
 - `typescript-npm-bower:readme`
 - `typescript-npm-bower:typescript-conf`
 
-# Getting To Know Yeoman
+## Getting to Know Yeoman
 
  * Yeoman has a heart of gold.
  * Yeoman is a person with feelings and opinions, but is very easy to work with.

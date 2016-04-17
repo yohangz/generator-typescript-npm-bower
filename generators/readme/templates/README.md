@@ -7,14 +7,14 @@
 
 
 - [Installation](#installation)
-- [Getting Started](#getting-started)
-  - [Complete Directory Layout](#complete-directory-layout)
+- [Getting started](#getting-started)
+  - [Complete directory layout](#complete-directory-layout)
 - [Technologies](#technologies)
 - [How to use](#how-to-use)
 - [Publishing your code](#publishing-your-code)
 - [Changelog](#changelog)
-- [How to Contribute](#how-to-contribute)
-- [How to make pull_request](#how-to-make-pull_request)
+- [How to contribute](#how-to-contribute)
+- [How to make pull request](#how-to-make-pull-request)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -121,7 +121,7 @@ Dependency Registries      	| <% if(bower){ %>Bower, <% } -%>NPM
 Styling Tool            	  | <% if(scss){ -%>SASS<% } else { -%>CSS<% } -%>
 <% } -%>
 
-## How to use
+## How to Use
 
 Here is the list of tasks available out of the box and run these via `npm run <task>`
 ```
@@ -141,7 +141,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   release           Update release version and create tag
 ```
 
-## Publishing your code
+## Publishing Your Code
 
 *Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm.*
 
@@ -168,7 +168,7 @@ Read to contribute [CONTRIBUTING.md](CONTRIBUTING.md)
 
 [Referred via](https://github.com/joeybaker/generator-iojs)
 
-## How to make pull request
+## How to Make Pull Request
 Read to contribute [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
 
 [Referred via](https://github.com/joeybaker/generator-iojs)
