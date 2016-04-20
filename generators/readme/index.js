@@ -115,5 +115,16 @@ module.exports = generators.Base.extend({
         browser: this.options.browser
       }
     );
+
+    this.fs.copy(
+      this.templatePath('CONTRIBUTING.md'),
+      this.destinationPath(this.options.generateInto, 'CONTRIBUTING.md')
+    );
+
+    this.fs.copy(
+      this.templatePath('PULL_REQUEST_TEMPLATE.md'),
+      this.destinationPath(this.options.generateInto, 'PULL_REQUEST_TEMPLATE.md')
+    );
+
   }
 });

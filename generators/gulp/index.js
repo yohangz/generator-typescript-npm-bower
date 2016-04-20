@@ -162,12 +162,21 @@ module.exports = generators.Base.extend({
           pkg.devDependencies['gulp-csslint'] = '0.3.0';
         }
       } else {
-        pkg.devDependencies['chai'] = '3.5.0';
-        pkg.devDependencies['karma-mocha'] = '0.2.2';
-        pkg.devDependencies['mocha'] = '2.4.5';
         pkg.devDependencies['gulp-istanbul'] = '0.10.3';
-        pkg.devDependencies['gulp-mocha'] = '2.2.0';
-        pkg.devDependencies['gulp-plumber'] = '1.0.0';
+
+        switch (this.options.testFramework) {
+          case 'jasmine':
+            pkg.devDependencies['jasmine'] = '2.3.1';
+            pkg.devDependencies['jasmine-core'] = '2.4.1';
+            pkg.devDependencies['gulp-jasmine'] = '2.3.0';
+            break;
+          case 'mocha':
+            pkg.devDependencies['chai'] = '3.5.0';
+            pkg.devDependencies['mocha'] = '2.4.5';
+            pkg.devDependencies['gulp-mocha'] = '2.2.0';
+            pkg.devDependencies['gulp-plumber'] = '1.0.0';
+            break;
+        }
       }
 
       this.fs.writeJSON(this.destinationPath(this.options.generateInto, 'package.json'), pkg);
@@ -262,7 +271,8 @@ module.exports = generators.Base.extend({
         this.templatePath('tests.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'tests.js'),
         {
-          browser: this.options.browser
+          browser: this.options.browser,
+          testFramework: this.options.testFramework
         }
       );
 

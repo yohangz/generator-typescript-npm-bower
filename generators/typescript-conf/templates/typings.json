@@ -2,9 +2,9 @@
   "name": "<%= projectName %>",
   "version": false,
   "ambientDependencies": {
-<% if (browser && (testFramework === 'jasmine')) { -%>
+<% if (testFramework === 'jasmine') { -%>
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
-<% } else { -%>
+<% } else if (testFramework === 'mocha') { -%>
     "chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#91989d35b892f1526c35fb1e55219ba05bc5065e",
     "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#d6dd320291705694ba8e1a79497a908e9f5e6617",
 <% } -%>

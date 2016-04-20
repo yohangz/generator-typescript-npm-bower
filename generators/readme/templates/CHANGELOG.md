@@ -4,9 +4,7 @@
 
 ### Added
 
-- [LESS](http://lesscss.org/usage/) support.
-- [QUnit](https://qunitjs.com/) support.
-- Complete unit test coverage.
+*Use this section to add the details of your unreleased version*
 
 ## [0.0.1] - <%= date %>
 
@@ -15,16 +13,20 @@
 
 ### Features
 - Automatic documentation generation.
-<% if (browser && (testFramework === 'mocha')) { -%>
-- Karma, Mocha and Chai
-<% } else if (browser && (testFramework === 'jasmine')) { -%>
-- Karma and Jasmine
-<% } else { -%> 
+<% if (browser) { -%>
+- Karma test runner.
+<% } -%>
+<% if (testFramework === 'mocha') { -%>
 - Mocha and Chai
-<% } -%> testing environment support.
+<% } else if (testFramework === 'jasmine') { -%>
+- Jasmine
+<% } -%> testing tool support.
 - Code Coverage with istanbul.
 - Build process with Gulp.
+- Debugging your sources with sourcemaps.
 - Typescript Based node module <% if (bower) { -%>and bower component <% } -%>output.
+- Automatic generation of CHANAGELOG.md and PULL_REQUEST_TEMPLATE.md.
+- Automatic table of content generation with [doctoc](https://github.com/thlorenz/doctoc).
 - Lint support with
   - [JSHint](http://jshint.com/)
   - [TSLint](https://www.npmjs.com/package/tslint)

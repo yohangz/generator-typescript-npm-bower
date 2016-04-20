@@ -1,6 +1,24 @@
 # <%= projectName %> 
 > <%= description %>
 
+## Table of Contents
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [Getting started](#getting-started)
+  - [Complete directory layout](#complete-directory-layout)
+- [Technologies](#technologies)
+- [How to use](#how-to-use)
+- [Publishing your code](#publishing-your-code)
+- [Changelog](#changelog)
+- [How to contribute](#how-to-contribute)
+- [How to make pull request](#how-to-make-pull-request)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 
 ```
@@ -9,6 +27,7 @@ npm install <%= projectName %> --save
 
 ## Getting Started
 
+* Run: `npm install` inside your project to install dependencies.
 * Run: `npm install typings -g` (If [typings](https://www.npmjs.com/package/typings) is not installed before run this command)
 * Run:`npm install gulp -g` to install [Gulp](https://www.npmjs.com/package/gulp) globally
 * Follow the Complete Directory Layout to get to know about the project.
@@ -72,6 +91,7 @@ npm install <%= projectName %> --save
 |── bower.json                  # Configuring packages that can be used as a dependency of another package
 <% } -%>
 ├── CHANGELOG.md                # Detailed recent changes in the versions
+├── CONTRIBUTING.md             # Shows how to contribute to your module
 ├── gulpfile.js                 # Link all splittered gulp tasks  
 <% if(browser){ -%>
 ├── karma.conf.js               # Test runner in .ts format
@@ -79,6 +99,7 @@ npm install <%= projectName %> --save
 <% } -%>
 ├── LICENSE                     # Contains License Agreement file
 ├── package.json                # Holds various metadata relevant to the project
+├── PULL_REQUEST_TEMPLATE.md    # Shows how to make pull request to you project
 ├── README.md                   # Contains the details of the generated project
 ├── tsconfig.json               # Contains typescript compiler options
 ├── tslint.json                 # Lint rules for the project
@@ -90,8 +111,10 @@ npm install <%= projectName %> --save
 Usage          	            | Technology
 --------------------------	| --------------------------
 Javascript Framework        | Typescript
-Unit Testing Framework     	| <% if (browser && (testFramework === 'jasmine')) { -%>Jasmine<% } else { -%>Mocha and Chai<% } %>
+Unit Testing Framework     	| <% if (testFramework === 'jasmine') { -%>Jasmine<% } else if (testFramework === 'mocha') { -%>Mocha and Chai<% } %>
+<% if (browser) { -%>
 Unit Test Runner           	| Karma
+<% } -%>
 Coverage Generator         	| Istanbul
 Documentation              	| Typedoc
 Build Tool                	| Gulp
@@ -101,7 +124,7 @@ Dependency Registries      	| <% if(bower){ %>Bower, <% } -%>NPM
 Styling Tool            	  | <% if(scss){ -%>SASS<% } else { -%>CSS<% } -%>
 <% } -%>
 
-## How to use
+## How to Use
 
 Here is the list of tasks available out of the box and run these via `npm run <task>`
 ```
@@ -112,7 +135,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
 <% if(browser){ -%>
   dev-test          Runs the test specs with Chrome
 <% } -%>
-  coverage          Generate coverage reports by running all the tests via karma
+  coverage          Generate coverage reports by running all the tests
   doc               Generate API Documentation
   tsconfig-update   Update files section in tsconfig.json using filesGlob entries
   watch             Watches ts source files and runs tslint, jshint <% if(styles) { if(scss){ -%>and sass-lint <% } else { -%>and csslint <% }} -%>on change
@@ -121,7 +144,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   release           Update release version and create tag
 ```
 
-## Publishing your code
+## Publishing Your Code
 
 *Once your tests are passing (ideally with a Travis CI green run), you might be ready to publish your code to npm.*
 
@@ -140,10 +163,20 @@ npm run <release | feature | patch>
 npm publish
 ```
 
-# Changelog
+## Changelog
 Recent changes can be viewed on the [CHANGELOG.md](CHANGELOG.md)
+
+## How to Contribute
+Read to contribute [CONTRIBUTING.md](CONTRIBUTING.md)
+
+[Referred via](https://github.com/joeybaker/generator-iojs)
+
+## How to Make Pull Request
+Read to contribute [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
+
+[Referred via](https://github.com/joeybaker/generator-iojs)
 
 ## License
 
-Copyright (c) <%= author.name %>
+Copyright (c) <%= author.name %>.
 This source code is licensed under the <%= license %> license.

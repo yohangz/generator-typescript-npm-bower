@@ -52,9 +52,12 @@ module.exports = generators.Base.extend({
   writing: function() {
 
     if (this.options.browser && this.options.bower) {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('example/**/*'),
-        this.destinationPath(this.options.generateInto, 'example')
+        this.destinationPath(this.options.generateInto, 'example'),
+        {
+          styles: this.options.browser && this.options.styles
+        }
       );
     }
 
