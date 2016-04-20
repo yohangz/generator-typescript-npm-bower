@@ -11,7 +11,7 @@ var path = require('path'),
 
 /**
  * Gulp source watch task.
- * Clean js tmp -> run tslint, jshint<% if (styles) { if (scss) { -%> and sass lint<% } else { -%> and css lint<% }} -%> -> temporary watch scripts, run watch scripts, watch build scripts<% if (styles) { if (scss) { -%> and watch scss scripts<% } else { -%> and watch css scripts<% }} -%> in parallel.
+ * Clean js tmp -> run tslint, jshint<% if (styles) { if (scss) { -%> and sass lint<% } else { -%> and css lint<% }} -%> -> temporary watch scripts -> run watch scripts, watch build scripts<% if (styles) { if (scss) { -%> and watch scss scripts<% } else { -%> and watch css scripts<% }} -%> in parallel.
  * @param done - done callback function.
  */
 gulp.task('watch', function (done) {
