@@ -27,6 +27,7 @@ npm install <%= projectName %> --save
 
 ## Getting Started
 
+* Run: `npm install` inside your project to install dependencies.
 * Run: `npm install typings -g` (If [typings](https://www.npmjs.com/package/typings) is not installed before run this command)
 * Run:`npm install gulp -g` to install [Gulp](https://www.npmjs.com/package/gulp) globally
 * Follow the Complete Directory Layout to get to know about the project.
@@ -177,5 +178,5 @@ Read to contribute [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
 
 ## License
 
-Copyright (c) <%= author.name %>
+Copyright (c) <%= author.name %>.
 This source code is licensed under the <%= license %> license.
