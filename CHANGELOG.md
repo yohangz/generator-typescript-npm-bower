@@ -15,7 +15,7 @@
 ### Features
 - Automatic generation of CHANAGELOG.md and PULL_REQUEST_TEMPLATE.md.
 - Jasmine unit test support for server node module testing.
-- Automatic Table of Content generation.
+- Automatic table of content generation with [doctoc](https://github.com/thlorenz/doctoc).
 
 ## [0.1.0] - 2016-04-16
 
