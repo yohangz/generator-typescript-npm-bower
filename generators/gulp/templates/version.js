@@ -25,7 +25,7 @@ var gulp = require('gulp-help')(require('gulp')),
 
 function inc(importance) {
   // get all the files to bump version in
-  return gulp.src(['./package.json', './bower.json'])
+  return gulp.src(['./package.json'<% if (bower) { -%>, './bower.json'<% } -%>])
     // bump the version number in those files
     .pipe(bump({type: importance}))
     // save it back to filesystem

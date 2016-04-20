@@ -20,13 +20,6 @@ module.exports = generators.Base.extend({
       desc: message.name
     });
 
-    this.option('browser', {
-      type: Boolean,
-      required: true,
-      defaults: true,
-      desc: message.browser
-    });
-
     this.option('testFramework', {
       type: String,
       required: false,
@@ -46,7 +39,6 @@ module.exports = generators.Base.extend({
       this.destinationPath(this.options.generateInto, 'typings.json'),
       {
         projectName: this.options.name,
-        browser: this.options.browser,
         testFramework: this.options.testFramework
       }
     );
