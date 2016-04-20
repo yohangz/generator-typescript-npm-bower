@@ -23,7 +23,7 @@
 <% } -%> testing tool support.
 - Code Coverage with istanbul.
 - Build process with Gulp.
-- Debug your sources with sourcemap support.
+- Debugging your sources with sourcemaps.
 - Typescript Based node module <% if (bower) { -%>and bower component <% } -%>output.
 - Automatic generation of CHANAGELOG.md and PULL_REQUEST_TEMPLATE.md.
 - Automatic table of content generation with [doctoc](https://github.com/thlorenz/doctoc).
