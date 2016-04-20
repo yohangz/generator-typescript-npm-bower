@@ -148,7 +148,7 @@ gulp.task('build-css',function(done) {
 
 /**
  * Gulp build scripts task.
- * Run nsp -> clean build -> show tslint errors and update tsconfig.json in parallel -> <% if (bower) { -%>run npm, build bower in parallel and run inject js<% } else { -%>run npm<% } -%> -> <% if (styles) { -%> run build css <% } -%><% if (styles && bower) { -%> -> run inject css<% } -%>.
+ * Run nsp -> clean build -> show tslint errors and update tsconfig.json in parallel -> <% if (bower) { -%>run npm, build bower in parallel and run inject js<% } else { -%>run npm<% } -%><% if (styles) { -%> -> run build css <% } -%><% if (styles && bower) { -%> -> run inject css<% } -%>.
  * @param done - done callback function.
  */
 gulp.task('build-scripts',function(done) {
