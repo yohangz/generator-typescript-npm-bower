@@ -4,7 +4,7 @@
 
 ### Added
 
->Use this section to add the details of your unreleased version*
+*Use this section to add the details of your unreleased version*
 
 ## [0.0.1] - <%= date %>
 
