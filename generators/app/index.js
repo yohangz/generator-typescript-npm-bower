@@ -283,7 +283,7 @@ module.exports = yeoman.Base.extend({
       files: [
         'lib'
       ],
-      main: this.props.styles ? ['lib/index.js', 'lib/' + this.props.name + '.css']: 'lib/index.js',
+      main: 'lib/index.js',
       keywords: [],
       typings: 'lib/index.d.ts'
     }, currentPkg);
