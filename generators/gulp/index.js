@@ -82,7 +82,7 @@ module.exports = generators.Base.extend({
           'gulp-tag-version': '1.3.0',
           'gulp-tsc': '1.1.5',
           'gulp-tsconfig-files': '0.0.2',
-          'gulp-tslint': '3.1',
+          'gulp-tslint': '5.0.0',
           'gulp-typedoc': '1.2.1',
           'gulp-typescript': '2.12.2',
           'gulp-typings': '1.3.4',
@@ -95,6 +95,7 @@ module.exports = generators.Base.extend({
           'require-dir': '0.3.0',
           'run-sequence': '1.1.5',
           'tsify': '0.14.1',
+          'tslint': '3.10.1',
           'typescript': '1.8.7',
           'vinyl-source-stream': '1.1.0',
           'watchify': '3.7.0'
