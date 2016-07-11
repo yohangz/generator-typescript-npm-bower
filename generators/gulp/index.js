@@ -64,39 +64,39 @@ module.exports = generators.Base.extend({
 
       extend(pkg, {
         dependencies: {
-          'lodash': '4.8.2'
+          'lodash': '4.13.1'
         },
         devDependencies: {
-          'del': '2.0.2',
+          'del': '2.2.1',
           'gulp': '3.9.1',
-          'gulp-bump': '2.1.0',
+          'gulp-bump': '2.2.0',
           'gulp-concat': '2.6.0',
           'gulp-filter': '4.0.0',
-          'gulp-git': '1.7.1',
-          'gulp-help': '1.6.0',
-          'gulp-jshint': '2.0.0',
-          'gulp-load-plugins': '1.0.0-rc.1',
-          "gulp-nsp": "2.4.0",
+          'gulp-git': '1.8.0',
+          'gulp-help': '1.6.1',
+          'gulp-jshint': '2.0.1',
+          'gulp-load-plugins': '1.2.4',
+          "gulp-nsp": "2.4.1",
           'gulp-sourcemaps': '1.6.0',
           'gulp-streamify': '1.0.2',
           'gulp-tag-version': '1.3.0',
-          'gulp-tsc': '1.1.5',
-          'gulp-tsconfig-files': '0.0.2',
-          'gulp-tslint': '5.0.0',
-          'gulp-typedoc': '1.2.1',
-          'gulp-typescript': '2.12.2',
-          'gulp-typings': '1.3.4',
-          'gulp-uglify': '1.2.0',
+          'gulp-tsc': '1.2.0',
+          'gulp-tsconfig-files': '0.4.0',
+          'gulp-tslint': '6.0.1',
+          'gulp-typedoc': '2.0.0',
+          'gulp-typescript': '2.13.6',
+          'gulp-typings': '2.0.0',
+          'gulp-uglify': '1.5.4',
           'gulp-util': '3.0.7',
-          'jshint': '2.9.1',
-          'jshint-stylish': '2.1.0',
+          'jshint': '2.9.2',
+          'jshint-stylish': '2.2.0',
           'path': '0.12.7',
-          'remap-istanbul': '0.5.1',
+          'remap-istanbul': '0.6.4',
           'require-dir': '0.3.0',
-          'run-sequence': '1.1.5',
-          'tsify': '0.14.1',
-          'tslint': '3.10.1',
-          'typescript': '1.8.7',
+          'run-sequence': '1.2.2',
+          'tsify': '1.0.0',
+          'tslint': '3.13.0',
+          'typescript': '1.8.10',
           'vinyl-source-stream': '1.1.0',
           'watchify': '3.7.0'
         },
@@ -108,7 +108,7 @@ module.exports = generators.Base.extend({
           'build': 'gulp build',
           'coverage': 'gulp coverage',
           'doc': 'gulp typedoc',
-          'tsconfig-update':'gulp tsconfig-update',
+          'tsconfig-update': 'gulp tsconfig-update',
           'patch': 'gulp build && gulp patch',
           'feature': 'gulp build && gulp feature',
           'release': 'gulp build && gulp release',
@@ -117,28 +117,28 @@ module.exports = generators.Base.extend({
       });
 
       if (this.options.browser) {
-        pkg.devDependencies['browserify'] = '13.0.0';
+        pkg.devDependencies['browserify'] = '13.0.1';
         pkg.devDependencies['browserify-istanbul'] = '2.0.0';
-        pkg.devDependencies['karma'] = '0.13.22';
-        pkg.devDependencies['karma-browserify'] = '5.0.3';
-        pkg.devDependencies['karma-chrome-launcher'] = '0.2.2';
-        pkg.devDependencies['karma-coverage'] = '0.5.5';
-        pkg.devDependencies['karma-phantomjs-launcher'] = '1.0.0';
-        pkg.devDependencies['karma-remap-istanbul'] = '0.0.5';
+        pkg.devDependencies['karma'] = '1.1.1';
+        pkg.devDependencies['karma-browserify'] = '5.0.5';
+        pkg.devDependencies['karma-chrome-launcher'] = '1.0.1';
+        pkg.devDependencies['karma-coverage'] = '1.1.0';
+        pkg.devDependencies['karma-phantomjs-launcher'] = '1.0.1';
+        pkg.devDependencies['karma-remap-istanbul'] = '0.1.1';
         pkg.devDependencies['phantomjs-prebuilt'] = '2.1.7';
 
         pkg.scripts['dev-test'] = 'gulp dev-test';
 
         switch (this.options.testFramework) {
           case 'jasmine':
-            pkg.devDependencies['jasmine'] = '2.3.1';
+            pkg.devDependencies['jasmine'] = '2.4.1';
             pkg.devDependencies['jasmine-core'] = '2.4.1';
-            pkg.devDependencies['karma-jasmine'] = '0.3.7';
+            pkg.devDependencies['karma-jasmine'] = '1.0.2';
             break;
           case 'mocha':
             pkg.devDependencies['chai'] = '3.5.0';
-            pkg.devDependencies['karma-mocha'] = '0.2.2';
-            pkg.devDependencies['mocha'] = '2.4.5';
+            pkg.devDependencies['karma-mocha'] = '1.1.1';
+            pkg.devDependencies['mocha'] = '2.5.3';
             break;
         }
 
@@ -148,34 +148,34 @@ module.exports = generators.Base.extend({
         }
 
         if (this.options.browser) {
-          pkg.devDependencies['gulp-inject'] = '4.0.0';
+          pkg.devDependencies['gulp-inject'] = '4.1.0';
           pkg.devDependencies['gulp-notify'] = '2.2.0';
           pkg.devDependencies['gulp-size'] = '2.1.0';
           pkg.devDependencies['gulp-rename'] = '1.2.2';
         }
 
         if (this.options.styles && this.options.scss) {
-          pkg.devDependencies['gulp-sass'] = '2.2.0';
-          pkg.devDependencies['gulp-sass-lint'] = '1.1.1';
+          pkg.devDependencies['gulp-sass'] = '2.3.2';
+          pkg.devDependencies['gulp-sass-lint'] = '1.2.0';
         }
 
         if (this.options.styles && !this.options.scss) {
-          pkg.devDependencies['gulp-csslint'] = '0.3.0';
+          pkg.devDependencies['gulp-csslint'] = '0.3.1';
         }
       } else {
-        pkg.devDependencies['gulp-istanbul'] = '0.10.3';
+        pkg.devDependencies['gulp-istanbul'] = '1.0.0';
 
         switch (this.options.testFramework) {
           case 'jasmine':
-            pkg.devDependencies['jasmine'] = '2.3.1';
+            pkg.devDependencies['jasmine'] = '2.4.1';
             pkg.devDependencies['jasmine-core'] = '2.4.1';
-            pkg.devDependencies['gulp-jasmine'] = '2.3.0';
+            pkg.devDependencies['gulp-jasmine'] = '2.4.0';
             break;
           case 'mocha':
             pkg.devDependencies['chai'] = '3.5.0';
-            pkg.devDependencies['mocha'] = '2.4.5';
+            pkg.devDependencies['mocha'] = '2.5.3';
             pkg.devDependencies['gulp-mocha'] = '2.2.0';
-            pkg.devDependencies['gulp-plumber'] = '1.0.0';
+            pkg.devDependencies['gulp-plumber'] = '1.1.0';
             break;
         }
       }
