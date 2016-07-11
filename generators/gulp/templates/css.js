@@ -5,9 +5,9 @@
 'use strict';
 
 var path = require('path'),
-    gulp = require('gulp-help')(require('gulp')),
-    conf = require('./conf'),
-    $ = require('gulp-load-plugins')();
+  gulp = require('gulp-help')(require('gulp')),
+  conf = require('./conf'),
+  $ = require('gulp-load-plugins')();
 
 /**
  * Gulp bundle css task.
@@ -34,7 +34,7 @@ gulp.task('bundle-css', function () {
  * Notify created file size with the name.
  * Report errors.
  */
-gulp.task('min-css',['bundle-css'], function () {
+gulp.task('min-css', ['bundle-css'], function () {
   return gulp.src(path.join(conf.paths.cssTmp, conf.files.BUNDLE_CSS))
     .pipe($.rename(conf.files.BUNDLE_MIN_CSS))
     .pipe($.cssmin())
@@ -51,7 +51,7 @@ gulp.task('min-css',['bundle-css'], function () {
  * Gulp css lint task.
  * Run csslint.
  */
-gulp.task('css-lint', function() {
+gulp.task('css-lint', function () {
   return gulp.src(conf.paths.styles.css)
     .pipe($.csslint())
     .pipe($.csslint.reporter())

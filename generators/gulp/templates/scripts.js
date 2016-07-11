@@ -20,7 +20,7 @@ var path = require('path'),
 var tsProject = $.typescript.createProject(conf.paths.tsconfig_json);
 
 /* Concat all source, test and typings TS files  */
-var tsFiles = [].concat(path.join(conf.paths.src, conf.path_pattern.ts), path.join(conf.paths.test, conf.path_pattern.ts), conf.paths.typings.browser);
+var tsFiles = [].concat(path.join(conf.paths.src, conf.path_pattern.ts), path.join(conf.paths.test, conf.path_pattern.ts), conf.paths.typings.global);
 
 <% if (bower) { -%>
 /**
@@ -56,7 +56,7 @@ gulp.task('bower', ['clean-bower'], function () {
       basedir: './',
       debug: true
     })
-    .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.browser))
+    .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.global))
     .plugin(tsify);
 
   return bundler.bundle()
@@ -78,7 +78,7 @@ gulp.task('bower', ['clean-bower'], function () {
  * Report errors.
  */
 gulp.task('npm',['clean-lib'], function () {
-  return gulp.src([].concat(path.join(conf.paths.src, conf.path_pattern.ts), conf.paths.typings.browser))
+  return gulp.src([].concat(path.join(conf.paths.src, conf.path_pattern.ts), conf.paths.typings.global))
     .pipe($.tsc(tsConf))
     .pipe(gulp.dest(conf.paths.lib))
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));

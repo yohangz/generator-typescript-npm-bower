@@ -5,19 +5,19 @@
 'use strict';
 
 var path = require('path'),
-    gulp = require('gulp-help')(require('gulp')),
-    $ = require('gulp-load-plugins')(),
-    tsConf = require('./../tsconfig.json').compilerOptions,
-    conf = require('./conf');
+  gulp = require('gulp-help')(require('gulp')),
+  $ = require('gulp-load-plugins')(),
+  tsConf = require('./../tsconfig.json').compilerOptions,
+  conf = require('./conf');
 
 /**
  * Gulp typeDoc task.
  * Used to generate API documentation for typescript sources.
  * Report errors.
  */
-gulp.task('typedoc',['clean-doc'], function () {
+gulp.task('typedoc', ['clean-doc'], function () {
   return gulp
-    .src(path.join(conf.paths.src, conf.path_pattern.ts))
+    .src([path.join(conf.paths.src, conf.path_pattern.ts), conf.paths.typings.global])
     .pipe($.typedoc({
       module: tsConf.module,
       target: tsConf.target,

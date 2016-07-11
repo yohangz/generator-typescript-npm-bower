@@ -6,7 +6,7 @@
 'use strict';
 
 var gulp = require('gulp-help')(require('gulp')),
-    requireDir = require('require-dir');
+  requireDir = require('require-dir');
 
 /**
  * This will load all js in the gulp directory

@@ -39,7 +39,7 @@ exports.paths = {
   docs:'docs',
   example:'example',
   typings:{
-    browser:'typings/browser.d.ts'
+    global:'typings/index.d.ts'
   },
   main:'/index.ts', /** If you change this you need to update the package.json as well */
 <% if (bower) { -%>

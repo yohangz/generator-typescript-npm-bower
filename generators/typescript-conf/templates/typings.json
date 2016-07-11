@@ -1,14 +1,14 @@
 {
   "name": "<%= projectName %>",
   "version": false,
-  "ambientDependencies": {
+  "globalDependencies": {
 <% if (testFramework === 'jasmine') { -%>
-    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
 <% } else if (testFramework === 'mocha') { -%>
-    "chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#91989d35b892f1526c35fb1e55219ba05bc5065e",
-    "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#d6dd320291705694ba8e1a79497a908e9f5e6617",
+    "chai": "registry:dt/chai#3.4.0+20160601211834",
+    "mocha": "registry:dt/mocha#2.2.5+20160619032855",
 <% } -%>
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
-    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#672366c6c501561fd208021447b030df50c36590"
+    "node": "registry:dt/node#6.0.0+20160602155235",
+    "lodash": "registry:dt/lodash#3.10.0+20160619033623"
   }
 }
