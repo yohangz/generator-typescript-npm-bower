@@ -22,4 +22,20 @@ gulp.task('copy-css', function(done) {
           done();
         });
 });
+<% if (fonts) { -%>
 
+/**
+ * Gulp copy fonts task.
+ * Copy font files in styles directory to bower directory and npm directory.
+ */
+gulp.task('copy-fonts', function (done) {
+  gulp.src(path.join(conf.paths.font_dir, conf.path_pattern.fonts), {
+    base: conf.paths.styles
+  })
+    .pipe(gulp.dest(conf.paths.bower))
+    .pipe(gulp.dest(conf.paths.lib))
+    .on('end', function () {
+      done();
+    });
+});
+<% } -%>

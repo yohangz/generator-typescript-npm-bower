@@ -3,7 +3,6 @@ var generators = require('yeoman-generator');
 var originUrl = require('git-remote-origin-url');
 var message = require('../message');
 
-
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
@@ -41,13 +40,16 @@ module.exports = generators.Base.extend({
 
     var done = this.async();
 
-    originUrl(this.destinationPath(this.options.generateInto), function (err, url) {
+    originUrl(this.destinationPath(this.options.generateInto)).then(function (url) {
+      debugger
       if (err) {
         url = url || '';
       }
       this.originUrl = url;
       done();
-    }.bind(this));
+    }.bind(this)).fail(function (err) {
+      debugger;
+    });
   },
 
   writing: function () {

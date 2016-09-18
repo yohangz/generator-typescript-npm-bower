@@ -18,7 +18,7 @@ var path = require('path'),
  * Report errors.
  */
 gulp.task('compile-scss', function () {
-  return gulp.src(conf.paths.styles.scss)
+  return gulp.src(path.join(conf.paths.styles, conf.path_pattern.scss))
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.concat(conf.files.BUNDLE_CSS))
@@ -37,7 +37,7 @@ gulp.task('compile-scss', function () {
  * Run scsslint.
  */
 gulp.task('sass-lint', function() {
-  return gulp.src(conf.paths.styles.scss)
+  return gulp.src(path.join(conf.paths.styles, conf.path_pattern.scss))
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError())

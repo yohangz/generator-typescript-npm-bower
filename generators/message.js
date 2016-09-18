@@ -16,9 +16,9 @@ module.exports = {
   githubAccount: 'What is your username or organization?',
   projectRoot: 'Relative path to the project code root',
   readme: 'Content to insert in the README.md file',
-  browser: 'Do you want a client (browser compatible) node module?',
   styles: 'Do you need to include styles?',
   scss: 'Do you like to use SCSS extension?',
+  fonts: 'Do you need to include fonts?',
   bower: 'Do you want to include bower component?',
   generateInto: 'Relocate the location of the generated files.',
   testFramework: 'Which test framework would you like to use?'

@@ -67,13 +67,6 @@ module.exports = yeoman.Base.extend({
       desc: message.readme
     });
 
-    this.option('browser', {
-      type: Boolean,
-      required: false,
-      defaults: true,
-      desc: message.browser
-    });
-
     this.option('styles', {
       type: Boolean,
       required: false,
@@ -88,11 +81,18 @@ module.exports = yeoman.Base.extend({
       desc: message.scss
     });
 
+    this.option('fonts', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.fonts
+    });
+
     this.option('bower', {
       type: Boolean,
       required: false,
       defaults: true,
-      desc: message.browser
+      desc: message.bower
     });
 
     this.option('testFramework', {
@@ -127,7 +127,7 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: {
-    showWelcome: function() {
+    showWelcome: function () {
       this.log(yosay(message.welcome));
       this.log(chalk.magenta(message.generator));
     },
@@ -148,7 +148,7 @@ module.exports = yeoman.Base.extend({
         validate: function (str) {
           return str.length > 0;
         }
-      }, this, function (name) {
+      }, this).then(function (name) {
         this.props.name = name;
         done();
       }.bind(this));
@@ -191,24 +191,16 @@ module.exports = yeoman.Base.extend({
         }
       }, {
         type: 'confirm',
-        name: 'browser',
-        message: message.browser,
-        default: true
-      }, {
-        type: 'confirm',
         name: 'bower',
         message: message.bower,
-        default: true,
-        when: function (props) {
-          return props.browser;
-        }
+        default: true
       }, {
         type: 'confirm',
         name: 'styles',
         message: message.styles,
         default: false,
         when: function (props) {
-          return props.browser;
+          return props.bower;
         }
       }, {
         type: 'confirm',
@@ -216,7 +208,15 @@ module.exports = yeoman.Base.extend({
         message: message.scss,
         default: true,
         when: function (props) {
-          return props.browser && props.styles;
+          return props.bower && props.styles;
+        }
+      }, {
+        type: 'confirm',
+        name: 'fonts',
+        message: message.fonts,
+        default: true,
+        when: function (props) {
+          return props.bower && props.styles;
         }
       }, {
         type: 'list',
@@ -235,7 +235,7 @@ module.exports = yeoman.Base.extend({
         default: 0
       }];
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts).then(function (props) {
         this.props = extend(this.props, props);
         done();
       }.bind(this));
@@ -256,7 +256,7 @@ module.exports = yeoman.Base.extend({
               name: 'githubAccount',
               message: message.githubAccount,
               default: username
-            }, function (prompt) {
+            }).then(function (prompt) {
               this.props.githubAccount = prompt.githubAccount;
               done();
             }.bind(this));
@@ -296,7 +296,7 @@ module.exports = yeoman.Base.extend({
     // Let's extend package.json so we're not overwriting user previous fields
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
-    if (this.props.browser && this.options.bower && this.props.bower) {
+    if (this.props.bower && this.options.bower) {
       var bower = {
         name: pkg.name,
         version: '0.0.0',
@@ -308,7 +308,7 @@ module.exports = yeoman.Base.extend({
           'global'
         ],
         keywords: pkg.keywords,
-        authors: [ this.props.authorName ],
+        authors: [this.props.authorName],
         license: '',
         ignore: [
           'gulp',
@@ -365,30 +365,20 @@ module.exports = yeoman.Base.extend({
       local: require.resolve('../npm-conf')
     });
 
-    if (this.props.browser && this.options.bower && this.props.bower) {
+    if (this.options.bower && this.props.bower) {
       this.composeWith('typescript-npm-bower:bower-conf', {}, {
         local: require.resolve('../bower-conf')
       });
     }
 
     this.composeWith('typescript-npm-bower:typescript-conf', {
-        options: {
-          name: _.kebabCase(this.props.name),
-          testFramework: this.props.testFramework
-        }
-      }, {
-        local: require.resolve('../typescript-conf')
+      options: {
+        name: _.kebabCase(this.props.name),
+        testFramework: this.props.testFramework
+      }
+    }, {
+      local: require.resolve('../typescript-conf')
     });
-
-    if (this.props.browser) {
-      this.composeWith('typescript-npm-bower:karma-conf', {
-        options: {
-          testFramework: this.props.testFramework
-        }
-      }, {
-        local: require.resolve('../karma-conf')
-      });
-    }
 
     this.composeWith('typescript-npm-bower:git', {
       options: {
@@ -399,17 +389,27 @@ module.exports = yeoman.Base.extend({
       local: require.resolve('../git')
     });
 
+    if (this.props.bower) {
+      this.composeWith('typescript-npm-bower:karma-conf', {
+        options: {
+          testFramework: this.props.testFramework
+        }
+      }, {
+        local: require.resolve('../karma-conf')
+      });
+    }
+
     if (this.options.gulp) {
       this.composeWith('typescript-npm-bower:gulp', {
         options: {
           name: _.kebabCase(this.props.name),
-          browser: this.props.browser,
+          bower: this.props.bower,
           styles: this.props.styles,
           scss: this.props.scss,
-          bower: this.props.bower,
+          fonts: this.props.fonts,
           testFramework: this.props.testFramework
         }
-      },  {
+      }, {
         local: require.resolve('../gulp')
       });
     }
@@ -417,10 +417,10 @@ module.exports = yeoman.Base.extend({
     if (this.options.boilerplate) {
       this.composeWith('typescript-npm-bower:boilerplate', {
         options: {
-          browser: this.props.browser,
+          bower: this.props.bower,
           styles: this.props.styles,
           scss: this.props.scss,
-          bower: this.props.bower,
+          fonts: this.props.fonts,
           testFramework: this.props.testFramework
         }
       }, {
@@ -447,10 +447,10 @@ module.exports = yeoman.Base.extend({
           description: this.props.description,
           githubAccount: this.props.githubAccount,
           authorName: this.props.authorName,
-          browser: this.props.browser,
+          bower: this.props.bower,
           styles: this.props.styles,
           scss: this.props.scss,
-          bower: this.props.bower,
+          fonts: this.props.fonts,
           testFramework: this.props.testFramework
         }
 

@@ -6,6 +6,13 @@
 
 *Use this section to add the details of your unreleased version*
 
+## [0.0.2] - <%= date %>
+
+### Added
+> Feature updates.
+
+### Features
+
 ## [0.0.1] - <%= date %>
 
 ### Added
@@ -13,7 +20,7 @@
 
 ### Features
 - Automatic documentation generation.
-<% if (browser) { -%>
+<% if (bower) { -%>
 - Karma test runner.
 <% } -%>
 <% if (testFramework === 'mocha') { -%>

@@ -11,6 +11,8 @@ var path = require('path'),
     source = require('vinyl-source-stream'),
     tsify = require('tsify'),
     browserify = require('browserify'),
+    assign = require('lodash/assign'),
+    watchify = require('watchify'),
 <% } -%>
     runSequence = require('run-sequence'),
     tsConf = require('./../tsconfig.json').compilerOptions,
@@ -58,6 +60,35 @@ gulp.task('bower', ['clean-bower'], function () {
     })
     .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.global))
     .plugin(tsify);
+
+  return bundler.bundle()
+    .pipe(source(conf.files.BOWER_JS))
+    .pipe(gulp.dest(conf.paths.bower))
+    .pipe($.notify({
+      "message": conf.files.BOWER_JS + " file size ",
+      "onLast": true
+    }))
+    .pipe($.size())
+    .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
+});
+
+/**
+ * Gulp bower watch task.
+ * Browserify will generate single .js file with the source map support(debug:true option will add sourceMap support).
+ * Tsify to compile the sources.
+ * Watchify will stream source updates without building the whole source.
+ * Notify created file size with the name.
+ * Report errors.
+ */
+gulp.task('bower-watch', function () {
+  var opts = assign({}, watchify.args, {
+    basedir: './',
+    debug: true
+    });
+
+  var bundler = watchify(browserify(opts)
+    .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.global))
+    .plugin(tsify));
 
   return bundler.bundle()
     .pipe(source(conf.files.BOWER_JS))
@@ -138,19 +169,19 @@ gulp.task('nsp', function (done) {
 
 /**
  * Gulp build css task.
- * Clean css temporary directory and css files in distribution directories -> run<% if (scss) { -%> compile sccs and generate minified file<% } else { -%> compile and minify css<% } -%> -> copy css files.
+ * Clean css temporary directory and css files in distribution directories -> run<% if (scss) { -%> compile sccs and generate minified file<% } else { -%> compile and minify css<% } -%> -> copy css files<% if (fonts) { -%> -> copy fonts files<% } -%>.
  * @param done - done callback function.
  */
 gulp.task('build-css',function(done) {
-  runSequence(['clean-css-tmp','clean-css'],<% if (scss) { -%> 'compile-scss-min'<% } else { -%> 'min-css'<% } -%>, 'copy-css',done);
+  runSequence(['clean-css-tmp', 'clean-css'],<% if (scss) { -%> 'compile-scss-min'<% } else { -%> 'min-css'<% } -%>, 'copy-css'<% if (fonts) { -%>, 'copy-fonts'<% } -%>,done);
 });
 <% } -%>
 
 /**
  * Gulp build scripts task.
- * Run nsp -> clean build -> show tslint errors and update tsconfig.json in parallel -> <% if (bower) { -%>run npm, build bower in parallel and run inject js<% } else { -%>run npm<% } -%><% if (styles) { -%> -> run build css <% } -%><% if (styles && bower) { -%> -> run inject css<% } -%>.
+ * Run nsp -> clean build -> update tsconfig.json -> show tslint errors<% if (styles) { if (scss) { -%> and sass lint errors in parallel<% } else { -%> and css lint errors in parallel<% }} -%> -> <% if (bower) { -%>run npm, build bower in parallel and run inject js<% } else { -%>run npm<% } -%><% if (styles) { -%> -> run build css <% } -%><% if (styles && bower) { -%> -> run inject css<% } -%>.
  * @param done - done callback function.
  */
 gulp.task('build-scripts',function(done) {
-  runSequence('nsp','clean-build',['tslint', 'tsconfig-update'],<% if (bower) { -%> ['npm', 'build-bower'], 'inject-js'<% } else { -%> 'npm'<% } -%>,<% if (styles) { -%> 'build-css',<% } -%><% if (styles && bower) { -%> 'inject-css',<% } -%> done);
+  runSequence('nsp', 'clean-build', 'tsconfig-update', ['tslint'<% if (styles) { if (scss) { -%>, 'sass-lint'<% } else { -%>, 'css-lint'<% }} -%>],<% if (bower) { -%> ['npm', 'build-bower'], 'inject-js'<% } else { -%> 'npm'<% } -%>,<% if (styles) { -%> 'build-css',<% } -%><% if (styles && bower) { -%> 'inject-css',<% } -%> done);
 });

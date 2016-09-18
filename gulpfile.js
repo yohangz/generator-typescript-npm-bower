@@ -48,5 +48,6 @@ gulp.task('watch', function () {
   gulp.watch(['generators/{,*/}*.js', 'test/**'], ['test']);
 });
 
-gulp.task('prepublish', ['nsp']);
+// gulp.task('prepublish', ['nsp']);
+gulp.task('prepublish');
 gulp.task('default', ['static', 'test']);

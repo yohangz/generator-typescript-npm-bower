@@ -44,13 +44,6 @@ module.exports = generators.Base.extend({
       desc: message.authorUrl
     });
 
-    this.option('browser', {
-      type: Boolean,
-      required: true,
-      defaults: true,
-      desc: message.browser
-    });
-
     this.option('styles', {
       type: Boolean,
       required: true,
@@ -63,6 +56,13 @@ module.exports = generators.Base.extend({
       required: true,
       defaults: true,
       desc: message.scss
+    });
+
+    this.option('fonts', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.fonts
     });
 
     this.option('bower', {
@@ -87,10 +87,10 @@ module.exports = generators.Base.extend({
       this.destinationPath(this.options.generateInto, 'CHANGELOG.md'),
       {
         date: moment().format("DD-MM-YYYY"),
-        styles: this.options.browser && this.options.styles,
-        scss: this.options.browser && this.options.browser && this.options.scss,
-        browser: this.options.browser,
-        bower: this.options.browser && this.options.bower,
+        styles: this.options.bower && this.options.styles,
+        scss: this.options.bower && this.options.styles && this.options.scss,
+        fonts: this.options.bower && this.options.styles && this.options.fonts,
+        bower: this.options.bower,
         testFramework: this.options.testFramework
       }
     );
@@ -109,10 +109,10 @@ module.exports = generators.Base.extend({
           url: this.options.authorUrl
         },
         license: pkg.license,
-        styles: this.options.browser && this.options.styles,
-        scss: this.options.browser && this.options.browser && this.options.scss,
-        bower: this.options.browser && this.options.bower,
-        browser: this.options.browser
+        styles: this.options.bower && this.options.styles,
+        scss: this.options.bower && this.options.styles && this.options.scss,
+        fonts: this.options.bower && this.options.styles && this.options.fonts,
+        bower: this.options.bower
       }
     );
 

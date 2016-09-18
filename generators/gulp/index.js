@@ -22,13 +22,6 @@ module.exports = generators.Base.extend({
       desc: message.name
     });
 
-    this.option('browser', {
-      type: Boolean,
-      required: true,
-      defaults: true,
-      desc: message.browser
-    });
-
     this.option('styles', {
       type: Boolean,
       required: true,
@@ -43,11 +36,18 @@ module.exports = generators.Base.extend({
       desc: message.scss
     });
 
+    this.option('fonts', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.fonts
+    });
+
     this.option('bower', {
       type: Boolean,
       required: true,
       defaults: true,
-      desc: message.browser
+      desc: message.bower
     });
 
     this.option('testFramework', {
@@ -116,7 +116,7 @@ module.exports = generators.Base.extend({
         }
       });
 
-      if (this.options.browser) {
+      if (this.options.bower) {
         pkg.devDependencies['browserify'] = '13.0.1';
         pkg.devDependencies['browserify-istanbul'] = '2.0.0';
         pkg.devDependencies['karma'] = '1.1.1';
@@ -126,6 +126,11 @@ module.exports = generators.Base.extend({
         pkg.devDependencies['karma-phantomjs-launcher'] = '1.0.1';
         pkg.devDependencies['karma-remap-istanbul'] = '0.1.1';
         pkg.devDependencies['phantomjs-prebuilt'] = '2.1.7';
+
+        pkg.devDependencies['gulp-inject'] = '4.1.0';
+        pkg.devDependencies['gulp-notify'] = '2.2.0';
+        pkg.devDependencies['gulp-size'] = '2.1.0';
+        pkg.devDependencies['gulp-rename'] = '1.2.2';
 
         pkg.scripts['dev-test'] = 'gulp dev-test';
 
@@ -147,12 +152,12 @@ module.exports = generators.Base.extend({
           pkg.devDependencies['gulp-cssmin'] = '0.1.7';
         }
 
-        if (this.options.browser) {
-          pkg.devDependencies['gulp-inject'] = '4.1.0';
-          pkg.devDependencies['gulp-notify'] = '2.2.0';
-          pkg.devDependencies['gulp-size'] = '2.1.0';
-          pkg.devDependencies['gulp-rename'] = '1.2.2';
-        }
+        // if (this.options.bower) {
+        //   pkg.devDependencies['gulp-inject'] = '4.1.0';
+        //   pkg.devDependencies['gulp-notify'] = '2.2.0';
+        //   pkg.devDependencies['gulp-size'] = '2.1.0';
+        //   pkg.devDependencies['gulp-rename'] = '1.2.2';
+        // }
 
         if (this.options.styles && this.options.scss) {
           pkg.devDependencies['gulp-sass'] = '2.3.2';
@@ -198,8 +203,8 @@ module.exports = generators.Base.extend({
         this.templatePath('clean.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'clean.js'),
         {
-          bower: this.options.browser && this.options.bower,
-          styles: this.options.browser && this.options.styles
+          bower: this.options.bower,
+          styles: this.options.bower && this.options.styles
         }
       );
 
@@ -208,10 +213,10 @@ module.exports = generators.Base.extend({
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'conf.js'),
         {
           projectName: this.options.name,
-          bower: this.options.browser && this.options.bower,
-          styles: this.options.browser && this.options.styles,
-          scss: this.options.browser && this.options.styles && this.options.scss,
-          browser: this.options.browser
+          bower: this.options.bower,
+          styles: this.options.bower && this.options.styles,
+          scss: this.options.bower && this.options.styles && this.options.scss,
+          fonts: this.options.bower && this.options.styles && this.options.fonts
         }
       );
 
@@ -220,18 +225,19 @@ module.exports = generators.Base.extend({
           this.templatePath('copy.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'copy.js'),
           {
-            bower: this.options.browser && this.options.bower
+            bower: this.options.bower,
+            fonts: this.options.bower && this.options.styles && this.options.fonts
           }
         );
       }
 
-      if (this.options.browser && this.options.bower) {
+      if (this.options.bower) {
         this.fs.copyTpl(
           this.templatePath('inject.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'inject.js'),
           {
-            bower: this.options.browser && this.options.bower,
-            styles: this.options.browser && this.options.styles && this.options.styles
+            bower: this.options.bower,
+            styles: this.options.bower && this.options.styles && this.options.styles
           }
         );
       }
@@ -240,18 +246,18 @@ module.exports = generators.Base.extend({
         this.templatePath('lint.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'lint.js'),
         {
-          browser: this.options.browser
+          bower: this.options.bower
         }
       );
 
-      if (this.options.browser && this.options.styles && this.options.scss) {
+      if (this.options.bower && this.options.styles && this.options.scss) {
         this.fs.copy(
           this.templatePath('scss.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scss.js')
         );
       }
 
-      if (this.options.browser && this.options.styles && !this.options.scss) {
+      if (this.options.bower && this.options.styles && !this.options.scss) {
         this.fs.copy(
           this.templatePath('css.js'),
           this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'css.js')
@@ -262,9 +268,10 @@ module.exports = generators.Base.extend({
         this.templatePath('scripts.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'scripts.js'),
         {
-          bower: this.options.browser && this.options.bower,
-          styles: this.options.browser && this.options.styles,
-          scss: this.options.browser && this.options.styles && this.options.scss
+          bower: this.options.bower,
+          styles: this.options.bower && this.options.styles,
+          scss: this.options.bower && this.options.styles && this.options.scss,
+          fonts: this.options.bower && this.options.styles && this.options.fonts
         }
       );
 
@@ -272,7 +279,7 @@ module.exports = generators.Base.extend({
         this.templatePath('tests.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'tests.js'),
         {
-          browser: this.options.browser,
+          bower: this.options.bower,
           testFramework: this.options.testFramework
         }
       );
@@ -291,7 +298,7 @@ module.exports = generators.Base.extend({
         this.templatePath('version.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'version.js'),
         {
-          bower: this.options.browser && this.options.bower
+          bower: this.options.bower
         }
       );
 
@@ -299,9 +306,10 @@ module.exports = generators.Base.extend({
         this.templatePath('watch.js'),
         this.destinationPath(path.join(this.options.generateInto, 'gulp'), 'watch.js'),
         {
-          styles: this.options.browser && this.options.styles,
-          scss: this.options.browser && this.options.scss,
-          browser: this.options.browser
+          styles: this.options.bower && this.options.styles,
+          scss: this.options.bower && this.options.scss,
+          fonts: this.options.bower && this.options.styles && this.options.fonts,
+          bower: this.options.bower
         }
       );
     }

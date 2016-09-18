@@ -13,13 +13,6 @@ module.exports = generators.Base.extend({
       desc: message.generateInto
     });
 
-    this.option('browser', {
-      type: Boolean,
-      required: true,
-      defaults: true,
-      desc: message.browser
-    });
-
     this.option('styles', {
       type: Boolean,
       required: true,
@@ -32,6 +25,13 @@ module.exports = generators.Base.extend({
       required: true,
       defaults: true,
       desc: message.scss
+    });
+
+    this.option('fonts', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: message.fonts
     });
 
     this.option('bower', {
@@ -49,14 +49,13 @@ module.exports = generators.Base.extend({
     });
   },
 
-  writing: function() {
-
-    if (this.options.browser && this.options.bower) {
+  writing: function () {
+    if (this.options.bower) {
       this.fs.copyTpl(
         this.templatePath('example/**/*'),
         this.destinationPath(this.options.generateInto, 'example'),
         {
-          styles: this.options.browser && this.options.styles
+          styles: this.options.bower && this.options.styles
         }
       );
     }
@@ -65,7 +64,7 @@ module.exports = generators.Base.extend({
       this.templatePath('src/**/*.ts'),
       this.destinationPath(this.options.generateInto, 'src'),
       {
-        bower: this.options.browser && this.options.bower
+        bower: this.options.bower
       }
     );
 
@@ -73,12 +72,19 @@ module.exports = generators.Base.extend({
       this.templatePath('test/**/*.ts'),
       this.destinationPath(this.options.generateInto, 'test'),
       {
-        browser: this.options.browser,
         testFramework: this.options.testFramework
       }
     );
 
-    if (this.options.browser && this.options.styles) {
+    if (this.options.bower && this.options.styles) {
+
+      if (this.options.fonts) {
+        this.fs.copy(
+          this.templatePath('styles/fonts/*.{eot,otf,svg,ttf,woff,woff2}'),
+          this.destinationPath(this.options.generateInto, 'styles/fonts')
+        );
+      }
+
       if (this.options.scss) {
         this.fs.copy(
           this.templatePath('styles/**/*.scss'),

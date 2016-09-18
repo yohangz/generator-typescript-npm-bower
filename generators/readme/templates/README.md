@@ -93,7 +93,7 @@ npm install <%= projectName %> --save
 ├── CHANGELOG.md                # Detailed recent changes in the versions
 ├── CONTRIBUTING.md             # Shows how to contribute to your module
 ├── gulpfile.js                 # Link all splittered gulp tasks  
-<% if(browser){ -%>
+<% if(bower){ -%>
 ├── karma.conf.js               # Test runner in .ts format
 ├── karma-coverage.conf         # Test runner and generate coverage for compiled .js files
 <% } -%>
@@ -112,7 +112,7 @@ Usage          	            | Technology
 --------------------------	| --------------------------
 Javascript Framework        | Typescript
 Unit Testing Framework     	| <% if (testFramework === 'jasmine') { -%>Jasmine<% } else if (testFramework === 'mocha') { -%>Mocha and Chai<% } %>
-<% if (browser) { -%>
+<% if (bower) { -%>
 Unit Test Runner           	| Karma
 <% } -%>
 Coverage Generator         	| Istanbul
@@ -132,7 +132,7 @@ Here is the list of tasks available out of the box and run these via `npm run <t
   build             Perform npm <% if(bower){ %>and bower <% } -%>build
   clean             Cleans lib directory<% if(bower){ %> and bower directory<% } %>
   test              Run spec tests
-<% if(browser){ -%>
+<% if(bower){ -%>
   dev-test          Runs the test specs with Chrome
 <% } -%>
   coverage          Generate coverage reports by running all the tests

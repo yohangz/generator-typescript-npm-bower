@@ -16,7 +16,7 @@ var path = require('path'),
  * Report errors.
  */
 gulp.task('bundle-css', function () {
-  return gulp.src(conf.paths.styles.css)
+  return gulp.src(path.join(conf.paths.styles, conf.path_pattern.css))
     .pipe($.concat(conf.files.BUNDLE_CSS))
     .pipe($.notify({
       "message": conf.files.BUNDLE_CSS + " file size ",
@@ -52,7 +52,7 @@ gulp.task('min-css', ['bundle-css'], function () {
  * Run csslint.
  */
 gulp.task('css-lint', function () {
-  return gulp.src(conf.paths.styles.css)
+  return gulp.src(path.join(conf.paths.styles, conf.path_pattern.css))
     .pipe($.csslint())
     .pipe($.csslint.reporter())
     .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));

@@ -8,7 +8,7 @@ var path = require('path'),
   gulp = require('gulp-help')(require('gulp')),
   runSequence = require('run-sequence'),
   conf = require('./conf'),
-<% if (browser) { -%>
+<% if (bower) { -%>
   Server = require('karma').Server,
 <% } else {-%>
   $ = require('gulp-load-plugins')(),
@@ -16,7 +16,7 @@ var path = require('path'),
   remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
 
 
-<% if (browser) { -%>
+<% if (bower) { -%>
 /**
  * Shows the available launchers.
  */

@@ -6,7 +6,8 @@
  *  of the tasks
  */
 
-var gutil = require('gulp-util');
+var gutil = require('gulp-util'),
+  _ = require('lodash');
 
 /** Project Name goes here */
 var Project_Name ='<%= projectName %>';
@@ -24,13 +25,7 @@ exports.paths = {
   jsTmp:'.jsTmp',
 <% if (styles) { -%>
   cssTmp:'.cssTmp',
-  styles: {
-<% if (scss) { -%>
-    scss:'styles/**/*.s+(a|c)ss'
-  <% } else { -%>
-    css:'styles/**/*.css'
-  <% } -%>
-},
+  styles: 'styles',
 <% } -%>
   gulp:'gulp',
   gulpFile:'gulpfile.js',
@@ -44,12 +39,16 @@ exports.paths = {
   main:'/index.ts', /** If you change this you need to update the package.json as well */
 <% if (bower) { -%>
   bundle: Project_Name + '.js',
-<% } -%>
-<% if (browser) { -%>
   karmaConf: __dirname + '/../karma.conf.js',
   karmaCoverageConf: __dirname + '/../karma-coverage.conf.js',
 <% } -%>
   typings_json: __dirname + '/../typings.json',
+<% if (styles) { -%>
+  style_dir: __dirname + '/../styles',
+<% if (fonts) { -%>
+  font_dir: __dirname + '/../styles/fonts',
+<% } -%>
+<% } -%>
   tsconfig_json: __dirname + '/../tsconfig.json'
 };
 
@@ -57,9 +56,13 @@ exports.paths = {
  *  The main file patterns goes here
  */
 exports.path_pattern = {
+  any: '**/*',
   ts:'**/*.ts',
   js:'**/*.js',
 <% if (styles) { -%>
+<% if (fonts) { -%>
+  fonts: '*.{eot,otf,svg,ttf,woff,woff2}',
+<% } -%>
 <% if (scss) { -%>
   scss:'**/*.s+(a|c)ss',
 <% } -%>
@@ -110,6 +113,16 @@ exports.tsFilesGlob = (function (c) {
 
   return c.filesGlob || c.files || '**/*.ts';
 }(require(__dirname + '/../tsconfig.json')));
+
+ exports.tsLintFilesGlob = (function (c) {
+ "use strict";
+
+ var files = _.remove(c.files, function (file) {
+ return _.indexOf(c.exclude, file) < 0;
+ });
+
+ return files || '*/**.ts';
+}(require('../tsconfig.json')));
 
 /**
  *  Common implementation for an error handler of a Gulp plugin
