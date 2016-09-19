@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "emitError": false,
     "target": "ES5",
     "sourceMap": false,
     "declaration": true,
@@ -9,7 +8,7 @@
     "sortOutput": true
   },
   "filesGlob": [
-    "typings/browser.d.ts",
+    "typings/index.d.ts",
     "src/**/*.ts",
     "test/**/*.ts"
   ],

@@ -148,8 +148,8 @@ module.exports = yeoman.Base.extend({
         validate: function (str) {
           return str.length > 0;
         }
-      }, this).then(function (name) {
-        this.props.name = name;
+      }, this).then(function (data) {
+        this.props.name = data.name;
         done();
       }.bind(this));
     },
@@ -241,29 +241,29 @@ module.exports = yeoman.Base.extend({
       }.bind(this));
     },
 
-    askForGithubAccount: function () {
-      if (this.options.githubAccount) {
-        this.props.githubAccount = this.options.githubAccount;
-      } else {
-        if (this.props.authorEmail) {
-          var done = this.async();
-
-          githubUsername(this.props.authorEmail, function (err, username) {
-            if (err) {
-              username = username || '';
-            }
-            this.prompt({
-              name: 'githubAccount',
-              message: message.githubAccount,
-              default: username
-            }).then(function (prompt) {
-              this.props.githubAccount = prompt.githubAccount;
-              done();
-            }.bind(this));
-          }.bind(this));
-        }
-      }
-    }
+    // askForGithubAccount: function () {
+    //   if (this.options.githubAccount) {
+    //     this.props.githubAccount = this.options.githubAccount;
+    //   } else {
+    //     if (this.props.authorEmail) {
+    //       var done = this.async();
+    //
+    //       githubUsername(this.props.authorEmail).then(function (username) {
+    //         // if (err) {
+    //         //   username = username || '';
+    //         // }
+    //         this.prompt({
+    //           name: 'githubAccount',
+    //           message: message.githubAccount,
+    //           default: username
+    //         }).then(function (prompt) {
+    //           this.props.githubAccount = prompt.githubAccount;
+    //           done();
+    //         }.bind(this));
+    //       }.bind(this));
+    //     }
+    //   }
+    // }
   },
 
   writing: function () {
@@ -380,14 +380,14 @@ module.exports = yeoman.Base.extend({
       local: require.resolve('../typescript-conf')
     });
 
-    this.composeWith('typescript-npm-bower:git', {
-      options: {
-        name: this.props.name,
-        githubAccount: this.props.githubAccount
-      }
-    }, {
-      local: require.resolve('../git')
-    });
+    // this.composeWith('typescript-npm-bower:git', {
+    //   options: {
+    //     name: this.props.name,
+    //     githubAccount: this.props.githubAccount
+    //   }
+    // }, {
+    //   local: require.resolve('../git')
+    // });
 
     if (this.props.bower) {
       this.composeWith('typescript-npm-bower:karma-conf', {

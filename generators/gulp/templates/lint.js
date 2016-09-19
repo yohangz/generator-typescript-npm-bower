@@ -17,10 +17,10 @@ var path = require('path'),
  */
 gulp.task('tslint', function () {
     return gulp.src(conf.tsFilesGlob)
-        .pipe($.tslint())
-        .pipe($.tslint.report(conf.reports.tslint_report_type, {
-            emitError: false
+        .pipe($.tslint({
+          formatter: conf.reports.tslint_report_type
         }))
+        .pipe($.tslint.report())
         .on('error', conf.errorHandler(conf.errors.title.TYPESCRIPT));
 });
 

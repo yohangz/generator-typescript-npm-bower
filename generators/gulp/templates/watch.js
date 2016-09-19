@@ -8,7 +8,7 @@ var path = require('path'),
     gulp = require('gulp-help')(require('gulp')),
     runSequence = require('run-sequence'),
 <% if (bower) { -%>
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
 <% } -%>
     conf = require('./conf');
 
