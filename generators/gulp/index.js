@@ -154,13 +154,6 @@ module.exports = generators.Base.extend({
           pkg.devDependencies['gulp-cssmin'] = '0.1.7';
         }
 
-        // if (this.options.bower) {
-        //   pkg.devDependencies['gulp-inject'] = '4.1.0';
-        //   pkg.devDependencies['gulp-notify'] = '2.2.0';
-        //   pkg.devDependencies['gulp-size'] = '2.1.0';
-        //   pkg.devDependencies['gulp-rename'] = '1.2.2';
-        // }
-
         if (this.options.styles && this.options.scss) {
           pkg.devDependencies['gulp-sass'] = '2.3.2';
           pkg.devDependencies['gulp-sass-lint'] = '1.2.0';

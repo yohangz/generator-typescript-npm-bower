@@ -41,10 +41,9 @@ module.exports = generators.Base.extend({
     var done = this.async();
 
     originUrl(this.destinationPath(this.options.generateInto)).then(function (url) {
-      // if (err) {
-      //   url = url || '';
-      // }
       this.originUrl = url;
+      done();
+    }.bind(this), function () {
       done();
     }.bind(this));
   },
